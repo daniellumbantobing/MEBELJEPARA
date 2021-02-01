@@ -36,8 +36,13 @@ class AuthController extends Controller
             
             
     	 }else {
-          return back()->with('sukses','Username atau password tidak sesuai!');
-      }
+            $user = User::where('email',$request->email)->pluck('email')->first();
+             if($user != $request->email){
+                return back()->with('error','Email tidak sesuai!');       
+             }else{
+            return back()->with('error','Password tidak sesuai!');
+             }
+        }
     	
     }
   

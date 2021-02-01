@@ -12,18 +12,23 @@
 	<link rel="stylesheet" href="{{asset('admin/assets/css/main.css 	')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
-	<!-- GOOGLE FONTS -->
+  <!-- GOOGLE FONTS -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/icon.png')}}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/icon.png')}}">
+  <!-- TABLES -->
+
+
 </head>
 
 <body>
-	 @if(session('sukses'))
+	 {{-- @if(session('sukses'))
 					<div class="alert alert-danger" role="alert">
 						{{session('sukses')}}
 					</div>
-				@endif  
+        @endif   --}}
+        
 <div class="login-page">
   <div class="form">
 	<div class="header">
@@ -45,7 +50,7 @@
 		<span class="help-block">{{$errors->first('password')}}</span>
 		@endif
 	</div>
-	<input  type="submit" class="btn btn-yellow  btn-md btn-block text-uppercase" value="Masuk" style="text-align: center;">
+	<input  type="submit" class="btn btn-primary  btn-md btn-block text-uppercase" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" value="Masuk" style="text-align: center;">
 	<div class="bottom" style="padding-top:10px;">
 		<span class="helper-text">Belum Memiliki Akun ? <a href="/register">Daftar</a></span>
 	</div>
@@ -53,20 +58,17 @@
 </div>
 </div>
 </div>
-</div>						
-</body>
+</div>
+	</body>
+
+ 
 </html>
 <style>
 	body {
     background-color: #fff;
-   
+  
 }
-	.btn-yellow {
-		color : #fff;
-    background-color: #CAA563;
-    border-color: #CAA563;
-	border-radius : 20px;
-}
+
 .form-control {
     
     border-radius: 20px;
@@ -150,3 +152,23 @@
   color: #EF3B3A;
 }
 </style>
+
+<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	
+
+
+
+<script>
+  @if(Session::has('sukses'))
+    toastr.success("{{Session::get('sukses')}}", "Sukses") 
+  @endif
+</script>
+<script>
+  @if(Session::has('error'))
+    toastr.error("{{Session::get('error')}}", "Error") 
+  @endif
+</script>
+	

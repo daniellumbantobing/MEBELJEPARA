@@ -24,6 +24,11 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::get('/home/admin', function () {
         return view('admin.home');
     });
+    // Produk
+    Route::get('/cretate/produk','ProductController@index');
+    Route::post('/addproduk','ProductController@createproduk');
+    Route::get('/produk/{id}/hapus','ProductController@hapus');
+    Route::post('/produk/{produk}/update','ProductController@update');
 });
 
 Route::group(['middleware' => ['auth','checkRole:user']], function(){

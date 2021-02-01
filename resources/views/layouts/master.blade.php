@@ -81,7 +81,7 @@
 
 	<script>
 		@if(Session::has('sukses'))
-			toastr.success("{{Session::get('sukses')}}", "Sukses") 
+			toastr.success("{{Session::get('sukses')}}", "Berhasil") 
 		@endif
 	</script>
 	<script>
