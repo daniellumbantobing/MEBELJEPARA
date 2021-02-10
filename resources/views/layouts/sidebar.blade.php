@@ -8,12 +8,12 @@
             <div id="subPages" class="collapse ">
               <ul class="nav">
                 <li><a href="/cretate/produk" class="">Produk</a></li>
-                <li><a href="page-login.html" class="">kategori</a></li>
+                <li><a href="#" class="">kategori</a></li>
                </ul>
             </div>
           </li>
           <li><a href="charts.html" class=""><i class="fas fa-shopping-cart"></i> <span>Data Pemesanan</span></a></li>
-          <li><a href="panels.html" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
+          <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
           <li><a href="notifications.html" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
           <li>
             <a href="#subPagess"><i class="fas fa-comment"></i> <span>Feedback</span></a>

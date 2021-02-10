@@ -36,7 +36,7 @@ class AuthController extends Controller
             
             
     	 }else {
-            $user = User::where('email',$request->email)->pluck('email')->first();
+            $user = User::where('email',$request->email)->pluck('email','password')->first();
              if($user != $request->email){
                 return back()->with('error','Email tidak sesuai!');       
              }else{

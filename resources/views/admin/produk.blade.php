@@ -29,15 +29,15 @@
 												<th>Produk</th>
 												<th>Kategori</th>
 												<th>Stok</th>
-                                                <th>Harga</th>
-                                                <th>Aksi</th>
+                        <th>Harga</th>
+                        <th>Aksi</th>
 											</tr>
 										</thead>
 										<tbody>
                       @foreach ($produk as $pd)
                   		<tr>
 												<td>
-                          <img src="/images/{{$pd->gambar}}" alt="Avatar" cclass="img-circle" style="width: 90px;">
+                          <img src="/images/{{$pd->gambar}}" alt="Avatar" cclass="img-circle" style="width: 8rem;">
                           {{$pd->nama_produk}}
                         </td>
 												<td>{{$pd->kategori->nama_kategori}}</td>
@@ -122,12 +122,13 @@
                         </div>
                       </div>
                     </div>	
-        
+                </form>
                     	</tr>
                       @endforeach
 										
 										</tbody>
 									</table>
+                  {{ $produk->links() }}
 								</div>
                                   
                                </div>
@@ -230,7 +231,7 @@ $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data siswa dengan id " +produk_id + "??",
+		  text: "Mau menghapus data produk dengan id " +produk_id + "??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

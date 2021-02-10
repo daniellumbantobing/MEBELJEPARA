@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-      <a href="#" class="simple-text logo-normal">SIPINTAR ITDEL</a>
+      <a href="#" class="simple-text logo-normal">Logo Mebel</a>
     </div>
     <div class="container-fluid">
       <div class="navbar-btn">

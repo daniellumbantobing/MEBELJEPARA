@@ -29,6 +29,11 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::post('/addproduk','ProductController@createproduk');
     Route::get('/produk/{id}/hapus','ProductController@hapus');
     Route::post('/produk/{produk}/update','ProductController@update');
+
+    //user
+    Route::get('/userlist','UserController@index');
+    Route::get('/user/{user}/hapus','UserController@destroy');
+    
 });
 
 Route::group(['middleware' => ['auth','checkRole:user']], function(){

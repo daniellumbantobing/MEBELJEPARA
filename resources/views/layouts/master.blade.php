@@ -34,6 +34,7 @@
 			min-height: 250px;
 		}
 	</style>
+
 	@yield('header')
 	
 </head>
@@ -59,6 +60,7 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
+
 	<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
@@ -89,6 +91,7 @@
 			toastr.error("{{Session::get('error')}}", "Error") 
 		@endif
 	</script>
+	
 	@yield('footer')
 
 </body>
