@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TableKategori extends Migration
+class CreateCartTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class TableKategori extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
+        Schema::create('cart', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_kategori');
+            $table->integer('produk_id');
+            $table->integer('user_id')->nullable();;
+            $table->string('nama_produk', 255);
+            $table->integer('qty');
+            $table->double('harga');
+            $table->string('session_id', 255);
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class TableKategori extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('cart');
     }
 }

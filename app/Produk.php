@@ -11,7 +11,12 @@ class Produk extends Model
     protected $guarded = ['id'];
 
 
-    public function kategori(){
+    public function kategori()
+    {
         return $this->belongsTo(Kategori::class);
+    }
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
     }
 }
