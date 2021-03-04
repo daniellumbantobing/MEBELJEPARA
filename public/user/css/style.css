@@ -258,3 +258,20 @@ footer a:hover{
 .profil1 button{
    margin-left: 180px;
 }
+.pay p{
+    color: #A1A1A1;
+}
+.pay .card{
+    border-radius: 10px;
+}
+
+.pay img{
+    width: 6rem;
+    height: 6rem;
+
+}
+
+.konfirm .card{
+border-radius: 20px;
+
+}

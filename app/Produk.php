@@ -19,4 +19,9 @@ class Produk extends Model
     {
         return $this->hasMany(Cart::class);
     }
+
+    public function pemesananproduk()
+    {
+        return $this->hasMany(PemesananProduk::class);
+    }
 }

@@ -48,4 +48,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::get('/profil', 'UserController@profil');
     Route::post('/update/{user}/profil', 'UserController@update');
+    Route::get('/pay', 'ProductController@pembayaran');
+    Route::post('/checkout', 'ProductController@checkout');
+    Route::get('/konfirm/{id}', 'ProductController@konfirm');
+    Route::post('/bukti', 'ProductController@bukti');
+    Route::get('/terimakasih/{id}', 'ProductController@terimakasih');
 });

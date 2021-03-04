@@ -1,14 +1,33 @@
-<header>
+<header class="sticky-top">
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-4 col-4">
                     
-                    {{-- img --}}
+               <a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px;"></a>
                 
                 </div>
             
-                <div class="col-md-4 col-4 text-center">
-                    <h2 class="my-md-3 site-title text-black">Stasiun Mebel Jepara</h2>
+                <div class="col-md-4 col-4">
+                {{-- serch --}}
+                   
+                    <form>
+                    <div class="input-group mb-3 my-md-4">
+                        <div class="input-group-prepend">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #F9F9F9; border-color:#F9F9F9; border-top-left-radius:20px;border-bottom-left-radius: 20px; font-size:12px; color:#858585;">Kategori</button>
+                        <div class="dropdown-menu" style="font-size: 12px;">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" style="background-color: #F9F9F9;border-color:#F9F9F9;">
+                     <button class="btn" type="submit"  style="background-color: #F9F9F9; border-color:#F9F9F9; border-top-right-radius:20px;border-bottom-right-radius: 20px; color:#858585;"><i class="fas fa-search"></i></button>
+                    
+                    
+                </div>
+                    </form>
                 </div>
                 <div class="col-md-4 col-4 text-right">
                     
@@ -71,7 +90,9 @@
                 
             </div>
         </div>
-        <div class="container-fluid" style="background-color: #CAA563;">
+       
+    </header>
+     <div class="container-fluid" style="background-color: #CAA563;">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -103,4 +124,3 @@
               
               
         </div>
-    </header>

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use Alert;
+use App\BuktiPembayaran;
+use App\User;
 use App\Kategori;
 use App\Cart;
+use App\Pemesanan;
+use App\PemesananProduk;
 use App\Produk;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -109,7 +113,7 @@ class ProductController extends Controller
             if (Auth::check()) {
                 $cartproduk = Cart::where('produk_id', $produk->id)->where('user_id', Auth::user()->id)->first();
             } else {
-                $cartproduk = Cart::where('produk_id', $produk->id)->first();
+                $cartproduk = Cart::where('produk_id', $produk->id)->where('session_id', $session_id)->first();
             }
             $cartproduk->qty = $cartproduk->qty + $request->qty;
             $cartproduk->update();
@@ -148,5 +152,97 @@ class ProductController extends Controller
     {
         Cart::find($id)->delete();
         return back()->with('sukses', 'Produk berhasil dihapus dari keranjang');
+    }
+
+    public function pembayaran()
+    {
+
+
+        $user = User::where('id', Auth::user()->id)->first();
+        $cart = Cart::where('user_id', Auth::user()->id)->get();
+        if (empty($user->alamat)) {
+
+            return back()->with('error', 'Silahkan Isi Alamt Anda');
+        }
+        return view('user.pay', compact(['cart', 'user']));
+    }
+
+    public function checkout(Request $request)
+    {
+        $data = $request->all();
+        $user = User::where('id', Auth::user()->id)->first();
+        $pesanan = new Pemesanan;
+        $pesanan->user_id = $user->id;
+        $pesanan->total_harga = $data['total_harga'];
+        $pesanan->nama_prov = $user->nama_prov;
+        $pesanan->nama_kota = $user->nama_kota;
+        $pesanan->alamat = $user->alamat;
+        $pesanan->kode_pos = $user->kode_pos;
+        $pesanan->no_hp = $user->no_hp;
+        $pesanan->transfer_bank = $data['transfer_bank'];
+        $pesanan->status_pemesanan = "Belum Dikirim";
+        $pesanan->status_pembayaran = "Belum Dibayar";
+        $pesanan->save();
+
+
+        $pemesanan_id = DB::getPdo()->lastInsertId();
+        $cart = DB::table('cart')->where('user_id', Auth::user()->id)->get();
+
+        foreach ($cart as $c) {
+            $pesananPro = new PemesananProduk;
+            $pesananPro->pemesanan_id = $pemesanan_id;
+            $pesananPro->user_id = $user->id;
+            $pesananPro->produk_id = $c->produk_id;
+            $pesananPro->nama_produk = $c->nama_produk;
+            $pesananPro->qty = $c->qty;
+            $pesananPro->harga = $c->harga;
+            $pesananPro->save();
+        }
+        $id = $pemesanan_id;
+        // Session::put('pemesanan_id', $pemesanan_id);
+        // Session::put('total_harga', $data['total_harga']);
+        return redirect('/konfirm/' . $id);
+    }
+
+    public function konfirm($id)
+    {
+        $user_id = Auth::user()->id;
+        DB::table('cart')->where('user_id', $user_id)->delete();
+        $pesananpro = PemesananProduk::where('user_id', $user_id)->where('pemesanan_id', $id)->first();
+        $pesananpro1 = PemesananProduk::where('user_id', $user_id)->where('pemesanan_id', $id)->get();
+
+        if (empty($pesananpro)) {
+            return redirect('/');
+        }
+        // $pesananpro = PemesananProduk::where('user_id', $user_id)->first();
+        // // $pesananPro = PemesananProduk::where('')->first;
+        return view('user.konfirmasi', compact(['pesananpro', 'pesananpro1']));
+    }
+    public function bukti(Request $request)
+    {
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'nama' => 'required',
+            'gambar' => 'mimes:jpeg,png,jpg'
+        ]);
+
+        $imgName = $request->gambar->getClientOriginalName() . '-' . time()
+            . '.' . $request->gambar->extension();
+
+        $request->gambar->move(public_path('buktipembayaran'), $imgName);
+        $id = $request->pemesanan_id;
+        $bukti = new BuktiPembayaran;
+        $bukti->pemesanan_id = $id;
+        $bukti->nama_pengirim = $request->nama;
+        $bukti->tanggal_dikirim = $request->tanggal;
+        $bukti->gambar = $imgName;
+        $bukti->save();
+
+        return redirect('/terimakasih/' . $id)->with('sukses', 'Berhasil Upload Bukti Pembayaran');
+    }
+    public function terimakasih($id)
+    {
+        $bukti = BuktiPembayaran::where("pemesanan_id", $id)->first();
+        return view('user.terimakasih', compact(['bukti']));
     }
 }
