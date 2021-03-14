@@ -12,7 +12,7 @@
                </ul>
             </div>
           </li>
-          <li><a href="charts.html" class=""><i class="fas fa-shopping-cart"></i> <span>Data Pemesanan</span></a></li>
+          <li><a href="/pemesananproduk" class=""><i class="fas fa-shopping-cart"></i> <span>Data Pemesanan</span></a></li>
           <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
           <li><a href="notifications.html" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
           <li>

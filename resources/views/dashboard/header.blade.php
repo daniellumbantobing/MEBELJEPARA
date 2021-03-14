@@ -10,7 +10,7 @@
                 <div class="col-md-4 col-4">
                 {{-- serch --}}
                    
-                    <form>
+                    <form action="/cari/produk" method="GET">
                     <div class="input-group mb-3 my-md-4">
                         <div class="input-group-prepend">
                         <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #F9F9F9; border-color:#F9F9F9; border-top-left-radius:20px;border-bottom-left-radius: 20px; font-size:12px; color:#858585;">Kategori</button>
@@ -22,7 +22,7 @@
                         <a class="dropdown-item" href="#">Separated link</a>
                         </div>
                     </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button" style="background-color: #F9F9F9;border-color:#F9F9F9;">
+                    <input type="text" class="form-control" name="cari" aria-label="Text input with dropdown button" style="background-color: #F9F9F9;border-color:#F9F9F9;">
                      <button class="btn" type="submit"  style="background-color: #F9F9F9; border-color:#F9F9F9; border-top-right-radius:20px;border-bottom-right-radius: 20px; color:#858585;"><i class="fas fa-search"></i></button>
                     
                     
@@ -109,14 +109,14 @@
                       <a class="nav-link text-white" href="#">Ruang Makan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Ruang Makan</a>
+                        <a class="nav-link text-white" href="#">Custom Furniture</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Ruang Makan</a>
+                        <a class="nav-link text-white" href="#">Reparasi</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruang Makan</a>
-                    </li>
+                    </li> --}}
                   </ul>
                 </div>
             

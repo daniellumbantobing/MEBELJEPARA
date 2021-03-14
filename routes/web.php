@@ -15,7 +15,7 @@ use App\Produk;
 
 Route::get('/', function () {
 
-    $produk = Produk::paginate(6);
+    $produk = Produk::latest()->take(6)->get();
     return view('dashboard.index', compact(['produk']));
 });
 Route::get('/login', 'AuthController@login')->name('login');
@@ -28,7 +28,10 @@ Route::get('/detail/produk', 'ProductController@detail');
 Route::post('/add-cart/{id}', 'ProductController@addtocart');
 Route::get('/cart', 'ProductController@cart');
 Route::get('/cart/{id}/delete', 'ProductController@delete');
+Route::get('/cari/produk', 'ProductController@cari');
+
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
+
     Route::get('/home/admin', function () {
         return view('admin.home');
     });
@@ -43,6 +46,11 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     //user
     Route::get('/userlist', 'UserController@index');
     Route::get('/user/{user}/hapus', 'UserController@destroy');
+    Route::get('/pemesananproduk', 'ProductController@listOrder');
+    Route::get('/conf/{id}', 'ProductController@konfirmasipemesanan');
+    Route::get('/conf1/{id}', 'ProductController@konfirmasipemesanan1');
+    Route::get('/detpro/{id}', 'ProductController@detpro');
+    Route::get('/files/download/{gambar}', 'ProductController@download');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {

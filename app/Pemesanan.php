@@ -12,12 +12,14 @@ class Pemesanan extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function pemesananproduk()
-    {
-        return $this->hasMany(PemesananProduk::class);
-    }
+
     public function buktipembayaran()
     {
         return $this->hasOne(BuktiPembayaran::class);
+    }
+
+    public function pemesananproduk()
+    {
+        return $this->hasMany(PemesananProduk::class);
     }
 }

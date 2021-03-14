@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <div class="rows">
                         <div class="col-md-3">
-                            <div class="metric panel">
+                            <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fa fa-download"></i></span>
                                 <p>
                                     <span class="number">1,252</span>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="metric panel">
+                            <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fa fa-shopping-bag"></i></span>
                                 <p>
                                     <span class="number">203</span>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="metric panel">
+                            <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fa fa-eye"></i></span>
                                 <p>
                                     <span class="number">274,678</span>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="metric panel">
+                            <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fa fa-bar-chart"></i></span>
                                 <p>
                                     <span class="number">35%</span>
@@ -58,9 +58,5 @@
 @endsection
 
 @section('footer')
-   <style>
-       .panel{
-           border-radius : 10px;
-       }
-   </style>
+   
 @endsection

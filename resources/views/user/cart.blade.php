@@ -40,7 +40,10 @@
   </thead>
   
   <tbody>
-       <?php $total_amount =0; ?>
+       <?php 
+       $total_amount =0; 
+         $total_item = 0;
+       ?>
      @foreach($userCart as $cart)
  
     <tr>
@@ -54,8 +57,12 @@
       <td>@currency($cart->harga)</td>
       <td> <a href="/cart/{{$cart->id}}/delete" style="color: #4D4D4D"><i class="fas fa-times"></i></a> </td>
     </tr>
-     <?php $total_amount = $total_amount + ($cart->harga*$cart->qty); ?>
-   @endforeach
+     <?php 
+     $total_amount = $total_amount + ($cart->harga*$cart->qty); 
+       $total_item = $total_item + $cart->qty;
+     ?>
+    
+     @endforeach
   </tbody>
 </table>
 
@@ -83,7 +90,7 @@
                            
                           </div>  
                            <div class="col-6 col-md-6 text-right">  
-                             <h6 style="color:#CAA563;">{{$userCart->count()}}</h6>
+                             <h6 style="color:#CAA563;">{{ $total_item}}</h6>
                            </div>
                            </div>
                           </div>

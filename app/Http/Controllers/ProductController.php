@@ -20,7 +20,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $produk = Produk::paginate(10);
+        $produk = Produk::latest()->paginate(10);
         $kategori = Kategori::all();
         return view('admin.produk', compact(['kategori', 'produk']));
     }
@@ -62,6 +62,14 @@ class ProductController extends Controller
     }
     public function update(Request $request, Produk $produk)
     {
+        $this->validate($request, [
+            'kategori_id' => 'required',
+            'nama_produk' => 'required',
+            'qty' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'mimes:jpeg,png,jpg'
+        ]);
         $produk->update($request->all());
         if ($request->hasFile('gambar')) {
             $imgName = $request->gambar->getClientOriginalName() . '-' . time()
@@ -237,6 +245,7 @@ class ProductController extends Controller
         $bukti->tanggal_dikirim = $request->tanggal;
         $bukti->gambar = $imgName;
         $bukti->save();
+        DB::table('pemesanan')->where('id', $id)->update(['status_pembayaran' => 'Sudah Dibayar']);
 
         return redirect('/terimakasih/' . $id)->with('sukses', 'Berhasil Upload Bukti Pembayaran');
     }
@@ -244,5 +253,48 @@ class ProductController extends Controller
     {
         $bukti = BuktiPembayaran::where("pemesanan_id", $id)->first();
         return view('user.terimakasih', compact(['bukti']));
+    }
+
+    public function listOrder()
+    {
+        $p_biasa = Pemesanan::paginate(10);
+        //dd($p_biasa);
+
+        return view('admin.pemesananBiasa', compact(['p_biasa']));
+    }
+
+    public function konfirmasipemesanan(Pemesanan $pemesanan, $id)
+    {
+        Pemesanan::where('id', $id)->update(['status_pemesanan' => 'Dikirim']);
+        return redirect()->back()->with('sukses', 'Produk Dikonfirmasi');
+    }
+    public function konfirmasipemesanan1($id)
+    {
+        Pemesanan::where('id', $id)->update(['status_pemesanan' => 'Batal Dikirim']);
+        return redirect()->back()->with('sukses', 'Produk Batal Dikonfirmasi');
+    }
+
+    public function detpro($id)
+    {
+        $det_pes = Pemesanan::where('id', $id)->first();
+
+        return view('admin.detailpemesanan', compact(['det_pes']));
+    }
+
+    public function download($gambar)
+    {
+        return response()->download('buktipembayaran/' . $gambar);
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->cari;
+        //$produk = Produk::where('nama_produk', 'LIKE', '%' . $cari . '%')->paginate(9);
+        $produk = DB::table('produk')->join('kategori', 'kategori.id', '=', 'produk.kategori_id')
+            ->select('produk.*', 'kategori.nama_kategori')
+            ->where('nama_produk', 'LIKE', '%' . $cari . '%')
+            ->orwhere('nama_kategori', 'LIKE', '%' . $cari . '%')->paginate(9);
+
+        return view('result', compact(['produk', 'cari']));
     }
 }

@@ -23,7 +23,7 @@
                                <div class="panel-body">
                                    
                                 <div class="panel-body">
-									<table class="table table-striped">
+									<table class="table table-striped" id="table-datatables">
 										<thead>
 											<tr>
 												<th>Produk</th>
@@ -37,7 +37,7 @@
                       @foreach ($produk as $pd)
                   		<tr>
 												<td>
-                          <img src="/images/{{$pd->gambar}}" alt="Avatar" class="img-circle" style="width: 8rem;">
+                          <img src="/images/{{$pd->gambar}}" alt="Avatar" class="img-fluid" style="width: 8rem;">
                           {{$pd->nama_produk}}
                         </td>
 												<td>{{$pd->kategori->nama_kategori}}</td>
@@ -128,7 +128,7 @@
 										
 										</tbody>
 									</table>
-                  {{ $produk->links() }}
+               <center>   {{ $produk->links() }}</center>
 								</div>
                                   
                                </div>
@@ -244,5 +244,12 @@ $('.delete').click(function(){
 		}); 
 	});
 </script>
-
+<script type="text/javascript">
+  
+ $('#table-datatables').DataTable( {
+    "order": [],
+    "paging": false
+    
+})
+</script>
 @endsection
