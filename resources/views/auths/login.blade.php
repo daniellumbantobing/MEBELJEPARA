@@ -31,6 +31,9 @@
         
 <div class="login-page">
   <div class="form">
+       
+  <a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px; "></a>
+           
 	<div class="header">
 		<p class="lead" style=""><b>Login</b></p>
 	</div>
@@ -46,14 +49,17 @@
 	<div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
 		<label for="signin-email" class="control-label sr-only">password</label>
 		<input type="password" class="form-control" id="signin-email" placeholder="Password" name="password" value="{{old('password')}}">
-		@if($errors->has('password'))
+     @if($errors->has('password'))
 		<span class="help-block">{{$errors->first('password')}}</span>
 		@endif
+     
 	</div>
-	<input  type="submit" class="btn btn-primary  btn-md btn-block text-uppercase" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" value="Masuk" style="text-align: center;">
+	  <span class="text-right" style="float: right;"><a href="/forgotpass">Lupa Password?</a></span> 
+    
+  <input type="submit" class="btn btn-primary  btn-md btn-block text-uppercase" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563; margin-top:50px;" value="Masuk" style="text-align: center;">
 	<div class="bottom" style="padding-top:10px;">
 		<span class="helper-text">Belum Memiliki Akun ? <a href="/register">Daftar</a></span>
-	</div>
+  </div>
 </form>  
 </div>
 </div>

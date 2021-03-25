@@ -8,11 +8,25 @@
             <div id="subPages" class="collapse ">
               <ul class="nav">
                 <li><a href="/cretate/produk" class="">Produk</a></li>
-                <li><a href="#" class="">kategori</a></li>
+                <li><a href="/kategori" class="">kategori</a></li>
                </ul>
             </div>
           </li>
-          <li><a href="/pemesananproduk" class=""><i class="fas fa-shopping-cart"></i> <span>Data Pemesanan</span></a></li>
+          
+           <li>
+            <a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="fas fa-shopping-cart"></i> <span>Data Pemesanan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+            <div id="subPages1" class="collapse">
+              <ul class="nav">
+                <li><a href="/pemesananproduk" class="">Produk Biasa</a></li>
+                <li><a href="/pesanantempaan" class="">Tempaan</a></li>
+               </ul>
+            </div>
+          </li>
+          
+
+          
+
+
           <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
           <li><a href="notifications.html" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
           <li>

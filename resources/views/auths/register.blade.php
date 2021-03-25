@@ -29,6 +29,8 @@
 				@endif   --}}
 <div class="login-page">
   <div class="form">
+    <a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px; "></a>
+  
 	<div class="header">
 		<p class="lead" style=""><b>Daftar Akun</b></p>
 	</div>

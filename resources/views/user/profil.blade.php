@@ -3,19 +3,30 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4 profil">
-                <p style="color:#A1A1A1;">Hello,<br>
-               <span style="color:#CAA563;"> {{$profil->nama_depan}} {{$profil->nama_belakang}}</span></p>
+                <p style="color:#A1A1A1;">
+               <span style="color:#CAA563;"> {{$profil->nama_depan}} {{$profil->nama_belakang}}</span>
+            <br>{{$profil->jenis_kelamin}}
+            </p>
                 <hr/>
-                    <ul>
-                        <li><a href="">Profil Saya</a></li>
-                        <li><a href="">Alamat</a></li>
-                        <li><a href="">Pesanan</a></li>
-                        <li><a href="">Whishlist</a></li>
+                    <ul >
+                        <li class="">
+                            <a href="/profil" class="">Profil Saya</a>
+                        </li>
+                        <li>
+                            <a href="">Alamat</a>
+                        </li>
+                        <li>
+                            <a href="/pemesanan">Pesanan</a>
+                        </li>
+                        <li>
+                            <a href="">Whishlist</a>
+                        </li>
                        
                         
                     </ul>
 
             </div>
+            
             <div class="col-12 col-md-8 profil1">
                 <div class="card shadow" style="border-radius: 20px;">
                     <div class="card-body">
@@ -42,7 +53,31 @@
                             @if($errors->has('nama_belakang'))
                                 <span class="help-block">{{$errors->first('nama_belakang')}}</span>
                                 @endif
-                        </div>
+                        </div>  
+                        <div class="form-group row">
+                               <div class="col-sm-3">
+                            <label for="inputPassword">Jenis Kelamin</label>
+                               </div>
+                               
+                               <div class="col-sm-9">   
+                                         <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1" value="Laki-Laki">
+                                        <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+                                         @if($errors->has('jenis_kelamin'))
+                                        <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+                                        @endif
+                                    </div>
+                                        <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="Perempuan">
+                                        <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                                      @if($errors->has('jenis_kelamin'))
+                                        <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+                                        @endif    
+                                    </div>
+                                       
+                                </div>
+                            </div>
+                                          
                         {{-- <div class="form-group row">
                             <label for="inputPassword" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-9">
@@ -74,5 +109,7 @@
             </div>
         </div>
     </div>
+
+    
 @endsection
 

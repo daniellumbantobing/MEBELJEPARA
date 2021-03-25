@@ -18,7 +18,7 @@
                                <div class="panel-body">
                                    
                                 <div class="panel-body">
-                                    <table class="table table-striped">
+                                    <table class="table table-striped" id="table-datatables">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -45,6 +45,7 @@
                     <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$us->id}}">Delete</a>
                                         {{-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal" style="border-radius:10px">Detail</a> --}}
                     </td>
+                  </tr>
                     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -164,6 +165,14 @@ $('.delete').click(function(){
 		  } 
 		}); 
 	});
+</script>
+<script type="text/javascript">
+  
+ $('#table-datatables').DataTable( {
+    "order": [],
+    "paging": false
+    
+})
 </script>
 
 @endsection

@@ -44,7 +44,7 @@
 												<td>{{$pd->qty}}</td>
 												<td>@currency($pd->harga)</td>
 										<td>
-                    <a href="#" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$pd->id}}">Delete</a>
+                    <a href="#" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-produk="{{$pd->nama_produk}}" produk-id="{{$pd->id}}">Delete</a>
 										<a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{$pd->id}}" style="border-radius:10px">Edit</a>
                     </td>
                     <div class="modal fade" id="updateModal{{$pd->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,7 +67,7 @@
                                     @endif
                                   </div>
      
-                                  <div class="form-group{{$errors->has('kategori_id') ? ' has-error' : ''}}">
+                                  <div class="form-group{{$errors->has('nama_kategori') ? ' has-error' : ''}}">
                                      <label for="exampleInputEmail1">Kategori</label>
                                      <select class="form-control" name="kategori_id">
                                        <option value="{{$pd->kategori->id}}">{{$pd->kategori->nama_kategori}}</option>
@@ -91,7 +91,7 @@
                                   </div>
                                   <div class="form-group{{$errors->has('harga') ? ' has-error' : ''}}">
                                      <label for="exampleInputEmail1">Harga</label>
-                                     <input name="harga" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Harga" value="{{$pd->harga}}">
+                                     <input name="harga" type="text" class="form-control" id="masking1" aria-describedby="emailHelp" placeholder="Harga" value="{{$pd->harga}}">
                                      @if($errors->has('harga'))
                                          <span class="help-block">{{$errors->first('harga')}}</span>
                                      @endif
@@ -183,7 +183,7 @@
                              </div>
                              <div class="form-group{{$errors->has('harga') ? ' has-error' : ''}}">
                                 <label for="exampleInputEmail1">Harga</label>
-                                <input name="harga" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Harga" value="{{old('harga')}}">
+                                <input name="harga" type="text" class="form-control" id="masking2" aria-describedby="emailHelp" placeholder="Harga" value="{{old('harga')}}">
                                 @if($errors->has('harga'))
                                     <span class="help-block">{{$errors->first('harga')}}</span>
                                 @endif
@@ -219,6 +219,8 @@
 
 
 @section('footer')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script>
 	 ClassicEditor
         .create( document.querySelector( '#konten' ) )
@@ -229,9 +231,10 @@
 <script>
 $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
+      var nama_produk = $(this).attr('nama-produk');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data produk dengan id " +produk_id + "??",
+		  text: "Mau menghapus data produk dengan nama " +nama_produk + "??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,
@@ -249,6 +252,23 @@ $('.delete').click(function(){
  $('#table-datatables').DataTable( {
     "order": [],
     "paging": false
+    
+})
+</script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    $('#masking1').mask('#.##0', {reverse: true});
+    
+})
+</script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    $('#masking2').mask('#.##0', {reverse: true});
     
 })
 </script>

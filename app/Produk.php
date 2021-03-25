@@ -24,4 +24,9 @@ class Produk extends Model
     {
         return $this->hasMany(PemesananProduk::class);
     }
+
+    public function tempaan()
+    {
+        return $this->hasMany(Tempaan::class);
+    }
 }

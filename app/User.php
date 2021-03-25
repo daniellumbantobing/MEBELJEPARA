@@ -47,4 +47,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(PemesananProduk::class);
     }
+    public function tempaan()
+    {
+        return $this->hasMany(Tempaan::class);
+    }
+
+      public function notif()
+    {
+        return $this->belongsTo(Notifikasi::class);
+    }
 }

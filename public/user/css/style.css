@@ -246,6 +246,10 @@ footer a:hover{
     text-decoration: none;
     color: #A1A1A1;
 }
+.profil1 a{
+    text-decoration: none;
+    color: #A1A1A1;
+}
 .profil a:hover{
     color:var(--primary-color);
 }
@@ -275,3 +279,43 @@ footer a:hover{
 border-radius: 20px;
 
 }
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.font1{
+    font-size: 12px;
+    color:#858585;
+}
+.font2{
+    font-size: 15px;
+    color:#858585;
+}
+.font3{
+    font-size: 13px;;
+}
+.text-prim{
+    color:var(--primary-color);
+}
+
+.cursor{
+    cursor: pointer;
+}
+.rad{
+    border-radius: 10px;
+}
+.help-block{
+    color:red;
+}
+.pad a{ 
+    margin: 15px;
+    margin-left: -3px;
+    color: #FFFACD;
+}
+.nv{
+        color:red;
+}
+ 

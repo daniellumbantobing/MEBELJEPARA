@@ -22,10 +22,12 @@
                       <h5><strong>Hubungi Kami</strong></h5>
                    <ul class="list-group" style="list-style: none;">
                    <a href="#" class="">
-                    <li><i class="fas fa-map-marker-alt"></i> Alamat</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln.Stasiun No.80A,
+                     Desa Lalang,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Kecamatan Sunggal</li>
                     </a>     
-                    <li><i class="fas fa-phone-alt"></i>+68</li>
-                     <li><i class="fas fa-envelope"></i>Email</li>
+                    <li><i class="fas fa-phone-alt"></i> +62 813-7013-3334</li>
+                     <li><i class="fas fa-envelope"></i> Email</li>
                 
                     </ul>
                 </div>

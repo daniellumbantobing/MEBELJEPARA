@@ -7,9 +7,12 @@ use App\BuktiPembayaran;
 use App\User;
 use App\Kategori;
 use App\Cart;
+use App\Notifications\InvoicePaid;
+use App\Notifikasi;
 use App\Pemesanan;
 use App\PemesananProduk;
 use App\Produk;
+use App\Tempaan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +49,7 @@ class ProductController extends Controller
         $produk->kategori_id = $request->kategori_id;
         $produk->nama_produk = $request->nama_produk;
         $produk->qty = $request->qty;
-        $produk->harga = $request->harga;
+        $produk->harga = str_replace(".", "", $request->harga);
         $produk->deskripsi = $request->deskripsi;
         $produk->kategori_id = $request->kategori_id;
         $produk->gambar = $imgName;
@@ -70,7 +73,17 @@ class ProductController extends Controller
             'deskripsi' => 'required',
             'gambar' => 'mimes:jpeg,png,jpg'
         ]);
-        $produk->update($request->all());
+
+
+        $produk = Produk::find($produk->id);
+        $produk->kategori_id = $request->kategori_id;
+        $produk->nama_produk = $request->nama_produk;
+        $produk->qty = $request->qty;
+        $produk->harga = str_replace(".", "", $request->harga);
+        $produk->deskripsi = $request->deskripsi;
+        $produk->kategori_id = $request->kategori_id;
+        $produk->save();
+
         if ($request->hasFile('gambar')) {
             $imgName = $request->gambar->getClientOriginalName() . '-' . time()
                 . '.' . $request->gambar->extension();
@@ -205,7 +218,17 @@ class ProductController extends Controller
             $pesananPro->qty = $c->qty;
             $pesananPro->harga = $c->harga;
             $pesananPro->save();
+
+
+
+            $notif = new Notifikasi;
+            $notif->user_id = 1;
+            $notif->isi =  $user->nama_depan . " Memesan" . $c->nama_produk;
+            $notif->save();
         }
+
+
+
         $id = $pemesanan_id;
         // Session::put('pemesanan_id', $pemesanan_id);
         // Session::put('total_harga', $data['total_harga']);
@@ -263,9 +286,17 @@ class ProductController extends Controller
         return view('admin.pemesananBiasa', compact(['p_biasa']));
     }
 
-    public function konfirmasipemesanan(Pemesanan $pemesanan, $id)
+    public function konfirmasipemesanan($id)
     {
         Pemesanan::where('id', $id)->update(['status_pemesanan' => 'Dikirim']);
+        $pemesanan =  Pemesanan::where('id', $id)->first();
+        $notif = new Notifikasi;
+        $notif->user_id = $pemesanan->user_id;
+        $notif->isi = "Pesanan anda dikonfirmasi <br> dengan No order #" . $pemesanan->id;
+        $notif->save();
+
+
+        //  User::find($pemesanan->user_id)->notify(new InvoicePaid);
         return redirect()->back()->with('sukses', 'Produk Dikonfirmasi');
     }
     public function konfirmasipemesanan1($id)
@@ -296,5 +327,20 @@ class ProductController extends Controller
             ->orwhere('nama_kategori', 'LIKE', '%' . $cari . '%')->paginate(9);
 
         return view('result', compact(['produk', 'cari']));
+    }
+
+    public function listpes(Pemesanan $pemesanan)
+    {
+
+        $p_biasa = Pemesanan::where(['user_id' => auth()->user()->id])->latest()->paginate(5);
+
+        $p_biasa1 = Pemesanan::where(['user_id' => auth()->user()->id, 'status_pemesanan' => 'Dikirim'])->latest()->paginate(5);
+        $p_biasa2 = Pemesanan::where(['user_id' => auth()->user()->id, 'status_pemesanan' => 'Batal Dikirim'])->latest()->paginate(5);
+        //Tempaan
+        $tempaan = Tempaan::where(['user_id' => auth()->user()->id])->latest()->paginate(5);
+        $tempaan1 = Tempaan::where(['user_id' => auth()->user()->id, 'status_pemesanan' => 'Dikirim'])->latest()->paginate(5);
+
+        $profil = User::where('id', Auth::user()->id)->first();
+        return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1']));
     }
 }

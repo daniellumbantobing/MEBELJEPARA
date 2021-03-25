@@ -18,7 +18,7 @@
                                <div class="panel-body">
                                    
                                 <div class="panel-body">
-                                    <table class="table table-striped">
+                                    <table class="table table-striped" id="table-datatables">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -28,130 +28,62 @@
                                                 <th>Status Pembayaran</th>
                                                 <th>Status Pemesanan</th>
                                                 <th>Aksi</th>
-                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                      @foreach ($p_biasa as $key=>$us)
+                         <?php  $total_pesanan = 0;?>
+                                @foreach($us->pemesananproduk as $pro) 
+                        
+                         <?php  $total_pesanan = $total_pesanan+$pro->qty;?>
+                        @endforeach
                          
-                     
+            
+
                             <tr>
                                                 <td>{{++$key}}</td>
-                                                <td>{{$us->user->nama_depan}}</td>
-                                                <td>{{$us->total_harga}}</td>
+                                                <td>{{$us->user->nama_depan}} {{$us->user->nama_belakang}}</td>
+                                                <td>{{$total_pesanan}}</td>
                                                 <td>{{$us->total_harga}}</td>
                                                 <td>{{$us->status_pembayaran}}</td>
                                                 <td>{{$us->status_pemesanan}}</td>
                                                 
-                                                <td>
-              
-                </td>
-                                                {{-- <td></td>
-                                                <td></td> --}}
+                   
                                         <td>
-                    {{-- <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$us->id}}">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal" style="border-radius:10px">Detail</a> --}}
+                  
+                                        
+
+
+                                        
                                             <a target="_blank" href="/detpro/{{$us->id}}" class="btn btn-success btn-sm"  style="border-radius:10px">Detail</a>
                                             @if($us->status_pemesanan == "Dikirim")
-                                            <a href="/conf1/{{$us->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Konfirmasi</a>
+                                            <a href="/conf1/{{$us->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Kirim</a>
                                             
                                             @elseif($us->status_pemesanan == "Belum Dikirim")
                                             <a href="/conf/{{$us->id}}" class="  btn btn-primary btn-sm
                                                 @if($us->status_pembayaran == "Belum Dibayar")
                                                 disabled
                                                 @endif
-                                                "  style="border-radius:10px">Konfirmasi</a>
+                                                "  style="border-radius:10px">Konfirmasi/Kirim</a>
                                             
                                             @elseif($us->status_pemesanan == "Batal Dikirim")
                                                 <a href="/conf/{{$us->id}}" class="  btn btn-primary btn-sm
                                                 @if($us->status_pembayaran == "Belum Dibayar")
                                                 disabled
                                                 @endif
-                                                "  style="border-radius:10px">Konfirmasi</a>
+                                                "  style="border-radius:10px">Konfirmasi/Kirim</a>
                                             
 
                                                 @endif
                                             
                                             </td>
-                    {{-- <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="/produk/id/update" method="POST"  enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group{{$errors->has('nama_produk') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Nama Produk</label>
-                                    <input name="nama_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Produk" value="">
-                                    @if($errors->has('nama_produk'))
-                                        <span class="help-block">{{$errors->first('nama_produk')}}</span>
-                                    @endif
-                                  </div>
-     
-                                  <div class="form-group{{$errors->has('kategori_id') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Kategori</label>
-                                     <select class="form-control" name="kategori_id">
-                                       <option value=""></option>
-                                       <option value=""></option>
-                                           
-                                       
-                                     </select>
-                                     @if($errors->has('kategori_id'))
-                                         <span class="help-block">{{$errors->first('kategori_id')}}</span>
-                                     @endif
-                                   </div>
-                                 
-                                    <div class="form-group{{$errors->has('qty') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Stok</label>
-                                    <input name="qty" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="">
-                                    @if($errors->has('qty'))
-                                        <span class="help-block">{{$errors->first('qty')}}</span>
-                                    @endif
-                                  </div>
-                                  <div class="form-group{{$errors->has('harga') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Harga</label>
-                                     <input name="harga" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Harga" value="">
-                                     @if($errors->has('harga'))
-                                         <span class="help-block">{{$errors->first('harga')}}</span>
-                                     @endif
-                                   </div>
-                                   <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Deskripsi</label>
-                                     <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" ></textarea>
-                                     @if($errors->has('deskripsi'))
-                                         <span class="help-block">{{$errors->first('deskripsi')}}</span>
-                                     @endif
-                                   </div>
-                                  <div class="form-group{{$errors->has('gambar') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Gambar:</label><br>
-                                    <img src="/images/" alt="Avatar" cclass="img-circle" style="width: 120px;">
-                                    <input name="gambar" type="file" class="form-control" id="gambar" aria-describedby="emailHelp" placeholder="gambar" value="{{old('gambar')}}">
-                                    @if($errors->has('gambar'))
-                                        <span class="help-block">{{$errors->first('gambar')}}</span>
-                                    @endif
-                                  </div>
-     
-                                      
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Close</button>
-                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Update</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>	
-         --}}
+                    
                         </tr>
                         @endforeach
                                         
                                         </tbody>
                                     </table>
+                                   <center>   {{ $p_biasa->links() }}</center>
                                 </div>
                                   
                                </div>
@@ -166,32 +98,14 @@
 
 @endsection
 
-
 @section('footer')
-<script>
-	 ClassicEditor
-        .create( document.querySelector( '#konten' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
-<script>
-$('.delete').click(function(){
-		  var produk_id = $(this).attr('produk-id');
-		  swal({
-		  title: "Yakin  ?",
-		  text: "Mau menghapus data user dengan id " +produk_id + "??",
-		  icon: "warning",
-		  buttons: true,
-		  dangerMode: true,
-		})
-		.then((willDelete) => {
-		  
-		  if (willDelete) {
-		    window.location = "/user/"+produk_id+"/hapus";
-		  } 
-		}); 
-	});
-</script>
 
+<script type="text/javascript">
+  
+ $('#table-datatables').DataTable( {
+    "order": [],
+    "paging": false
+    
+})
+</script>
 @endsection

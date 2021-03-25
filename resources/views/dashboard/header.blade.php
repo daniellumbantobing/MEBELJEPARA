@@ -1,4 +1,4 @@
-<header class="sticky-top">
+<header class="sticky-top shadow">
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-4 col-4">
@@ -41,6 +41,9 @@
                                  if(Auth::check()){   
                                   
                                      $notif = \App\Cart::where('user_id', Auth::user()->id)->count(); 
+                                     $notif1= \App\Notifikasi::where('user_id', Auth::user()->id)->latest()->get(); 
+                                        
+                                     
                                  }
                                  else{
                                      $notif = \App\Cart::where('session_id', $session_id)->count(); 
@@ -58,11 +61,44 @@
                             
                         </li>
                                 
-                                
-                        <li><i class="fas fa-bell p-2"></i></li>
-                         
+                       
+                     
+                        <li>
                               
-                            <li><i class="fas fa-user p-2" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                        <i class="fas fa-bell p-2 cursor" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         @if(!empty($notif1))                    
+                                            @if($notif1->count() == 0)
+                                                <span class="badge badge-danger"></span>
+                                            @else
+                                            <span class="badge badge-danger">{{$notif1->count()}}</span>
+                                        
+                                            @endif
+                            @endif   
+
+                             </i>
+                       @if(!empty($notif1))  
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @foreach ($notif1 as $n)
+                            <div class="col-md-12">
+                                <div class="row">
+                                     <div class="col-md-1">
+                                          <a href="/delete/{{$n->id}}/notif">  <i class="fas fa-times"></i></a> 
+                            
+                                     </div>
+                                     <div class="col-md-10">
+                                         <a class="dropdown-item" href="/pemesanan">{!! $n->isi !!}</a>
+                            
+                                     </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                                     
+                       @endif         
+                    </li>        
+                          
+                            <li>
+                        <i class="fas fa-user p-2 cursor" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                         @if(!Auth::check())
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="/login">Login</a>
@@ -92,6 +128,7 @@
         </div>
        
     </header>
+    
      <div class="container-fluid" style="background-color: #CAA563;">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,7 +146,7 @@
                       <a class="nav-link text-white" href="#">Ruang Makan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Custom Furniture</a>
+                        <a class="nav-link text-white" href="/tempahan">Request Tempaan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Reparasi</a>
@@ -124,3 +161,5 @@
               
               
         </div>
+
+        
