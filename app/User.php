@@ -52,8 +52,13 @@ class User extends Authenticatable
         return $this->hasMany(Tempaan::class);
     }
 
-      public function notif()
+    public function notif()
     {
         return $this->belongsTo(Notifikasi::class);
+    }
+
+    public function reparasi()
+    {
+        return $this->hasMany(Reparasi::class);
     }
 }

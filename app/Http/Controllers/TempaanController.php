@@ -82,7 +82,7 @@ class TempaanController extends Controller
         $id = $tempaan_id;
 
 
-        return redirect('/viewtempaan/' . $id)->with('sukses', 'Tempaan berhasil direquest   ');
+        return redirect('/viewtempaan/' . $id)->with('sukses', 'Tempaan berhasil direquest');
     }
 
     public function viewtempaan($id)

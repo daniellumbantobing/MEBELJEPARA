@@ -19,6 +19,7 @@
               <ul class="nav">
                 <li><a href="/pemesananproduk" class="">Produk Biasa</a></li>
                 <li><a href="/pesanantempaan" class="">Tempaan</a></li>
+                <li><a href="/pesananreparasi" class="">Reparasi</a></li>
                </ul>
             </div>
           </li>

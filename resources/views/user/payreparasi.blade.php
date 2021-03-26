@@ -9,8 +9,8 @@
                <div class="m-3">
                    <div class="row">
                 <div class="col-md-5">
-                <h6>Informasi Penerima</h6>
-                <p>{{$tempaan->nama_penerima}}
+                <h6>Informasi Pelanggan</h6>
+                <p>{{$tempaan->nama}}
                 <br>{{$tempaan->no_hp}}
                 <br>{{$tempaan->alamat}} 
                 <br>{{$tempaan->kode_pos}}  
@@ -25,21 +25,20 @@
                   ?>
                 <div class="row mt-2">
                 <div class="col-3">
-                <img src="/tempaan/{{$tempaan->gambar1}}" alt="produk" class="card-img-top img-fluid">
+                <img src="/reparasi/{{$tempaan->gambar1}}" alt="produk" class="card-img-top img-fluid">
                 </div>
                 <div class="col-9">
                 <p>
-                    {{$tempaan->nama_tempaan}}<br>
-                    @currency($tempaan->biaya* $tempaan->jumlah)<br>
-                    {{$tempaan->jumlah}} item<br>
+                    {{$tempaan->jenis_kerusakan}}<br>
+                    @currency($tempaan->biaya)<br>
+                   
                 </p>
                 </div>
                 </div>
                
                 <hr/>
-                <form action="/checkouttempaan/{{$tempaan->id}}" method="POST">
+                <form action="/checkoutreparasi/{{$tempaan->id}}" method="POST">
                     @csrf
-                    <input type="hidden" value="{{$tempaan->biaya*$tempaan->jumlah}}" name="total_biaya">
                    <h6>Metode Pembayaran(Transfer Bank)</h6>
                 <div class="row">
                     <div class="col-6">
@@ -71,23 +70,17 @@
                         <div class="col-12 col-md-12">
                           <div class="row">
                           <div class="col-6 col-md-6">
-                            <h6>Total Belanja </h6>
+                            <h6>Total Pembayaran </h6>
                            
                           </div>  
                            <div class="col-6 col-md-6 text-right">  
-                             <h6 style="color:#CAA563;">@currency($tempaan->biaya * $tempaan->jumlah)</h6>
+                             <h6 style="color:#CAA563;">@currency($tempaan->biaya)</h6>
                            </div>
                            </div>
                         </div>
                            <div class="col-12 col-md-12 "> 
                              <div class="row">
-                          <div class="col-6 col-md-6">
-                            <h6>Total Pesanan </h6>
-                           
-                          </div>  
-                           <div class="col-6 col-md-6 text-right">  
-                             <h6 style="color:#CAA563;">{{$tempaan->jumlah}}</h6>
-                           </div>
+                        
                            </div>
                           </div>
                               <div class="col-12 ">

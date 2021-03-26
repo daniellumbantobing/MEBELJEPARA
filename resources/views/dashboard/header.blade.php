@@ -149,7 +149,7 @@
                         <a class="nav-link text-white" href="/tempahan">Request Tempaan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Reparasi</a>
+                        <a class="nav-link text-white" href="/reparasiMebel">Reparasi</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruang Makan</a>

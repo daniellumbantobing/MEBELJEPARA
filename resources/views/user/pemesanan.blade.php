@@ -26,7 +26,7 @@
                     </ul>
 
             </div>
-             @if(!empty($p_biasa || $tempaan))  
+             @if(!empty($p_biasa || $tempaan || $reparasi))  
             <div class="col-12 col-md-8 profil1">
                 <div class="card shadow" style="border-radius: 20px;">
                     <div class="card-body">
@@ -213,13 +213,105 @@
   </div>
 
   
-  <div class="tab-pane fade" id="reparasi" role="tabpanel" aria-labelledby="reparasi-tap">da3</div>
+  <div class="tab-pane fade" id="reparasi" role="tabpanel" aria-labelledby="reparasi-tap">
+    {{-- Reparasi --}}
+       <div class="mt-3">
+                    @foreach ($reparasi as $p) 
+                  
+                    <div class="card shadow mt-3" style="border-radius: 20px;">
+                    <div class="card-body">
+ <table class="table">
+  <tbody>
+     
+    <tr>
+      <td style="border:none; font-size:12px; font-weight:bold; color:#858585;">
+          Nomor Pesanan #{{$p->id}}<br>
+        {{$p->created_at->format('d M Y  H:i')}} 
+    </td>
+      <td style="border:none;"></td>
+      <td style="border:none;"></td>
+      <td style="border:none;"></td>
+    </tr>
+    <tr>
+      <td scope="row">
+            <img src="/reparasi/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            @if(!empty($p->gambar2))
+            <img src="/reparasi/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            @endif
+            @if(!empty($p->gambar3))
+            <img src="/reparasi/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            @endif
+           
+        </td>
+      <td style="color:#858585;">
+          {{-- {{$p->jenis_keri}}<br> --}}
+        <span style="font-size: 15px;">@currency($p->biaya)</span>
+      </td>
+     
+      <td style="color:#858585;">{{$p->transfer_bank}}</td>
+      <td style="color:#CAA563;"> 
+        @if($p->status_pemesanan == "Dikirim")
+        Dikirim
+        @elseif($p->status_pemesanan == "Batal Dikirim")  
+        Dibatalkan    
+        @elseif($p->status_pemesanan == "Dibatalkan")
+        Dibatalkan 
+        @elseif($p->status_pembayaran == "Sudah Dibayar")  
+        Pembayaran Diproses
+        
+       @elseif($p->status_pembayaran == "Belum Dibayar")
+        Menunggu Konfirmasi
+         @endif
+      </td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="/detail" data-toggle="modal" data-target="#reparasi{{$p->id}}"><i class="far fa-eye"></a></i></th>
+      <td colspan="2">
+         @if($p->status_pemesanan == "Dibatalkan")
+          <p style="color: #858585;">{{$p->ket_reparasi}}</p>
+        
+      </td>
+       <td></td>
+             <td></td>
+        @endif 
+             <td>
+            @if($p->status_pembayaran == "Sudah Dibayar")
+
+            @elseif(!empty($p->biaya))
+            <a href="/konfirm/{{$p->id}}/reparasi" class="btn btn-primary btn-sm"  style="color:white; background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Bayar Sekarang</a>
+           
+
+            @endif    
+    </td>
+    </tr>
+
+  </tbody>
+
+</table>
+                    
+                    </div>
+                      </div>  
+                         @endforeach
+
+
+                
+                    </div>
+                    <div class="float-right mt-4">
+                        {{ $tempaan->links() }}
+                        </div>
+  </div>
+
+
+
+
 </div>
 
 
 
                 </div>
                 
+
+
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 {{-- Dikirim --}}
 
@@ -705,6 +797,104 @@
       </td>
       <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
       
+    </tr>
+  </tbody>
+</table>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+@endforeach
+{{-- Reparasi --}}
+
+
+ @foreach ($reparasi as $p) 
+    {{-- Modal Reparasi --}}
+<div class="modal fade" id="reparasi{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="Tempaan" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Tempaan">Detail Reparasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <td scope="col" style="border:none;"> <span style="color: #858585;">No Pesanan</span><br> 
+       #{{$p->id}}
+      </td>
+      <td scope="col" style="border:none;">
+        <span style="color: #858585;"> Tanggal Pesanan</span><br>{{$p->created_at->format('d M Y  H:i')}} 
+      </td>
+      <td scope="col" style="border:none;">
+        <span style="color: #858585;">Metode Pembayaran</span><br> 
+        @if(!empty($p->transfer_bank))
+        Transfer Bank {{$p->transfer_bank}}
+        @endif  _ _
+      
+      </td>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+    
+    <tr>
+      <td style="border:none;">Reparasi</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">
+       
+            <img src="/reparasi/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            @if (!empty($p->gambar2))
+            <img src="/reparasi/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            @endif
+            @if (!empty($p->gambar3))
+            <img src="/reparasi/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            @endif
+            
+            
+      </th>
+      <td style="color: #858585"> 
+        <span style="font-size: 12px;">{{$p->jenis_kerusakan}}</span>
+      </td>
+      
+      <td style="color: #858585"> 
+        <span style="font-size: 12px;">@currency($p->biaya)</span>
+      </td>
+      <td>
+        <span style="font-size: 12px; color: #858585;">Total Harga</span>
+        <br> <span class="text-prim">@currency($p->biaya)</span>
+      </td>
+ 
+    </tr>
+    <tr>
+      <td scope="row" class="font2" colspan="3">
+        Alamat Pengiriman<br>
+                <span class="font3">     
+              <span style="font-weight: bold;"> {{$p->nama}}</span>
+                      <br>
+                   
+                      {{$p->alamat}}<br>
+                     {{$p->kode_pos}}</span>
+    </td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td scope="row" colspan="2" class="font3">Pembayaran<br>
+      <span style="color: #858585">
+       Total
+      </span>
+      </td>
+      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
+      <td></td>
     </tr>
   </tbody>
 </table>

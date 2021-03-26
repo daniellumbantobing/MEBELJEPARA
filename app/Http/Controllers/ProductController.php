@@ -12,6 +12,7 @@ use App\Notifikasi;
 use App\Pemesanan;
 use App\PemesananProduk;
 use App\Produk;
+use App\Reparasi;
 use App\Tempaan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -339,8 +340,13 @@ class ProductController extends Controller
         //Tempaan
         $tempaan = Tempaan::where(['user_id' => auth()->user()->id])->latest()->paginate(5);
         $tempaan1 = Tempaan::where(['user_id' => auth()->user()->id, 'status_pemesanan' => 'Dikirim'])->latest()->paginate(5);
+        //Reparasi
+        //Tempaan
+        $reparasi = Reparasi::where(['user_id' => auth()->user()->id])->latest()->paginate(5);
+        $reparasi1 = Reparasi::where(['user_id' => auth()->user()->id, 'status_pemesanan' => 'Dikirim'])->latest()->paginate(5);
+
 
         $profil = User::where('id', Auth::user()->id)->first();
-        return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1']));
+        return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1', 'reparasi', 'reparasi1']));
     }
 }

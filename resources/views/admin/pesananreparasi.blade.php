@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Tempaan</h3>
+                                   <h3 class="panel-title">Reparasi</h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -23,48 +23,46 @@
                                              <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Nama Tempahan</th>
-                                                <th>Jumlah</th>
-                                                <th>Total</th>
+                                               
+                                                <th>Total Harga</th>
                                                 <th>Status Pembayaran</th>
                                                 <th>Status Pemesanan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                     @foreach ($tempaan as $key=>$p)
+                     @foreach ($reparasi as $key=>$p)
                          
                      
                             <tr>
                                                 <td>{{++$key}}</td>
                                                 <td>{{$p->user->nama_depan}} {{$p->user->nama_belakang}}</td>
-                                              	<td>{{$p->nama_tempaan}}</td>
-                                                <td>{{$p->jumlah}}</td>
-                                                <td>@currency($p->biaya*$p->jumlah)</td>
+                                              	
+                                                <td>@currency($p->biaya)</td>
                                       			<td>{{$p->status_pembayaran}}</td>
                                       			<td>{{$p->status_pemesanan}}</td>
                                       			<td>
-                                      	<a target="_blank" href="/dettempaan/{{$p->id}}" class="btn btn-success btn-sm"  style="border-radius:10px">Detail</a>
+                                      	<a data-toggle="tooltip" title="Detail untuk konfirmasi biaya" target="_blank" href="/detreparasi/{{$p->id}}" class="btn btn-success btn-sm"  style="border-radius:10px">Detail</a>
                                             @if($p->status_pemesanan == "Dikirim")
-                                            <a href="/konftempbtl/{{$p->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Kirim</a>
+                                            <a href="/konfrep1/{{$p->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Kirim</a>
                                             
                                             @elseif($p->status_pemesanan == "Belum Dikirim")
-                                            <a href="/konftemp/{{$p->id}}" class="  btn btn-primary btn-sm
+                                            <a href="/konfrep/{{$p->id}}" class="  btn btn-primary btn-sm
                                                 @if($p->status_pembayaran == "Belum Dibayar")
                                                 disabled
                                                 @endif
-                                                "  style="border-radius:10px;">Konfirmasi/Kirim</a>
+                                                "  style="border-radius:10px">Konfirmasi/Kirim</a>
                                             
                                             @elseif($p->status_pemesanan == "Batal Dikirim")
-                                                <a href="/konftemp/{{$p->id}}" class="  btn btn-primary btn-sm
+                                                <a href="/konfrep/{{$p->id}}" class="  btn btn-primary btn-sm
                                                 @if($p->status_pembayaran == "Belum Dibayar")
                                                 disabled
                                                 @endif
-                                                "  style="border-radius:10px;">Konfirmasi/Kirim</a>
+                                                "  style="border-radius:10px">Konfirmasi/Kirim</a>
                                             
 
                                                 @endif
-                                      			</td>
+                              			</td>
                                       			
         
                         </tr>
@@ -139,16 +137,5 @@ $('.delete').click(function(){
     
 })
 </script>
-<style type="text/css">
-  td{
-    font-size: 13px;
-  }
-
-  th{
-    font-size: 13px;
-  }
-
-
-</style>
 
 @endsection

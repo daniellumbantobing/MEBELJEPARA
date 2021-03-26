@@ -65,6 +65,14 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::post('/biaya/{id}/tempaan', 'TempaanController@buatbiaya');
     Route::get('/konftemp/{id}', 'TempaanController@konfirmasitempaan');
     Route::get('/konftempbtl/{id}', 'TempaanController@batalkonfirmasi');
+
+    //pesanan reparasi
+    Route::get('/pesananreparasi', 'ReparasiController@pesanan');
+    Route::get('/detreparasi/{id}', 'ReparasiController@detreparasi'); 
+    Route::post('/status/{id}/reparasi', 'ReparasiController@status_reparasi');
+    Route::post('/biaya/{id}/reparasi', 'ReparasiController@buatbiaya');
+    Route::get('/konfrep/{id}', 'ReparasiController@konfirmasireparasi');
+    Route::get('/konfrep1/{id}', 'ReparasiController@batalkonfirmasi');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
@@ -92,4 +100,14 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/checkouttempaan/{id}', 'TempaanController@checkouttempaan');
     Route::get('/konfirmtempaan/{id}/', 'TempaanController@konfirmtempaan');
     Route::post('/buktitempaan', 'TempaanController@buktitempaan');
+
+    //Reparasi
+    Route::get('/reparasiMebel', 'ReparasiController@index');
+    Route::post('/create/reparasi ', 'ReparasiController@create');
+    Route::get('/viewreparasi/{id} ', 'ReparasiController@viewreparasi');
+    Route::post('/reparasi/{id}/update', 'ReparasiController@update');
+    Route::get('/konfirm/{id}/reparasi', 'ReparasiController@pembayaran');
+    Route::post('/checkoutreparasi/{id}', 'ReparasiController@checkoutreparasi');
+    Route::get('/konfirmreparasi/{id}/', 'ReparasiController@konfirmreparasi');
+    Route::post('/buktireparasi', 'ReparasiController@buktireparasi');
 });
