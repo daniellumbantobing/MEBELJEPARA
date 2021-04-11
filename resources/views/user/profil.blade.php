@@ -12,9 +12,7 @@
                         <li class="">
                             <a href="/profil" class="">Profil Saya</a>
                         </li>
-                        <li>
-                            <a href="">Alamat</a>
-                        </li>
+                      
                         <li>
                             <a href="/pemesanan">Pesanan</a>
                         </li>
@@ -49,10 +47,11 @@
                             <label for="inputPassword" class="col-sm-3 col-form-label">Nama Belakang</label>
                             <div class="col-sm-9">
                             <input type="text" name="nama_belakang" class="form-control" id="inputPassword" value="{{$profil->nama_belakang}}">
-                            </div>
                             @if($errors->has('nama_belakang'))
-                                <span class="help-block">{{$errors->first('nama_belakang')}}</span>
-                                @endif
+                            <span class="help-block">{{$errors->first('nama_belakang')}}</span>
+                            @endif    
+                        </div>
+                           
                         </div>  
                         <div class="form-group row">
                                <div class="col-sm-3">
@@ -61,21 +60,30 @@
                                
                                <div class="col-sm-9">   
                                          <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1" value="Laki-Laki">
-                                        <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
-                                         @if($errors->has('jenis_kelamin'))
-                                        <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1" value="Laki-Laki" 
+                                        @if ($profil->jenis_kelamin == "Laki-Laki")
+                                        checked
+                                            
                                         @endif
+                                        >
+                                        <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+                                       
                                     </div>
                                         <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="Perempuan">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="Perempuan"
+                                        @if ($profil->jenis_kelamin == "Perempuan")
+                                        checked
+                                            
+                                        @endif
+                                        >
                                         <label class="form-check-label" for="inlineRadio2">Perempuan</label>
-                                      @if($errors->has('jenis_kelamin'))
-                                        <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
-                                        @endif    
+                                        
                                     </div>
-                                       
+                                    @if($errors->has('jenis_kelamin'))
+                                    <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+                                    @endif         
                                 </div>
+                              
                             </div>
                                           
                         {{-- <div class="form-group row">
@@ -87,20 +95,63 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                            <input type="text" name="email" class="form-control" id="inputPassword" value="{{$profil->email}}">
-                            </div>
-                             @if($errors->has('email'))
-                                <span class="help-block">{{$errors->first('email')}}</span>
-                                @endif
+                            <input type="email" name="email" class="form-control" id="inputPassword" value="{{$profil->email}}">
+                            @if($errors->has('email'))
+                            <span class="help-block">{{$errors->first('email')}}</span>
+                            @endif    
                         </div>
+                            
+                        </div>
+                        
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-3 col-form-label">Nomor HP</label>
                             <div class="col-sm-9">
-                            <input type="text" name="no_hp" class="form-control" id="inputPassword" value="{{$profil->no_hp}}">
-                            </div>
-                              @if($errors->has('no_hp'))
-                                <span class="help-block">{{$errors->first('no_hp')}}</span>
-                                @endif
+                            <input type="number" name="no_hp" class="form-control" id="inputPassword" value="{{$profil->no_hp}}">
+                            @if($errors->has('no_hp'))
+                            <span class="help-block">{{$errors->first('no_hp')}}</span>
+                            @endif    
+                        </div>
+                             
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="alamat" class="form-control" id="inputPassword" value="{{$profil->alamat}}">
+                            @if($errors->has('alamat'))
+                            <span class="help-block">{{$errors->first('alamat')}}</span>
+                            @endif    
+                        </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Nama Kota</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="nama_kota" class="form-control" id="inputPassword" value="{{$profil->nama_kota}}">
+                            @if($errors->has('nama_kota'))
+                            <span class="help-block">{{$errors->first('nama_kota')}}</span>
+                            @endif    
+                        </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Nama Provinsi</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="nama_prov" class="form-control" id="inputPassword" value="{{$profil->nama_prov}}">
+                            @if($errors->has('nama_prov'))
+                            <span class="help-block">{{$errors->first('nama_prov')}}</span>
+                            @endif    
+                        </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Kode Pos</label>
+                            <div class="col-sm-9">
+                            <input type="number" name="kode_pos" class="form-control" id="inputPassword" value="{{$profil->kode_pos}}">
+                            @if($errors->has('kode_pos'))
+                            <span class="help-block">{{$errors->first('kode_pos')}}</span>
+                            @endif    
+                        </div>
+                            
                         </div>
                         <button class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Simpan</button>
                     </form>

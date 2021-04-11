@@ -34,7 +34,11 @@ class UserController extends Controller
             'nama_belakang' => 'required',
             'email' => 'required',
             'no_hp' => 'required',
-            'jenis_kelamin' => 'required'
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'nama_kota' => 'required',
+            'nama_prov' => 'required',
+            'kode_pos' => 'required'   
         ]);
         $user->update($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');

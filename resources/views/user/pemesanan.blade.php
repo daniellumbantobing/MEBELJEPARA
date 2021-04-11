@@ -12,9 +12,7 @@
                         <li class="">
                             <a href="/profil" class="">Profil Saya</a>
                         </li>
-                        <li>
-                            <a href="">Alamat</a>
-                        </li>
+                        
                         <li>
                             <a href="/pemesanan">Pesanan</a>
                         </li>
