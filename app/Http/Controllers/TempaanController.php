@@ -243,7 +243,7 @@ class TempaanController extends Controller
     }
 
 
-     public function konfirmasitempaan($id)
+    public function konfirmasitempaan($id)
     {
         Tempaan::where('id', $id)->update(['status_pemesanan' => 'Dikirim']);
         $tempaan =  Tempaan::where('id', $id)->first();

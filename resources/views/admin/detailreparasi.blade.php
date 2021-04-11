@@ -22,9 +22,9 @@
                                     @if (empty($det_tempaan->biaya))
                                       <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Buat Biaya Tempaan</a>
                                     @elseif(!empty($det_tempaan->biaya))
-                                      <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Edit Biaya Tempaan</a>
+                                      <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Edit Biaya Reparasi</a>
                                       @elseif($det_tempaan->biaya == 0)
-                                      <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Edit Biaya Tempaan</a>
+                                      <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Edit Biaya Reparasi</a>
                                       
                                     @endif
                                              
@@ -167,7 +167,7 @@
                  <div class="modal-dialog" role="document">
                    <div class="modal-content">
                      <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLabel">Tambah Produk</h5>
+                       <h5 class="modal-title" id="exampleModalLabel">Buat Biaya Reparasi</h5>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                        </button>

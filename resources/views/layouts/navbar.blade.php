@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-      <a href="#" class="simple-text logo-normal">Logo Mebel</a>
+   <a href="/home/admin"><img  src="{{asset('admin/assets/img/logo.png')}}" alt="Logo Mebel" class="img-responsive logo"></a> 
     </div>
     <div class="container-fluid">
       <div class="navbar-btn">

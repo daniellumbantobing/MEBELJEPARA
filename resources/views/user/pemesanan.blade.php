@@ -58,7 +58,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="Biasa" role="tabpanel" aria-labelledby="biasa-tap">
-    
+    {{-- Produk Biasa  semua--}}
                  <div class="mt-3">
                     @foreach ($p_biasa as $p) 
                   
@@ -86,21 +86,13 @@
      
       <td style="color:#858585;">{{$p->transfer_bank}}</td>
       <td style="color:#CAA563;"> 
-        @if($p->status_pemesanan == "Dikirim")
-            Dikirim
-        @elseif($p->status_pemesanan == "Batal Dikirim")  
-        Dibatalkan    
-        @elseif($p->status_pembayaran == "Sudah Dibayar")  
-        Pembayaran Diproses
-        
-       @elseif($p->status_pembayaran == "Belum Dibayar")
+       
         {{$p->status_pembayaran}}
-        
-         @endif
+       
       </td>
     </tr>
     <tr>
-      <td scope="row"><a href="/detail" data-toggle="modal" data-target="#exampleModalScrollable{{$p->id}}"><i class="far fa-eye"></a></i></th>
+      <td scope="row"><a href="/detail" data-toggle="modal" data-target="#exampleModalBiasa{{$p->id}}"><i class="far fa-eye"></a></i></th>
       <td></td>
       <td></td>
       <td>
@@ -126,6 +118,82 @@
                         </div>
 
 
+                        @foreach ($p_biasa as $p) 
+    {{-- Modal --}}
+<div class="modal fade" id="exampleModalBiasa{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Detail Pesanan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <td scope="col" style="border:none;"> <span style="color: #858585;">No Pesanan</span><br> 
+       #{{$p->id}}
+      </td>
+      <td scope="col" style="border:none;">
+        <span style="color: #858585;"> Tanggal Pesanan</span><br>{{$p->created_at->format('d M Y  H:i')}} 
+      </td>
+      <td scope="col" style="border:none;">
+        <span style="color: #858585;">Metode Pembayaran</span><br> Transfer Bank {{$p->transfer_bank}}
+      </td>
+     
+    </tr>
+  </thead>
+  <tbody>
+     @foreach($p->pemesananproduk as $pro)   
+    <tr>
+      <th scope="row">
+         <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+      </th>
+      <td style="color: #858585"> 
+        {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
+      </td>
+      <td>
+        <span style="font-size: 12px; color: #858585;">Total Harga</span>
+        <br> <span class="text-prim">@currency($pro->produk->harga * $pro->qty)</span>
+      </td>
+    @endforeach 
+
+    </tr>
+    
+    <tr>
+      <td scope="row" class="font2" colspan="3">
+        Alamat Pengiriman<br>
+                <span class="font3">     
+              <span style="font-weight: bold;"> {{$p->user->nama_depan}} {{$p->user->nama_belakang}}</span>
+                      <br>
+                   
+                      {{$p->alamat}}, {{$p->nama_kota}}, 
+                     {{$p->nama_prov}},
+                     {{$p->kode_pos}}</span>
+    </td>
+      
+
+    </tr>
+    <tr>
+      <td scope="row" colspan="2" class="font3">Pembayaran<br>
+      <span style="color: #858585">
+       Total
+      </span>
+      </td>
+      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
+      
+    </tr>
+  </tbody>
+</table>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+@endforeach
   </div>
   
   
@@ -322,10 +390,10 @@
     <a class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;"  id="biasa-dikirim-tap" data-toggle="tab" href="#biasa_dikirim" role="tab" aria-controls="biasa_dikirim" aria-selected="true">Biasa</a>
   </li>
   <li class="nav-item">
-    <a class="btn btn-primary" id="tempaan-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#tempaan_dikirim" role="tab" aria-controls="tempaan_dikirim" aria-selected="false">tempaan_dikirim</a>
+    <a class="btn btn-primary" id="tempaan-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#tempaan_dikirim" role="tab" aria-controls="tempaan_dikirim" aria-selected="false">Tempaan Dikirim</a>
   </li>
   <li class="nav-item">
-    <a class="btn btn-primary" id="reparasi-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#reparasi_dikirim" role="tab" aria-controls="reparasi_dikirim" aria-selected="false">reparasi_dikirim</a>
+    <a class="btn btn-primary" id="reparasi-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#reparasi_dikirim" role="tab" aria-controls="reparasi_dikirim" aria-selected="false">Reparasi Dikirim</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -364,7 +432,7 @@
               </td>
             </tr>
             <tr>
-            <td scope="row"><a href="/detail" data-toggle="modal" data-target="#exampleModalScrollable{{$p->id}}"><i class="far fa-eye"></a></i></th>
+            <td scope="row"><a href="/detail" data-toggle="modal" data-target="#biasaDikirim{{$p->id}}"><i class="far fa-eye"></a></i></th>
      
               <td></td>
               <td></td>
@@ -388,7 +456,7 @@
                                       
    @foreach ($p_biasa1 as $p) 
     {{-- Modal --}}
-<div class="modal fade" id="exampleModalScrollable{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="biasaDikirim{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -506,7 +574,7 @@
       </td>
     </tr>
     <tr>
-      <td scope="row"><a href="/detail" data-toggle="modal" data-target="#exampleModalScrollable{{$p->id}}"><i class="far fa-eye"></a></i></th>
+      <td scope="row"><a href="/detail" data-toggle="modal" data-target="#biasaBatal{{$p->id}}"><i class="far fa-eye"></a></i></th>
       <td></td>
       <td></td>
       <td>
@@ -528,7 +596,7 @@
                       
    @foreach ($p_biasa2 as $p) 
     {{-- Modal --}}
-<div class="modal fade" id="exampleModalScrollable{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="biasaBatal{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -614,82 +682,7 @@
 
 
 
-   @foreach ($p_biasa as $p) 
-    {{-- Modal --}}
-<div class="modal fade" id="exampleModalScrollable{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalScrollableTitle">Detail Pesanan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <table class="table">
-  <thead>
-    <tr>
-      <td scope="col" style="border:none;"> <span style="color: #858585;">No Pesanan</span><br> 
-       #{{$p->id}}
-      </td>
-      <td scope="col" style="border:none;">
-        <span style="color: #858585;"> Tanggal Pesanan</span><br>{{$p->created_at->format('d M Y  H:i')}} 
-      </td>
-      <td scope="col" style="border:none;">
-        <span style="color: #858585;">Metode Pembayaran</span><br> Transfer Bank {{$p->transfer_bank}}
-      </td>
-     
-    </tr>
-  </thead>
-  <tbody>
-     @foreach($p->pemesananproduk as $pro)   
-    <tr>
-      <th scope="row">
-         <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
-      </th>
-      <td style="color: #858585"> 
-        {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
-      </td>
-      <td>
-        <span style="font-size: 12px; color: #858585;">Total Harga</span>
-        <br> <span class="text-prim">@currency($pro->produk->harga * $pro->qty)</span>
-      </td>
-    @endforeach 
-
-    </tr>
-    
-    <tr>
-      <td scope="row" class="font2" colspan="3">
-        Alamat Pengiriman<br>
-                <span class="font3">     
-              <span style="font-weight: bold;"> {{$p->user->nama_depan}} {{$p->user->nama_belakang}}</span>
-                      <br>
-                   
-                      {{$p->alamat}}, {{$p->nama_kota}}, 
-                     {{$p->nama_prov}},
-                     {{$p->kode_pos}}</span>
-    </td>
-      
-
-    </tr>
-    <tr>
-      <td scope="row" colspan="2" class="font3">Pembayaran<br>
-      <span style="color: #858585">
-       Total
-      </span>
-      </td>
-      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
-      
-    </tr>
-  </tbody>
-</table>
-        
-      </div>
-      
-    </div>
-  </div>
-</div>
-@endforeach
+   
 
 
 
@@ -718,8 +711,10 @@
         <span style="color: #858585;">Metode Pembayaran</span><br> 
         @if(!empty($p->transfer_bank))
         Transfer Bank {{$p->transfer_bank}}
-        @endif  _ _
-      
+        @elseif(empty($p->transfer_bank))
+        _ _
+        @endif  
+        
       </td>
      
     </tr>
@@ -795,7 +790,7 @@
        Total
       </span>
       </td>
-      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
+      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->biaya*$p->jumlah)</td>
       
     </tr>
   </tbody>
@@ -835,8 +830,10 @@
         <span style="color: #858585;">Metode Pembayaran</span><br> 
         @if(!empty($p->transfer_bank))
         Transfer Bank {{$p->transfer_bank}}
-        @endif  _ _
-      
+        @elseif(empty($p->transfer_bank)) 
+         _ _
+         @endif
+        
       </td>
      
     </tr>
@@ -893,7 +890,7 @@
        Total
       </span>
       </td>
-      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->total_harga)</td>
+      <td style="font-weight: bold; color:#858585;" class="font3"><br>@currency($p->biaya)</td>
       <td></td>
     </tr>
   </tbody>

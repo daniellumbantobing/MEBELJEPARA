@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">User</h3>
+                                   <h3 class="panel-title">Costumer</h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -43,84 +43,14 @@
                                                 <td></td> --}}
                                         <td>
                     <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$us->id}}">Delete</a>
-                                        {{-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal" style="border-radius:10px">Detail</a> --}}
+                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateModal{{$us->id}}" style="border-radius:10px">Detail</a>
                     </td>
                   </tr>
-                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="/produk/id/update" method="POST"  enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group{{$errors->has('nama_produk') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Nama Produk</label>
-                                    <input name="nama_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Produk" value="">
-                                    @if($errors->has('nama_produk'))
-                                        <span class="help-block">{{$errors->first('nama_produk')}}</span>
-                                    @endif
-                                  </div>
-     
-                                  <div class="form-group{{$errors->has('kategori_id') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Kategori</label>
-                                     <select class="form-control" name="kategori_id">
-                                       <option value=""></option>
-                                       <option value=""></option>
-                                           
-                                       
-                                     </select>
-                                     @if($errors->has('kategori_id'))
-                                         <span class="help-block">{{$errors->first('kategori_id')}}</span>
-                                     @endif
-                                   </div>
-                                 
-                                    <div class="form-group{{$errors->has('qty') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Stok</label>
-                                    <input name="qty" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="">
-                                    @if($errors->has('qty'))
-                                        <span class="help-block">{{$errors->first('qty')}}</span>
-                                    @endif
-                                  </div>
-                                  <div class="form-group{{$errors->has('harga') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Harga</label>
-                                     <input name="harga" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Harga" value="">
-                                     @if($errors->has('harga'))
-                                         <span class="help-block">{{$errors->first('harga')}}</span>
-                                     @endif
-                                   </div>
-                                   <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Deskripsi</label>
-                                     <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" ></textarea>
-                                     @if($errors->has('deskripsi'))
-                                         <span class="help-block">{{$errors->first('deskripsi')}}</span>
-                                     @endif
-                                   </div>
-                                  <div class="form-group{{$errors->has('gambar') ? ' has-error' : ''}}">
-                                    <label for="exampleInputEmail1">Gambar:</label><br>
-                                    <img src="/images/" alt="Avatar" cclass="img-circle" style="width: 120px;">
-                                    <input name="gambar" type="file" class="form-control" id="gambar" aria-describedby="emailHelp" placeholder="gambar" value="{{old('gambar')}}">
-                                    @if($errors->has('gambar'))
-                                        <span class="help-block">{{$errors->first('gambar')}}</span>
-                                    @endif
-                                  </div>
-     
-                                      
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Close</button>
-                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Update</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>	
+                    
         
                         </tr>
+
+
                         @endforeach
                                         
                                         </tbody>
@@ -133,10 +63,66 @@
                     </div>
                 </div>
             </div>
-
+            @foreach ($user as $key=>$us)
         
-
-
+            <div class="modal fade" id="updateModal{{$us->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                         
+                          <th>Nama</th>
+                          <td>{{$us->nama_depan}} {{$us->nama_belakang}}</td>
+                        
+                        </tr>
+                  
+                      
+                        <tr>
+                        
+                          <th>Jenis Kelamin</th>
+                          <td>{{$us->jenis_kelamin}}</td>
+                         
+                        </tr>
+                        <tr>
+                        
+                          <th>No Hp</th>
+                          <td>{{$us->no_hp}}</td>
+                          
+                        </tr>
+                        <tr>
+                        
+                          <th>Email</th>
+                          <td>{{$us->email}}</td>
+                          
+                        </tr>
+                       
+                        <tr>
+                        
+                          <th>Alamat</th>
+                          <td>{{$us->alamat}}, {{$us->nama_kota}}, <br/> {{$us->nama_prov}}</td>
+                          
+                        </tr>
+                        <tr>
+                        
+                          <th>Kode Pos</th>
+                          <td>{{$us->kode_pos}}</td>
+                          
+                        </tr>
+                    </table>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>	
+            @endforeach
 @endsection
 
 
