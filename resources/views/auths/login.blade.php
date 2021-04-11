@@ -46,14 +46,20 @@
 		<span class="help-block">{{$errors->first('email')}}</span>
 		@endif
 	</div>
-	<div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
-		<label for="signin-email" class="control-label sr-only">password</label>
-		<input type="password" class="form-control" id="signin-email" placeholder="Password" name="password" value="{{old('password')}}">
-     @if($errors->has('password'))
+
+	
+  <div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
+    
+    <div class="input-group" id="show_hide_password">
+      <input type="password" class="form-control" id="pass" placeholder="Password" name="password" value="{{old('password')}}">
+      <div class="input-group-addon">
+        <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    @if($errors->has('password'))
 		<span class="help-block">{{$errors->first('password')}}</span>
 		@endif
-     
-	</div>
+  </div>
 	  <span class="text-right" style="float: right;"><a href="/forgotpass">Lupa Password?</a></span> 
     
   <input type="submit" class="btn btn-primary  btn-md btn-block text-uppercase" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563; margin-top:50px;" value="Masuk" style="text-align: center;">
@@ -157,6 +163,15 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+.input-group{
+     border-radius: 20px;
+ }
+ .input-group-addon{
+  
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+ }
+
 </style>
 
 <script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
@@ -164,7 +179,22 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	
-
+<script>
+  $(document).ready(function() {
+    $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
+</script>
 
 
 <script>
@@ -172,9 +202,9 @@
     toastr.success("{{Session::get('sukses')}}", "Sukses") 
   @endif
 </script>
-<script>
+<scrip>
   @if(Session::has('error'))
     toastr.error("{{Session::get('error')}}", "Error") 
   @endif
-</script>
+</scrip>
 	

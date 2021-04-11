@@ -2,7 +2,12 @@
 @section('main')
         
     <div class="site-slider">
-                 <div class="slider-one">
+        @if (empty( Auth::user()->no_hp) || empty( Auth::user()->nama_prov) || empty( Auth::user()->nama_kota) || empty( Auth::user()->alamat) || empty( Auth::user()->kode_pos))
+            
+        <div class="alert alert-warning alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <i class="fa fa-warning"></i> Lengkapi profil Anda </div>
+        @endif
+       
+    <div class="slider-one">
                     <div>
                         <img src="{{asset('user/assets/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg')}}" class="img-fluid" alt="Banner 2">
                         
@@ -81,6 +86,7 @@
                
          
             </div>
-        </div>
+
+        
 
 @endsection
