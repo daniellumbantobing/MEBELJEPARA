@@ -13,7 +13,7 @@
                             <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fas fa-user"></i></i></span>
                                 <p>
-                                    <span class="number">1,252</span>
+                                    <span class="number">{{customer()}}</span>
                                     <span class="title">Pelanggan</span>
                                 </p>
                             </div>
@@ -22,7 +22,7 @@
                             <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fas fa-archive"></i></i></span>
                                 <p>
-                                    <span class="number">203</span>
+                                    <span class="number">{{totalproduk()}}</span>
                                     <span class="title">Produk</span>
                                 </p>
                             </div>
@@ -31,7 +31,7 @@
                             <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fas fa-pen"></i></i></span>
                                 <p>
-                                    <span class="number">274,678</span>
+                                    <span class="number">{{order()}}</span>
                                     <span class="title">Order</span>
                                 </p>
                             </div>
@@ -40,7 +40,7 @@
                             <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fas fa-dollar-sign"></i></i></span>
                                 <p>
-                                    <span class="number">$25</span>
+                                    <span class="number" style="font-size: 20px;">@currency(revenue())</span>
                                     <span class="title">Revenue</span>
                                 </p>
                             </div>

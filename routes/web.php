@@ -1,7 +1,10 @@
 <?php
 
+use App\Pemesanan;
 use Illuminate\Support\Facades\Route;
 use App\Produk;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +38,23 @@ Route::post('/forgot_pass', 'UserController@password');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/home/admin', function () {
+
+        function totalproduk()
+        {
+            return Produk::count();
+        }
+        function customer()
+        {
+            return User::where('role','user')->count();
+        }
+        function order()
+        {
+            return Pemesanan::count();
+        }
+        function revenue()
+        {
+            return Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+        }
         return view('admin.home');
     });
     // Produk

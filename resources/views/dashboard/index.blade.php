@@ -30,7 +30,7 @@
                     <div class="card">
                         <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">MEJA</h6>
                             
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="card">
                         <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">LEMARI</h6>
                            
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="card">
                         <img src="{{asset('user/assets/ok.png')}}"  class="card-img-top img-fluid" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">KURSI</h6>
                             
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="card">
                         <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">PINTU</h6>
                           
                         </div>
                     </div>
