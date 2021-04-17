@@ -1,5 +1,6 @@
 <?php
 
+use App\Kategori;
 use App\Pemesanan;
 use Illuminate\Support\Facades\Route;
 use App\Produk;
@@ -17,7 +18,6 @@ use App\User;
 */
 
 Route::get('/', function () {
-
     $produk = Produk::latest()->take(6)->get();
     return view('dashboard.index', compact(['produk']));
 });
@@ -34,7 +34,8 @@ Route::get('/cart/{id}/delete', 'ProductController@delete');
 Route::get('/cari/produk', 'ProductController@cari');
 Route::get('/forgotpass', 'UserController@forgot');
 Route::post('/forgot_pass', 'UserController@password');
-
+Route::get('/produk/{url}','KategoriController@produk');
+Route::get('/aboutus','UserController@about');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/home/admin', function () {
@@ -130,4 +131,7 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/checkoutreparasi/{id}', 'ReparasiController@checkoutreparasi');
     Route::get('/konfirmreparasi/{id}/', 'ReparasiController@konfirmreparasi');
     Route::post('/buktireparasi', 'ReparasiController@buktireparasi');
+    
+    //Kategori
+   
 });

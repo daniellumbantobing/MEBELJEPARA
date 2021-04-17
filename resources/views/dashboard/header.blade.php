@@ -1,3 +1,10 @@
+<?php
+use App\Http\Controllers\Controller;
+$kategori = Controller::mainCategories();
+$kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja'])->orderby('created_at','asc')->get();
+
+
+?>
 <header class="sticky-top shadow">
         <div class="container-fluid">
             <div class="row">
@@ -9,17 +16,18 @@
             
                 <div class="col-md-4 col-4">
                 {{-- serch --}}
+             
                    
                     <form action="/cari/produk" method="GET">
                     <div class="input-group mb-3 my-md-4">
                         <div class="input-group-prepend">
                         <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #F9F9F9; border-color:#F9F9F9; border-top-left-radius:20px;border-bottom-left-radius: 20px; font-size:12px; color:#858585;">Kategori</button>
                         <div class="dropdown-menu" style="font-size: 12px;">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
+                      @foreach ($kategori as $kt)
+                      <a class="dropdown-item" href="{{url('produk/'.$kt->nama_kategori)}}">{{$kt->nama_kategori}}</a>
+                          
+                      @endforeach
+                      
                         </div>
                     </div>
                     <input type="text" class="form-control" name="cari" aria-label="Text input with dropdown button" style="background-color: #F9F9F9;border-color:#F9F9F9;">
@@ -139,12 +147,13 @@
                     <li class="nav-item active">
                       <a class="nav-link text-white" href="/">HOME <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white" href="#">Ruang Tamu</a>
+                  @foreach ($kat as $k)
+                      
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="{{url('produk/'.$k->nama_kategori)}}">{{$k->nama_kategori}}</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white" href="#">Ruang Makan</a>
-                    </li>
+                  
+                  @endforeach
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/tempahan">Request Tempaan</a>
                     </li>
@@ -161,5 +170,7 @@
               
               
         </div>
+
+        
 
         

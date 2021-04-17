@@ -9,7 +9,7 @@
                  <div class="col-4 col-md-4 mt-4">
                      <h5><strong>Layanan</strong></h5>
                    <ul class="list-group" style="list-style: none;">
-                    <a href="#" class="">
+                    <a href="/aboutus" class="">
                     <li>Tentang Kami</li>
                     </a>     
                     <li>Pembayaran</li>

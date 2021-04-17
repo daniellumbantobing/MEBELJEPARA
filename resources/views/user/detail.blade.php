@@ -41,7 +41,55 @@
                         </div>
                     </div>
                 </div>
-        </div>    
+            
+
+            <div class="col-12 col-md-12 mt-4">
+                   <div class="card shadow">
+                      
+                         <div class="col-12 col-md-12">
+                             
+                                
+                                <div class="card-body">
+                                    <h5>Deskripsi</h5>
+                                <hr>
+                                    {!!$produk->deskripsi!!}
+                                </div>
+                                
+                       
+                       </div>
+                    
+                      
+                   </div>
+               </div>
+
+               
+            <div class="col-12 col-md-12 mt-4">
+                <div class="card shadow">
+                   
+                      <div class="col-12 col-md-12">
+                          
+                             
+                             <div class="card-body">
+                                 <h5>Ulasan</h5>
+                             <hr>
+                             <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
+                              
+                                <textarea name="deskripsi" class="form-control  col-8" id="deskripsi" rows="6"  placeholder="Tulis komentar Anda..."></textarea>
+                                @if($errors->has('deskripsi'))
+                                    <span class="help-block">{{$errors->first('deskripsi')}}</span>
+                                @endif
+                              </div>
+                              <button type="submit"  class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Kirim</button>
+                           
+                             </div>
+                             
+                    
+                    </div>
+                 
+                   
+                </div>
+            </div>
+       </div> 
      </div>
 
 

@@ -1,12 +1,19 @@
+<?php
+$kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu'])->orderby('created_at','asc')->get();
+
+?>
 @extends('dashboard.main')
 @section('main')
         
     <div class="site-slider">
+        @if (Auth::check())
+            
+        
         @if (empty( Auth::user()->no_hp) || empty( Auth::user()->nama_prov) || empty( Auth::user()->nama_kota) || empty( Auth::user()->alamat) || empty( Auth::user()->kode_pos))
             
         <div class="alert alert-warning alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <i class="fa fa-warning"></i> Lengkapi profil Anda </div>
         @endif
-       
+        @endif
     <div class="slider-one">
                     <div>
                         <img src="{{asset('user/assets/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg')}}" class="img-fluid" alt="Banner 2">
@@ -26,42 +33,19 @@
            <div class="kategori" style="margin-top: 1rem;">
             <h6><strong>Kategori Produk Yang Mungkin Anda Suka</strong></h6>
             <div class="row">
-                   <div class="col-6 col-md-3 mt-2">
+                @foreach ($kat as $k)
+                <div class="col-6 col-md-3 mt-2">
+                    <a href="/produk/{{$k->nama_kategori}}" class="list-group-item-action">  
                     <div class="card">
                         <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
                         <div class="card-body text-center">
-                            <h6 class="card-title">MEJA</h6>
+                            <h6 class="card-title">{{$k->nama_kategori}}</h6>
                             
                         </div>
                     </div>
+                </a>
                 </div>
-                <div class="col-6 col-md-3 mt-2">
-                    <div class="card">
-                        <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">LEMARI</h6>
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 mt-2">
-                    <div class="card">
-                        <img src="{{asset('user/assets/ok.png')}}"  class="card-img-top img-fluid" alt="...">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">KURSI</h6>
-                            
-                        </div>
-                    </div>
-                </div>
-                      <div class="col-6 col-md-3 mt-2">
-                    <div class="card">
-                        <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">PINTU</h6>
-                          
-                        </div>
-                    </div>
-                </div>
+                @endforeach      
             </div>
         </div>
              
@@ -90,3 +74,4 @@
         
 
 @endsection
+

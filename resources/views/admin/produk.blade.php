@@ -97,12 +97,12 @@
                                      @endif
                                    </div>
                                    <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
-                                     <label for="exampleInputEmail1">Deskripsi</label>
-                                     <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" >{{$pd->deskripsi}}</textarea>
-                                     @if($errors->has('deskripsi'))
-                                         <span class="help-block">{{$errors->first('deskripsi')}}</span>
-                                     @endif
-                                   </div>
+                                    <label for="exampleInputEmail1">Deskripsi</label>
+                                    <textarea name="deskripsi" class="form-control  ckeditor" id="deskripsi" rows="6" >{{$pd->deskripsi}}</textarea>
+                                    @if($errors->has('deskripsi'))
+                                        <span class="help-block">{{$errors->first('deskripsi')}}</span>
+                                    @endif
+                                  </div>
                                   <div class="form-group{{$errors->has('gambar') ? ' has-error' : ''}}">
                                     <label for="exampleInputEmail1">Gambar:</label><br>
                                     <img src="/images/{{$pd->gambar}}" alt="Avatar" cclass="img-circle" style="width: 120px;">
@@ -190,7 +190,7 @@
                               </div>
                               <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
                                 <label for="exampleInputEmail1">Deskripsi</label>
-                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" >{{old('deskripsi')}}</textarea>
+                                <textarea name="deskripsi" class="form-control  ckeditor" id="deskripsi" rows="6" >{{old('deskripsi')}}</textarea>
                                 @if($errors->has('deskripsi'))
                                     <span class="help-block">{{$errors->first('deskripsi')}}</span>
                                 @endif
@@ -219,6 +219,7 @@
 
 
 @section('footer')
+<script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script>

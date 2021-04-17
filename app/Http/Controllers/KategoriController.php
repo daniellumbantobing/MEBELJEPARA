@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kategori;
+use App\Produk;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -37,4 +38,24 @@ class KategoriController extends Controller
         $kategori->update($request->all());
          return back()->with('sukses', 'Data kategori berhasil diupdate');
     }
+
+    public function produk($url = null, Request $request){
+        $countCategory = Kategori::where(['nama_kategori'=>$url])->count();
+        if($countCategory==0){
+            abort(404);
+        }
+
+        $categoryDetails = Kategori::where(['nama_kategori'=> $url])->first();
+
+        $produk = Produk::where(['kategori_id' => $categoryDetails->id])->paginate(9);
+        if ($request->has('terendah')) {
+            $produk = Produk::where(['kategori_id' => $categoryDetails->id])->orderby('harga','ASC')->paginate(9);
+        }    
+        if ($request->has('tertinggi')) {
+            $produk = Produk::where(['kategori_id' => $categoryDetails->id])->orderby('harga','DESC')->paginate(9);
+        }    
+        
+        return view('listproduk',compact(['categoryDetails','produk']));
+             
+}
 }

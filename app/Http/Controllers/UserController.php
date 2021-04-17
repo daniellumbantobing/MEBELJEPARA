@@ -43,4 +43,8 @@ class UserController extends Controller
         $user->update($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');
     }
+
+    public function about(){
+        return view('dashboard.aboutus');
+    }
 }
