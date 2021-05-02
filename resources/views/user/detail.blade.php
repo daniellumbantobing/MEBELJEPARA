@@ -1,14 +1,18 @@
 <?php
-   $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->first();
-   
+   if(Auth::check()){
+        $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->first();
+    
    if(!empty($d)){
         $d1= $d->pemesanan;
    }
+  $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
+  
+}
+   
    
    
     $komen1 = \App\Komentar::where(['produk_id' => $produk->id])->count();
-    $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
-
+  
 ?>
 
 @extends('dashboard.main')
@@ -99,6 +103,7 @@
                              <div class="card-body">
                                  <h5>Ulasan({{$komen1}})</h5>
                              <hr>
+                              @if(Auth::check())
                              @if($komen != 1)
                              @if(!empty($d) && !empty($d1->status_pemesanan == "Dikirim"))
                                  
@@ -116,6 +121,7 @@
                                </form>
                               @endif
                                 @endif
+                                 @endif
                                 <br><br>
                                  <div class="text-justify">
                                     @foreach ($komentar as $k)

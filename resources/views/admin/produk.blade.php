@@ -12,7 +12,7 @@
                    </div>
                @endif  -->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
                                    <h3 class="panel-title">Produk</h3>
