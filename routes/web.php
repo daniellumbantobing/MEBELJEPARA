@@ -19,7 +19,7 @@ use App\User;
 */
 
 Route::get('/', function () {
-    $produk = Produk::latest()->take(6)->get();
+    $produk = Produk::latest()->take(1)->get();
 
 
 
