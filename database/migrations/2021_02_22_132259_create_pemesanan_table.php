@@ -15,7 +15,7 @@ class CreatePemesananTable extends Migration
     {
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->double('total_harga');
             $table->string('nama_prov', 255);
             $table->string('nama_kota', 255);
@@ -26,6 +26,13 @@ class CreatePemesananTable extends Migration
             $table->string('status_pemesanan', 255);
             $table->string('status_pembayaran', 255);
             $table->timestamps();
+        });
+        Schema::table('pemesanan', function (Blueprint $table) {
+
+
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

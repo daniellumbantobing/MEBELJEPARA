@@ -42,7 +42,7 @@
                                                 {{-- <td></td>
                                                 <td></td> --}}
                                         <td>
-                    <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$us->id}}">Delete</a>
+                    <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-user="{{$us->nama_depan}} {{$us->nama_belakang}}" produk-id="{{$us->id}}">Delete</a>
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateModal{{$us->id}}" style="border-radius:10px">Detail</a>
                     </td>
                   </tr>
@@ -137,9 +137,10 @@
 <script>
 $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
+       var nama = $(this).attr('nama-user');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data user dengan id " +produk_id + "??",
+		  text: "Mau menghapus data user dengan id " +nama + "??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

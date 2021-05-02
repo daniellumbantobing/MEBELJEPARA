@@ -51,7 +51,7 @@
                                                 @if($p->status_pembayaran == "Belum Dibayar")
                                                 disabled
                                                 @endif
-                                                "  style="border-radius:10px">Konfirmasi/Kirim</a>
+                                                "style="border-radius:10px">Konfirmasi/Kirim</a>
                                             
                                             @elseif($p->status_pemesanan == "Batal Dikirim")
                                                 <a href="/konfrep/{{$p->id}}" class="  btn btn-primary btn-sm

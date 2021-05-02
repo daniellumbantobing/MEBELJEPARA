@@ -7,6 +7,7 @@ use App\BuktiPembayaran;
 use App\User;
 use App\Kategori;
 use App\Cart;
+use App\Komentar;
 use App\Notifications\InvoicePaid;
 use App\Notifikasi;
 use App\Pemesanan;
@@ -106,7 +107,10 @@ class ProductController extends Controller
         //     return redirect('/login')->with('error', "Anda login dulu");
         // }
 
-        return view('user.detail', compact(['produk']));
+        $komentar = Komentar::where(['produk_id' => $id])->get();
+
+
+        return view('user.detail', compact(['produk', 'komentar']));
     }
 
     public function addtocart(Request $request, $id)
@@ -139,7 +143,7 @@ class ProductController extends Controller
             }
             $cartproduk->qty = $cartproduk->qty + $request->qty;
             $cartproduk->update();
-            return redirect('/cart')->with('sukses', 'Produk berhasuil dimasukkan ke keranjang');
+            return redirect('/cart')->with('cart', 'Produk berhasil dimasukkan ke keranjang');
         } else {
 
 
@@ -153,7 +157,7 @@ class ProductController extends Controller
             $cart->save();
         }
 
-        return redirect('/cart')->with('sukses', 'Produk berhasil dimasukan kekeranjang');
+        return redirect('/cart')->with('cart', 'Produk berhasil dimasukan kekeranjang');
     }
 
     public function cart()
@@ -224,7 +228,7 @@ class ProductController extends Controller
 
             $notif = new Notifikasi;
             $notif->user_id = 1;
-            $notif->isi =  $user->nama_depan . " Memesan" . $c->nama_produk;
+            $notif->isi =  $user->nama_depan . " Memesan " . $c->nama_produk;
             $notif->save();
         }
 
@@ -281,7 +285,7 @@ class ProductController extends Controller
 
     public function listOrder()
     {
-        $p_biasa = Pemesanan::paginate(10);
+        $p_biasa = Pemesanan::latest()->paginate(10);
         //dd($p_biasa);
 
         return view('admin.pemesananBiasa', compact(['p_biasa']));

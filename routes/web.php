@@ -2,6 +2,7 @@
 
 use App\Kategori;
 use App\Pemesanan;
+use App\PemesananProduk;
 use Illuminate\Support\Facades\Route;
 use App\Produk;
 use App\User;
@@ -19,6 +20,9 @@ use App\User;
 
 Route::get('/', function () {
     $produk = Produk::latest()->take(6)->get();
+
+
+
     return view('dashboard.index', compact(['produk']));
 });
 Route::get('/login', 'AuthController@login')->name('login');
@@ -34,8 +38,8 @@ Route::get('/cart/{id}/delete', 'ProductController@delete');
 Route::get('/cari/produk', 'ProductController@cari');
 Route::get('/forgotpass', 'UserController@forgot');
 Route::post('/forgot_pass', 'UserController@password');
-Route::get('/produk/{url}','KategoriController@produk');
-Route::get('/aboutus','UserController@about');
+Route::get('/produk/{url}', 'KategoriController@produk');
+Route::get('/aboutus', 'UserController@about');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/home/admin', function () {
@@ -46,7 +50,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
         }
         function customer()
         {
-            return User::where('role','user')->count();
+            return User::where('role', 'user')->count();
         }
         function order()
         {
@@ -89,11 +93,14 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     //pesanan reparasi
     Route::get('/pesananreparasi', 'ReparasiController@pesanan');
-    Route::get('/detreparasi/{id}', 'ReparasiController@detreparasi'); 
+    Route::get('/detreparasi/{id}', 'ReparasiController@detreparasi');
     Route::post('/status/{id}/reparasi', 'ReparasiController@status_reparasi');
     Route::post('/biaya/{id}/reparasi', 'ReparasiController@buatbiaya');
     Route::get('/konfrep/{id}', 'ReparasiController@konfirmasireparasi');
     Route::get('/konfrep1/{id}', 'ReparasiController@batalkonfirmasi');
+
+    //Feedback
+    Route::get('/feedback', 'KomentarController@index');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
@@ -131,7 +138,8 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/checkoutreparasi/{id}', 'ReparasiController@checkoutreparasi');
     Route::get('/konfirmreparasi/{id}/', 'ReparasiController@konfirmreparasi');
     Route::post('/buktireparasi', 'ReparasiController@buktireparasi');
-    
-    //Kategori
-   
+
+    //Komentar
+    Route::post('/komentar/{id}/create', 'KomentarController@create');
+    Route::get('delete/{id}/komentar', 'KomentarController@destroy');
 });

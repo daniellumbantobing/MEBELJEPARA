@@ -15,9 +15,17 @@ class CreateNotifikasiTable extends Migration
     {
         Schema::create('notifikasi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('isi', 255);
             $table->timestamps();
+        });
+
+        Schema::table('notifikasi', function (Blueprint $table) {
+
+
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

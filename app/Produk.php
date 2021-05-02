@@ -29,4 +29,10 @@ class Produk extends Model
     {
         return $this->hasMany(Tempaan::class);
     }
+
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 }

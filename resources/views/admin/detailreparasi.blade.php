@@ -86,9 +86,12 @@
                            <hr/>
                            <div>
                                <p>
-                                  <a href="" class="btn btn-danger" style="border-radius: 20px;" data-toggle="modal" data-target="#exampleModal1">
+                                @if ($det_tempaan->status_pembayaran != "Sudah Dibayar")
+                                  
+                                <a href="" class="btn btn-danger" style="border-radius: 20px;" data-toggle="modal" data-target="#exampleModal1">
                                     Klik jika ingin membatalkan
                                   </a>
+                                @endif  
                                   </p>
                                   <div class="card card-body">
                                    @if(!empty($det_tempaan->ket_reparasi))

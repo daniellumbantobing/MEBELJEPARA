@@ -17,6 +17,7 @@
 
   
 <div class="text-center">
+  
   <img src="{{asset('user/assets/cart.png')}}" alt="cart" style="width: 250px; height:200px;">
   <h6>Belum ada Produk Dikeranjang</h6>
             <a href="\" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Cari Produk</a>
@@ -106,4 +107,11 @@
     @endif   
 </div>
 </div>  
+@endsection
+@section('foot')
+<script>
+  @if(Session::has('cart'))
+    toastr.success("{{Session::get('cart')}}", "Berhasil") 
+  @endif
+</script>
 @endsection

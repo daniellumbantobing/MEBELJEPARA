@@ -1,3 +1,16 @@
+<?php
+   $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->first();
+   
+   if(!empty($d)){
+        $d1= $d->pemesanan;
+   }
+   
+   
+    $komen1 = \App\Komentar::where(['produk_id' => $produk->id])->count();
+    $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
+
+?>
+
 @extends('dashboard.main')
 @section('main')
      <div class="container-fluid detail">
@@ -11,18 +24,28 @@
                         </div>
                           <div class="col-12 col-md-8">
                               <div class="inform">   
-                                  
+                                
                             <h5><strong>{{$produk->nama_produk}}</strong></h5>
                              <hr/>
 {{--                              
                             <p>Harga :<span style="font-size: 30px; font-weight: bold; margin-left:20px; color:#CAA563;">@currency($produk->harga)</span></p>  --}}
                             <h4 style="color:#CAA563 "><strong>@currency($produk->harga)</strong></h4>
-                             <hr />
+                         
+                             
+                            <hr />
                                 <form action="/add-cart/{{$produk->id}}" method="post">
                                     @csrf
                              <input type="number" min="1" max="{{$produk->qty}}" value="1" style="border-color: #CAA563" name="qty">
                              {{-- mungkin akan manambahkan sttaus produk --}}
                               <hr />
+                              <p>Status: @if($produk->qty <= 0)
+                               <span class="text-danger"> <b>Out Stock</b></span>
+                                @else
+                               <span class="text-success"> <b>In Stock</b></span>
+                              @endif <br><br>
+                              kategori: <span style="color:#CAA563"><b>{{$produk->kategori->nama_kategori}}</b></span>
+                            </p><br>
+
                               <button href="" class="btn btn-primary button
                               @if($produk->qty <= 0)
                               disabled
@@ -30,6 +53,7 @@
                               " style="background-color: white; border-color:#CAA563; color:#CAA563">Masukkan ke Keranjang</button>
                               <a  class="btn btn-primary button cursor" style="background-color: #CAA563; border-color:#CAA563; color:#FFFF;" data-toggle="modal" data-target="#exampleModal">Request Tempaan</a>
                               </form>
+                            
                         </div>
                         </div>
                         </div>
@@ -53,6 +77,9 @@
                                     <h5>Deskripsi</h5>
                                 <hr>
                                     {!!$produk->deskripsi!!}
+                                   
+                                 
+                                  
                                 </div>
                                 
                        
@@ -70,21 +97,41 @@
                           
                              
                              <div class="card-body">
-                                 <h5>Ulasan</h5>
+                                 <h5>Ulasan({{$komen1}})</h5>
                              <hr>
+                             @if($komen != 1)
+                             @if(!empty($d) && !empty($d1->status_pemesanan == "Dikirim"))
+                                 
+                            
                              <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
-                              
-                                <textarea name="deskripsi" class="form-control  col-8" id="deskripsi" rows="6"  placeholder="Tulis komentar Anda..."></textarea>
-                                @if($errors->has('deskripsi'))
-                                    <span class="help-block">{{$errors->first('deskripsi')}}</span>
+                                <form action="/komentar/{{$produk->id}}/create" method="POST"  enctype="multipart/form-data">
+                                    @csrf
+
+                                    <textarea name="komentar" class="form-control  col-8" id="komentar" rows="6"  placeholder="Tulis komentar Anda..."></textarea>
+                                @if($errors->has('komentar'))
+                                    <span class="help-block">{{$errors->first('komentar')}}</span>
                                 @endif
                               </div>
                               <button type="submit"  class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Kirim</button>
-                           
+                               </form>
+                              @endif
+                                @endif
+                                <br><br>
+                                 <div class="text-justify">
+                                    @foreach ($komentar as $k)
+                               <p>         <b>{{$k->user->nama_depan}} {{$k->user->nama_belakang}}</b><br><br>
+                                        {{$k->komentar}}<br><br>
+                                       <span style="color: #b4a7a7;"> {{$k->created_at}}</span>
+                                    
+                               </p>
+                                <hr/>       
+                               @endforeach     
+                                                            
+                             </div>
+
                              </div>
                              
-                    
-                    </div>
+                        </div>
                  
                    
                 </div>

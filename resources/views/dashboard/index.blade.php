@@ -11,7 +11,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
         
         @if (empty( Auth::user()->no_hp) || empty( Auth::user()->nama_prov) || empty( Auth::user()->nama_kota) || empty( Auth::user()->alamat) || empty( Auth::user()->kode_pos))
             
-        <div class="alert alert-warning alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <i class="fa fa-warning"></i> Lengkapi profil Anda </div>
+        <div class="alert alert-warning alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <i class="fa fa-warning"></i> <a href="/profil" style="text-decoration: none; color:#856404;">Klik Untuk Melengkapi profil Anda</a></div>
         @endif
         @endif
     <div class="slider-one">
@@ -37,7 +37,14 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
                 <div class="col-6 col-md-3 mt-2">
                     <a href="/produk/{{$k->nama_kategori}}" class="list-group-item-action">  
                     <div class="card">
-                        <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
+                      
+                      {{-- @if ($k->nama_kategori == "Kursi") --}}
+                      <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
+                      {{-- @elseif ($k->nama_kategori == "Meja") --}}
+                          
+                      {{-- @endif --}}
+                      
+                      
                         <div class="card-body text-center">
                             <h6 class="card-title">{{$k->nama_kategori}}</h6>
                             

@@ -165,4 +165,5 @@ $('.delete').click(function(){
     
 })
 </script>
+
 @endsection

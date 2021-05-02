@@ -15,13 +15,22 @@ class CreateCartTable extends Migration
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('produk_id');
-            $table->integer('user_id')->nullable();
+            $table->integer('produk_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
             $table->string('nama_produk', 255);
             $table->integer('qty');
             $table->double('harga');
             $table->string('session_id', 255);
             $table->timestamps();
+        });
+
+        Schema::table('cart', function (Blueprint $table) {
+
+
+            $table->foreign('produk_id')->references('id')->on('produk')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

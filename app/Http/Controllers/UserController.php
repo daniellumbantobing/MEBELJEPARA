@@ -38,13 +38,14 @@ class UserController extends Controller
             'alamat' => 'required',
             'nama_kota' => 'required',
             'nama_prov' => 'required',
-            'kode_pos' => 'required'   
+            'kode_pos' => 'required'
         ]);
         $user->update($request->all());
         return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');
     }
 
-    public function about(){
+    public function about()
+    {
         return view('dashboard.aboutus');
     }
 }

@@ -90,7 +90,7 @@
                             
                             <button class="btn btn-primary col-md-5" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563; color:#CAA563;">Edit</button>
                   
-                        <a href="/" class="btn btn-primary col-md-5" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px; float:right;">Kembali</a>
+                        <a href="/" class="btn btn-primary col-md-5" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px; float:right;">Cek Tempaan</a>
                     </form>    
                 </div>
             </div>

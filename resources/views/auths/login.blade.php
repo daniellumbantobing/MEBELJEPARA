@@ -202,9 +202,9 @@
     toastr.success("{{Session::get('sukses')}}", "Sukses") 
   @endif
 </script>
-<scrip>
+<script>
   @if(Session::has('error'))
     toastr.error("{{Session::get('error')}}", "Error") 
   @endif
-</scrip>
+</script>
 	

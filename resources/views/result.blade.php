@@ -10,7 +10,7 @@
               </div>
           </div>
     @else
-                <h6><strong>Hasil  Pencarian {{$cari}}</strong></h6>
+                <h6><strong>Hasil  Pencarian "{{$cari}}"</strong></h6>
             <div class="row" style="margin-top:-18px;">
              @foreach ($produk as $pr)
                 <a href="/produk/{{$pr->id}}/detail">

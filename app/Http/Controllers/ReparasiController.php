@@ -257,8 +257,7 @@ class ReparasiController extends Controller
         $bukti->gambar = $imgName;
         $bukti->save();
         DB::table('reparasi')->where('id', $id)->update(['status_pembayaran' => 'Sudah Dibayar']);
-        $reparasi =
-            DB::table('reparasi')->where('id', $id)->where('status_pembayaran', 'Sudah Dibayar')->first();
+        $reparasi = DB::table('reparasi')->where('id', $id)->where('status_pembayaran', 'Sudah Dibayar')->first();
 
         if (!empty($reparas)) {
             return redirect('/');

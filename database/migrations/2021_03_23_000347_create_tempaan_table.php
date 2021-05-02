@@ -15,22 +15,32 @@ class CreateTempaanTable extends Migration
     {
         Schema::create('tempaan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('produk_id')->nullable()->unsigned();
             $table->string('nama_tempaan', 255);
             $table->string('nama_penerima', 255);
             $table->string('alamat', 255);
             $table->string('kode_pos', 255);
             $table->string('no_hp');
             $table->string('gambar1');
-            $table->string('gambar2');
-            $table->string('gambar3');
-            $table->integer('jumlah');
+            $table->string('gambar2')->nullable();
+            $table->string('gambar3')->nullable();
+            $table->integer('jumlah')->nullable();
             $table->string('keterangan', 255);
-            $table->double('biaya');
+            $table->double('biaya')->nullable();
             $table->string('status_pemesanan', 255);
             $table->string('status_pembayaran', 255);
-            $table->string('tranfer_bank', 255);
+            $table->string('transfer_bank', 255)->nullable();
+            $table->double('total_biaya')->nullable();
             $table->timestamps();
+        });
+        Schema::table('tempaan', function (Blueprint $table) {
+
+
+            $table->foreign('produk_id')->references('id')->on('produk')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

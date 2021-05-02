@@ -15,11 +15,18 @@ class CreateBuktiPembayaranReparasiTable extends Migration
     {
         Schema::create('bukti_pembayaran_reparasi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('reparasi_id');
+            $table->integer('reparasi_id')->unsigned();
             $table->string('nama_pengirim');
             $table->dateTime('tanggal_dikirim');
             $table->string('gambar');
             $table->timestamps();
+        });
+        Schema::table('bukti_pembayaran_reparasi', function (Blueprint $table) {
+
+
+
+            $table->foreign('reparasi_id')->references('id')->on('reparasi')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

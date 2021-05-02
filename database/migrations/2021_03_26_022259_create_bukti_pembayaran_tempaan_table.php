@@ -15,11 +15,18 @@ class CreateBuktiPembayaranTempaanTable extends Migration
     {
         Schema::create('bukti_pembayaran_tempaan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tempaan_id');
+            $table->integer('tempaan_id')->unsigned();
             $table->string('nama_pengirim');
             $table->dateTime('tanggal_dikirim');
             $table->string('gambar');
             $table->timestamps();
+        });
+        Schema::table('bukti_pembayaran_tempaan', function (Blueprint $table) {
+
+
+
+            $table->foreign('tempaan_id')->references('id')->on('tempaan')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

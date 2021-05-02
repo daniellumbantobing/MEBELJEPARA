@@ -77,15 +77,27 @@
     <tr>
       <td scope="row">
             @foreach($p->pemesananproduk as $pro)   
+               
               <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
-           @endforeach 
+            
+            @endforeach 
         </td>
       <td style="color:#858585;">@currency($p->total_harga)</td>
      
       <td style="color:#858585;">{{$p->transfer_bank}}</td>
       <td style="color:#CAA563;"> 
        
+         @if($p->status_pemesanan == "Dikirim")
+            Dikirim
+        @elseif($p->status_pemesanan == "Batal Dikirim")  
+        Dibatalkan    
+        @elseif($p->status_pembayaran == "Sudah Dibayar")  
+        Pembayaran Diproses
+        
+       @elseif($p->status_pembayaran == "Belum Dibayar")
         {{$p->status_pembayaran}}
+        
+         @endif
        
       </td>
     </tr>
@@ -147,7 +159,9 @@
      @foreach($p->pemesananproduk as $pro)   
     <tr>
       <th scope="row">
-         <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+      <a href="/produk/{{$pro->produk->id}}/detail">
+        <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+      </a>
       </th>
       <td style="color: #858585"> 
         {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
