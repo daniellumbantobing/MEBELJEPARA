@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	  <title>@yield('title','Mebel Jepara')</title>
     <link rel="icon" href="{{asset('user/assets/icon.png')}}" style="width: 100px;">
+    	
+    <link rel="stylesheet" href="/user/css/style.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/56564b26bf.js" crossorigin="anonymous"></script>
     <!-- Slick Slider -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-	
-    <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
+\
     
 </head>
 <body>  
