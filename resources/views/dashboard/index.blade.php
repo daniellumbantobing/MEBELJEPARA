@@ -60,10 +60,10 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
             <h6><strong>Produk Baru</strong></h6>
             <div class="row" style="margin-top:-18px;">
              @foreach ($produk as $pr)
-                <a href="/produk/{{$pr->id}}/detail">
+                <a href="{{url('produk/'.$pr->id.'/detail')}}">
                  <div class="col-6 col-md-4 mt-4">
                     <div class="card shadow">
-                        <img src="/images/{{$pr->gambar}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{url('images/'.$pr->gambar)}}" class="card-img-top img-fluid" alt="...">
                         </a>
                         <div class="card-body text-center">
                             <h6 class="card-title" style="color:#CAA563;">{{$pr->nama_produk}}</h6>
