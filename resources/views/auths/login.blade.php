@@ -15,8 +15,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-  <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/icon.png')}}">
-  <!-- TABLES -->
+  <link rel="icon" href="{{asset('user/assets/icon.png')}}" style="width: 100px;">
+    <!-- TABLES -->
 
 
 </head>
@@ -61,8 +61,7 @@
 		<span class="help-block">{{$errors->first('password')}}</span>
 		@endif
   </div>
-	  <span class="text-right" style="float: right;"><a href="/forgotpass">Lupa Password?</a></span> 
-    
+	  
   <input type="submit" class="btn btn-primary  btn-md btn-block text-uppercase" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563; margin-top:50px;" value="Masuk" style="text-align: center;">
 	<div class="bottom" style="padding-top:10px;">
 		<span class="helper-text">Belum Memiliki Akun ? <a href="/register">Daftar</a></span>
