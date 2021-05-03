@@ -49,7 +49,7 @@
  
     <tr>
       <td> 
-        <a href="/produk/{{$cart->produk->id}}/detail" style="color: black; text-decoration: none;">
+        <a href="{{url('produk/'.$cart->produk->id.'/detail')}}" style="color: black; text-decoration: none;">
         <img src="{{url('images/'.$cart->produk->gambar)}}" class="card-img-top img-fluid">
         </a>
        {{$cart->produk->nama_produk}}  
