@@ -78,7 +78,7 @@
       <td scope="row">
             @foreach($p->pemesananproduk as $pro)   
                
-              <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+              <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             
             @endforeach 
         </td>
@@ -160,7 +160,7 @@
     <tr>
       <th scope="row">
       <a href="/produk/{{$pro->produk->id}}/detail">
-        <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+        <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
       </a>
       </th>
       <td style="color: #858585"> 
@@ -231,12 +231,12 @@
     </tr>
     <tr>
       <td scope="row">
-            <img src="/tempaan/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @if(!empty($p->gambar2))
-            <img src="/tempaan/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
             @if(!empty($p->gambar3))
-            <img src="/tempaan/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
            
         </td>
@@ -314,12 +314,12 @@
     </tr>
     <tr>
       <td scope="row">
-            <img src="/reparasi/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @if(!empty($p->gambar2))
-            <img src="/reparasi/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
             @if(!empty($p->gambar3))
-            <img src="/reparasi/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
            
         </td>
@@ -432,7 +432,7 @@
             <tr>
               <td scope="row">
                     @foreach($p->pemesananproduk as $pro)   
-                      <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+                      <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
                     @endforeach 
                 </td>
               <td style="color:#858585;">@currency($p->total_harga)</td>
@@ -497,7 +497,7 @@
      @foreach($p->pemesananproduk as $pro)   
     <tr>
       <th scope="row">
-         <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+         <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
       </th>
       <td style="color: #858585"> 
         {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
@@ -572,7 +572,7 @@
     <tr>
       <td scope="row">
             @foreach($p->pemesananproduk as $pro)   
-              <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+              <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
            @endforeach 
         </td>
       <td style="color:#858585;">@currency($p->total_harga)</td>
@@ -637,7 +637,7 @@
      @foreach($p->pemesananproduk as $pro)   
     <tr>
       <th scope="row">
-         <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+         <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
       </th>
       <td style="color: #858585"> 
         {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
@@ -742,7 +742,7 @@
     <tr>
       <th scope="row">
        
-            <img src="/images/{{$p->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('images/'.$p->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             
             
       </th>
@@ -764,12 +764,12 @@
     <tr>
       <th scope="row">
        
-            <img src="/tempaan/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @if (!empty($p->gambar2))
-            <img src="/tempaan/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             @if (!empty($p->gambar3))
-            <img src="/tempaan/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             
             
@@ -860,12 +860,12 @@
     <tr>
       <th scope="row">
        
-            <img src="/reparasi/{{$p->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @if (!empty($p->gambar2))
-            <img src="/reparasi/{{$p->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             @if (!empty($p->gambar3))
-            <img src="/reparasi/{{$p->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             
             

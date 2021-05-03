@@ -105,7 +105,7 @@
                          
                           <th></th>
                           <td>
-                            <a href="#" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Detail Produk</a>    
+                            <a href="{{url('produk/'.$us->id.'/detail')}}" target="_blank" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Detail Produk</a>    
                         </td>
                         
                         </tr>

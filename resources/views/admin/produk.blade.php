@@ -46,7 +46,8 @@
 										<td>
                     <a href="#" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-produk="{{$pd->nama_produk}}" produk-id="{{$pd->id}}">Delete</a>
 										<a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{$pd->id}}" style="border-radius:10px">Edit</a>
-                    </td>
+                  	<a href="{{url('produk/'.$pd->id.'/detail')}}" class="btn btn-success btn-sm" target="_blank" style="border-radius:10px">Detail</a>
+                  </td>
                     <div class="modal fade" id="updateModal{{$pd->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">

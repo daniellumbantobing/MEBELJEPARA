@@ -29,7 +29,7 @@
                                     <?php  $total_pesanan = 0;?>
                                 @foreach($det_pes->pemesananproduk as $pro) 
                                 <tr style="border:none;">
-                                <td style="border:none;">  <img src="/images/{{$pro->produk->gambar}}" alt="produk" class="card-img-top img-fluid" style="width: 80px;"></td>
+                                <td style="border:none;">  <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px;"></td>
                                 <td style="border:none;">{{$pro->produk->nama_produk}}</td>
                                 <td style="border:none;">{{$pro->qty}}</td>  
                                 <td style="border:none;">@currency($pro->harga)</td>     
