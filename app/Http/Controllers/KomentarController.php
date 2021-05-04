@@ -35,5 +35,7 @@ class KomentarController extends Controller
 
     public function destroy($id)
     {
+        Komentar::findOrFail($id)->delete();
+        return back()->with('sukses', 'Data kategori berhasil dihapus');
     }
 }

@@ -133,7 +133,7 @@ $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data user dengan id " +produk_id + "??",
+		  text: "Mau menghapus Komentar ??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,
@@ -141,7 +141,7 @@ $('.delete').click(function(){
 		.then((willDelete) => {
 		  
 		  if (willDelete) {
-		    window.location = "/delete/"+produk_id+"/hapus";
+		    window.location = "/feedback/"+produk_id +"/delete";
 		  } 
 		}); 
 	});

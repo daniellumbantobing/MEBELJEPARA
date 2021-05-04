@@ -101,6 +101,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     //Feedback
     Route::get('/feedback', 'KomentarController@index');
+    Route::get('/feedback/{id}/delete', 'KomentarController@destroy');
 
     //Laporan Penjualan
     Route::get('/laporanpenjualan', 'LaporanPenjualanController@index');
