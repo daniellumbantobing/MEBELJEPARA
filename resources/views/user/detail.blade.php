@@ -1,6 +1,7 @@
 <?php
    if(Auth::check()){
-        $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->latest()->first();
+        
+    $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->latest()->first();
     
    if(!empty($d)){
         $d1= $d->pemesanan;

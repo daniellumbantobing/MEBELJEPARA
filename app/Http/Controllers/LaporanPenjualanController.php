@@ -13,16 +13,21 @@ class LaporanPenjualanController extends Controller
     {
 
         $day = Carbon::now()->format('d');
-        $month = Carbon::now()->addMonth(1)->format('m');
+        $month = Carbon::now()->format('m');
         $year = Carbon::now()->format('Y');
 
-        $d =    Pemesanan::whereMonth('created_at', $month)->whereYear('created_at', $year)->where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+        $d =    Pemesanan::whereDay('created_at', $day)->whereMonth('created_at', $month)->whereYear('created_at', $year)->where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
         $d1 =   Pemesanan::whereDay('created_at', $day)->whereMonth('created_at', $month)->whereYear('created_at', $year)->where('status_pembayaran', 'Sudah Dibayar')->count();
 
-        if ($request->has('day') || $request->has('month') || $request->has('year')) {
-            $d =    Pemesanan::whereDay('created_at', $request->day)->where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
-            $d1 =    Pemesanan::whereDay('created_at', $request->day)->where('status_pembayaran', 'Sudah Dibayar')->count();
+        if ($request->has('hari') && $request->has('bulan') && $request->has('tahun')) {
+            $d =    Pemesanan::whereDay('created_at', $request->hari)->whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+            $d1 =   Pemesanan::whereDay('created_at', $request->hari)->whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->count();
+        } else if ($request->has('bulan') && $request->has('tahun')) {
+            $d =    Pemesanan::whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+            $d1 =   Pemesanan::whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->count();
         }
+
+
 
 
 

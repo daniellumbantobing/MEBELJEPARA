@@ -109,6 +109,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     //Notifikasi
     Route::get('/notifikasi', 'NotifikasiController@index');
     Route::get('delete/{id}/notifikasi', 'NotifikasiController@hapus');
+
+    //Laporan Penjualan 
+    Route::get('/filter/laporanpenjualan', 'LaporanPenjualanController@index');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {

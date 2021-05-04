@@ -18,20 +18,27 @@
                    
 								</div>
 								<div class="panel-body">
-								<form action="" method="GET" class="form-group">
+								<form action="{{url('/filter/laporanpenjualan')}}" method="GET" class="form-group">
 									@csrf
-									<select style="cursor:pointer;" class="form-control" id="tag_select" name="year">
-									<option value="0" selected disabled> Pilih Tahun</option>
+									
+									<select style="cursor:pointer;" class="form-control" id="tag_select" name="hari">
+									<option value="0" selected disabled> Pilih Tanggal</option>
 									<?php 
-									$year = date('Y');
-									$min = $year - 10;
+									$year =31;
+									$min = 1;
 									$max = $year;
-									for( $i=$max; $i>=$min; $i-- ) {
+									for( $i=$min; $i<=$max; $i++ ) {
 									echo '<option value='.$i.'>'.$i.'</option>';
 														}
 														?>
 									</select>
-									<select style="cursor:pointer;margin-top:1.5em;margin-bottom:1.5em;" class="form-control" id="tag_select" name="month">
+
+								
+									
+									
+
+									
+									<select style="cursor:pointer;margin-top:1.5em;margin-bottom:1.5em;" class="form-control" id="tag_select" name="bulan">
 										<option value="0" selected disabled> Pilih Bulan</option>
 									<option value="01"> Januari</option>
 									<option value="02"> Februari</option>
@@ -47,6 +54,18 @@
 									<option value="12"> Desember</option>
 									</select>
 													
+									<select style="cursor:pointer;" class="form-control" id="tag_select" name="tahun">
+									<option value="0" selected disabled> Pilih Tahun</option>
+									<?php 
+									$year = date('Y');
+									$min = $year - 60;
+									$max = $year;
+									for( $i=$max; $i>=$min; $i-- ) {
+									echo '<option value='.$i.'>'.$i.'</option>';
+														}
+														?>
+									</select>
+									<br>
 									<input class="btn btn-primary btn-block" name="submit" type="submit" value="Cari"/>
 								</form>
 									

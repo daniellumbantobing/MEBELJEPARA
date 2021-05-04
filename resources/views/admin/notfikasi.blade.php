@@ -43,7 +43,6 @@
                                         
                                         <td>
                     <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" produk-id="{{$us->id}}">Delete</a>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateModal{{$us->id}}" style="border-radius:10px">Detail Komentar</a>
                     </td>
                   </tr>
                     
