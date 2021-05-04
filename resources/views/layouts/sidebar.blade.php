@@ -29,13 +29,12 @@
 
 
           <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
-          <li><a href="notifications.html" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
+          <li><a href="/laporanpenjualan" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
           <li>
             <a href="/feedback"><i class="fas fa-comment"></i> <span>Feedback</span></a>
            
           </li>
-          {{-- <li><a href="tables.html" class=""><i class="fas fa-bell"></i> <span>Notifikasi</span></a></li>
-           --}}
+          <li><a href="{{url('/notifikasi')}}" class=""><i class="fas fa-bell"></i> <span>Notifikasi</span></a></li>
         </ul>
       </nav>
     </div>

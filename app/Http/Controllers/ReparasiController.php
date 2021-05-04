@@ -6,6 +6,7 @@ use App\BuktiPembayaran;
 use App\BuktiPembayaranReparasi;
 use App\Notifikasi;
 use App\Reparasi;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -79,6 +80,13 @@ class ReparasiController extends Controller
         $reparasi = DB::getPdo()->lastInsertId();
 
         $id = $reparasi;
+        $user = User::where('id', Auth::user()->id)->first();
+
+        $notif = new Notifikasi;
+        $notif->user_id = 1;
+        $notif->isi =  $user->nama_depan . " Mememesan layanan reparasi ";
+        $notif->id_notif = 2;
+        $notif->save();
 
 
         return redirect('/viewreparasi/' . $id)->with('sukses', 'Reparasi berhasil direquest');

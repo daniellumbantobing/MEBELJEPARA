@@ -58,7 +58,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">&copy; Kelompok 4</p>
+				<p class="copyright">&copy; Mebel Jepara</p>
 			</div>
 		</footer>
 	</div>

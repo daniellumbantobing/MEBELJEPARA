@@ -229,6 +229,7 @@ class ProductController extends Controller
             $notif = new Notifikasi;
             $notif->user_id = 1;
             $notif->isi =  $user->nama_depan . " Memesan " . $c->nama_produk;
+            $notif->id_notif = 1;
             $notif->save();
         }
 

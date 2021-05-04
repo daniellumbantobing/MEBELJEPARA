@@ -101,6 +101,13 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     //Feedback
     Route::get('/feedback', 'KomentarController@index');
+
+    //Laporan Penjualan
+    Route::get('/laporanpenjualan', 'LaporanPenjualanController@index');
+
+    //Notifikasi
+    Route::get('/notifikasi', 'NotifikasiController@index');
+    Route::get('delete/{id}/notifikasi', 'NotifikasiController@hapus');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {

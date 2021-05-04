@@ -42,34 +42,33 @@
                                    @if(!empty($notif1))
                       @foreach ($notif1 as $n)
                             
-                <a href="#" class="notification-item"><span class="dot bg-danger"></span>{{$n->isi}}</a>
+                <a href="
+                @if ($n->id_notif == 1)
+                {{url("/pemesananproduk")}}
+                  @elseif ($n->id_notif == 2)
+                  {{url("/pesananreparasi")}}
+                  
+                  @elseif ($n->id_notif == 3)
+                  {{url("/pesanantempaan")}}
+                  
+                @endif
+                
+                " class="notification-item"><span class="dot bg-danger"></span>{{$n->isi}}</a>
                       @endforeach
                       @endif
               </li>
-              <li><a href="#" class="more">See all notifications</a></li>
+              <li><a href="{{url('/notifikasi')}}" class="more">Lihat Semua Notifikasi</a></li>
             </ul>
           </li>
-          {{-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Basic Use</a></li>
-              <li><a href="#">Working With Data</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Troubleshooting</a></li>
-            </ul>
-          </li> --}}
+         
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="#" class="img-circle" alt="Avatar"> <span>{{auth()->user()->nama_depan}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
             <ul class="dropdown-menu">
               <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-              <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-              <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
               <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
             </ul>
           </li>
-          <!-- <li>
-            <a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-          </li> -->
+         
         </ul>
       </div>
     </div>

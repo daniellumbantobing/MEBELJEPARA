@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BuktiPembayaranTempaan;
 use App\Tempaan;
 use App\Notifikasi;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -78,9 +79,13 @@ class TempaanController extends Controller
         $tempaan->save();
 
         $tempaan_id = DB::getPdo()->lastInsertId();
-
+        $user = User::where('id', Auth::user()->id)->first();
         $id = $tempaan_id;
-
+        $notif = new Notifikasi;
+        $notif->user_id = 1;
+        $notif->isi =  $user->nama_depan . " Mememesan layanan reparasi ";
+        $notif->id_notif = 3;
+        $notif->save();
 
         return redirect('/viewtempaan/' . $id)->with('sukses', 'Tempaan berhasil direquest');
     }

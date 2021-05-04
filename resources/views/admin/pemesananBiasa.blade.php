@@ -44,7 +44,7 @@
                                                 <td>{{++$key}}</td>
                                                 <td>{{$us->user->nama_depan}} {{$us->user->nama_belakang}}</td>
                                                 <td>{{$total_pesanan}}</td>
-                                                <td>{{$us->total_harga}}</td>
+                                                <td>@currency($us->total_harga)</td>
                                                 <td>{{$us->status_pembayaran}}</td>
                                                 <td>{{$us->status_pemesanan}}</td>
                                                 
