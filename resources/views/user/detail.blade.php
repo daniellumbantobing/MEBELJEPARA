@@ -1,9 +1,10 @@
 <?php
    if(Auth::check()){
-        $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->first();
+        $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->latest()->first();
     
    if(!empty($d)){
         $d1= $d->pemesanan;
+      
    }
   $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
   
@@ -17,9 +18,11 @@
 
 @extends('dashboard.main')
 @section('main')
-     <div class="container-fluid detail">
+ 
+<div class="container-fluid detail">
         <div class="row">
-             <div class="col-12 col-md-12 mt-4">
+
+            <div class="col-12 col-md-12 mt-4">
                     <div class="card shadow">
                         <div class="row">
                         <div class="col-12 col-md-4">
@@ -105,7 +108,7 @@
                              <hr>
                               @if(Auth::check())
                              @if($komen != 1)
-                             @if(!empty($d) && !empty($d1->status_pemesanan == "Dikirim"))
+                             @if(!empty($d) && $d1->status_pemesanan == "Dikirim")
                                  
                             
                              <div class="form-group{{$errors->has('deskripsi') ? ' has-error' : ''}}">
