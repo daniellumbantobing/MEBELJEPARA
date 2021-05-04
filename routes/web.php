@@ -105,13 +105,20 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     //Laporan Penjualan
     Route::get('/laporanpenjualan', 'LaporanPenjualanController@index');
+    Route::get('/filter/laporanpenjualan', 'LaporanPenjualanController@index');
+
+    //Laporan Penjualan Tempaan
+    Route::get('/laporantempaan', 'LaporanPenjualanController@tempaan');
+    Route::get('/filter/laporantempaan', 'LaporanPenjualanController@tempaan');
+
+    //Laporan Penjualan Reparasi
+    Route::get('/laporanreparasi', 'LaporanPenjualanController@reparasi');
+    Route::get('/filter/laporanreparasi', 'LaporanPenjualanController@reparasi');
+
 
     //Notifikasi
     Route::get('/notifikasi', 'NotifikasiController@index');
     Route::get('delete/{id}/notifikasi', 'NotifikasiController@hapus');
-
-    //Laporan Penjualan 
-    Route::get('/filter/laporanpenjualan', 'LaporanPenjualanController@index');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:user']], function () {

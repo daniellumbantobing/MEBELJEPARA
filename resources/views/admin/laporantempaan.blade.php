@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Laporan Penjualan')
+@section('title','Laporan Penjualan Tempaan')
 @section('content')
    <div class="main">
         <div class="main-content">
@@ -13,7 +13,7 @@
 								<div class="panel-heading mt-3">
 									<center>
 									<h3 class="panel-title">
-									Laporan Penjualan Produk Biasa 
+									Laporan Penjualan Produk Tempaan 
 									</h3>
 									</center>
                    
@@ -35,7 +35,7 @@
                    
 								</div>
 								<div class="panel-body">
-								<form action="{{url('/filter/laporanpenjualan')}}" method="GET" class="form-group">
+								<form action="{{url('/filter/laporantempaan')}}" method="GET" class="form-group">
 									@csrf
 									
 									<select style="cursor:pointer;" class="form-control" id="tag_select" name="hari">

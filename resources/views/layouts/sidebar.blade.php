@@ -29,7 +29,20 @@
 
 
           <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
-          <li><a href="/laporanpenjualan" class=""><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span></a></li>
+          
+          
+           <li>
+            <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="fas fa-file-medical-alt"></i> <span>Data Pemesanan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+            <div id="subPages2" class="collapse">
+              <ul class="nav">
+                <li><a href="{{url('/laporanpenjualan')}}" class="">Produk Biasa</a></li>
+                <li><a href="{{url('/laporantempaan')}}" class="">Tempaan</a></li>
+                <li><a href="{{url('/laporanreparasi')}}" class="">Reparasi</a></li>
+               </ul>
+            </div>
+          </li>
+          
+         
           <li>
             <a href="/feedback"><i class="fas fa-comment"></i> <span>Feedback</span></a>
            
