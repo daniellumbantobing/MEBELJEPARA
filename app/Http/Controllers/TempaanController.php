@@ -83,7 +83,7 @@ class TempaanController extends Controller
         $id = $tempaan_id;
         $notif = new Notifikasi;
         $notif->user_id = 1;
-        $notif->isi =  $user->nama_depan . " Mememesan layanan reparasi ";
+        $notif->isi =  $user->nama_depan . " Mememesan layanan Tempaan ";
         $notif->id_notif = 3;
         $notif->save();
 
