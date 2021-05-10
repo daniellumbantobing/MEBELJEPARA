@@ -3,6 +3,8 @@
 	<title>Login</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+	 
   <!-- VENDOR CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
@@ -89,7 +91,7 @@
     background-color: #fff;
 }
 .login-page {
-  padding: 100;  
+  padding: 110;  
   margin: auto;
 }
 .form {

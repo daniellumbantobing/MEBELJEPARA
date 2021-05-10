@@ -61,7 +61,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
             <div class="row" style="margin-top:-18px;">
              @foreach ($produk as $pr)
                 <a href="{{url('produk/'.$pr->id.'/detail')}}">
-                 <div class="col-6 col-md-4 mt-4">
+                 <div class="col-md-4 mt-4">
                     <div class="card shadow">
                         <img src="{{url('images/'.$pr->gambar)}}" class="card-img-top img-fluid" alt="...">
                         </a>

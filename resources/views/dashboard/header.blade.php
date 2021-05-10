@@ -8,13 +8,13 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja'])->orderby('creat
 <header class="sticky-top shadow">
         <div class="container-fluid">
             <div class="row">
-              <div class="col-md-4 col-4">
+              <div class="col-md-4">
                     
                <a href="{{url('/')}}"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px;"></a>
                 
                 </div>
             
-                <div class="col-md-4 col-4">
+                <div class="col-md-4">
                 {{-- serch --}}
              
                    
@@ -37,7 +37,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja'])->orderby('creat
                 </div>
                     </form>
                 </div>
-                <div class="col-md-4 col-4 text-right">
+                <div class="col-md-4 text-right">
                     
                     <div class="nav-item my-md-4 header-links">
                        

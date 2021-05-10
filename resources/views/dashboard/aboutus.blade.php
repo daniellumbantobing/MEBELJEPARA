@@ -9,7 +9,7 @@
       <div class="card-body">
         <div class="text-center">
             <h4 style="            
-            line-height:140px;">About Us</h4>
+            line-height:140px;">Tentang Stasiun Mebel Jepara</h4>
             </div>
           
   
@@ -44,12 +44,7 @@
             hanya pada kerusakan namun juga ingin menambah atau mengurangi desain pada produk yang sudah
             ada sebelumnya.
 
-        </p><br>
-     <h5>Hubungi Kami:</h5><br>
-     <p>
-     Jln.Stasiun 80A, Desa Lalang, Kecamatan Medan Sunggal, Medan <br>
-     +62 813-7013-3334(WA)<br>
-  
+        </p>
 
 </p>
         
