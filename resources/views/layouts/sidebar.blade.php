@@ -32,7 +32,7 @@
           
           
            <li>
-            <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="fas fa-file-medical-alt"></i> <span>Data Pemesanan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+            <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="fas fa-file-medical-alt"></i> <span>Laporan Penjualan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="subPages2" class="collapse">
               <ul class="nav">
                 <li><a href="{{url('/laporanpenjualan')}}" class="">Produk Biasa</a></li>

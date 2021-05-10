@@ -29,12 +29,24 @@ class LaporanPenjualanController extends Controller
             $d1 =   Pemesanan::whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->count();
         }
 
+        $date = DB::table('pemesanan')
+            ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_harga) as total'))
+            ->groupBy('date')
+            ->get();
+        $tgl = [];
+
+        $total = [];
+
+        foreach ($date as $ds) {
+            $total[] =  $ds->total;
+            $tgl[] =  date('M Y', strtotime($ds->date));
+        }
 
 
 
 
 
-        return view('admin.laporan', compact(['d1', 'd', 'request']));
+        return view('admin.laporan', compact(['d1', 'd', 'request',  'date', 'tgl', 'total']));
     }
 
     public function tempaan(Request $request)
