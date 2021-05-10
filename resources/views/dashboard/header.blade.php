@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\Controller;
 $kategori = Controller::mainCategories();
-$kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja'])->orderby('created_at','asc')->get();
+
 
 
 ?>
@@ -145,14 +145,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja'])->orderby('creat
                   <ul class="navbar-nav">
                     <li class="nav-item active">
                       <a class="nav-link text-white" href="{{url('/')}}">HOME <span class="sr-only">(current)</span></a>
-                    </li>
-                  @foreach ($kat as $k)
-                      
-                  <li class="nav-item">
-                      <a class="nav-link text-white" href="{{url('produk/'.$k->nama_kategori)}}">{{$k->nama_kategori}}</a>
-                    </li>
-                  
-                  @endforeach
+                 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{url('/tempahan')}}">Request Tempaan</a>
                     </li>

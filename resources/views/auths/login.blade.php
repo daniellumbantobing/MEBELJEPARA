@@ -91,7 +91,7 @@
     background-color: #fff;
 }
 .login-page {
-  padding: 110;  
+  padding: 100;  
   margin: auto;
 }
 .form {
