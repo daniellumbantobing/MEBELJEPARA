@@ -21,11 +21,16 @@
                  <div class="col-md-4 mt-4 mb-5">
                       <h5><strong>Hubungi Kami</strong></h5>
                    <ul class="list-group" style="list-style: none;">
-                    <li><i class="fas fa-map-marker-alt"></i> Jln.Stasiun No.80A,
+                    <li>
+                    <a target="_blank" href="https://www.google.com/maps?ll=3.604636,98.604873&z=19&t=m&hl=id&gl=ID&mapclient=embed&q=Jl.+Stasiun+No.80+Kp.+Lalang+Kec.+Sunggal+Kabupaten+Deli+Serdang,+Sumatera+Utara+20126"> <i class="fas fa-map-marker-alt mr-2"  style="color: rgba(235, 8, 8, 0.705);"></i> Jln.Stasiun No.80A,
                      Desa Lalang,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Kecamatan Sunggal</li>
-                    <li><i class="fas fa-phone-alt"></i> +62 813-7013-3334</li>
-                     <li><i class="fas fa-envelope"></i> Email</li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kecamatan Sunggal
+                  </a>
+                     
+                  </li>
+                  
+                    <li><i class="fab fa-whatsapp mr-2" style="color: rgb(33, 189, 103)"></i>+62 813-7013-3334</li>
+                     <li><a href="https://instagram.com/aslilokaldotcom/"><i class="fab fa-facebook text-primary mr-2"></i> Mebel Jepara</a>
                 
                     </ul>
                 </div>

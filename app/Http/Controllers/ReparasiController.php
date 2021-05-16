@@ -86,6 +86,7 @@ class ReparasiController extends Controller
         $notif->user_id = 1;
         $notif->isi =  $user->nama_depan . " Mememesan layanan reparasi ";
         $notif->id_notif = 2;
+        $notif->status = 1;
         $notif->save();
 
 
@@ -182,6 +183,7 @@ class ReparasiController extends Controller
         $notif = new Notifikasi();
         $notif->user_id = $reparasi->user_id;
         $notif->isi =  "Reparasi Anda Dibatalkan<br>dengan no reparasi#" . $reparasi->id;
+        $notif->status = 1;
         $notif->save();
 
         return back()->with('sukses', 'Reparasi berhasil dibatalkan');
@@ -201,6 +203,7 @@ class ReparasiController extends Controller
         $notif = new Notifikasi;
         $notif->user_id = $reparasi->user_id;
         $notif->isi =  "Cek Biaya reparasi Anda<br>dengan no reparasi#" . $reparasi->id;
+        $notif->status = 1;
         $notif->save();
 
         return back()->with('sukses', 'Biaya tempaan berhasil dibuat');
@@ -284,9 +287,8 @@ class ReparasiController extends Controller
         $notif = new Notifikasi;
         $notif->user_id = $reparasi->user_id;
         $notif->isi = "Reparasi anda dikonfirmasi <br> dengan No order #" . $reparasi->id;
+        $notif->status = 1;
         $notif->save();
-
-
         //  User::find($pemesanan->user_id)->notify(new InvoicePaid);
         return redirect()->back()->with('sukses', 'Tempaan Dikonfirmasi');
     }

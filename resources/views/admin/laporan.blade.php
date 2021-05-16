@@ -147,7 +147,7 @@
 <script>
 		Highcharts.chart('chartnilai', {
 	    chart: {
-	        type: 'column'
+	        type: ''
 	    },
 	    title: {
 	        text: 'Laporan Penjualan'

@@ -27,6 +27,7 @@
                                                 <th>Total</th>
                                                 <th>Status Pembayaran</th>
                                                 <th>Status Pemesanan</th>
+                                                
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -55,7 +56,7 @@
 
 
                                         
-                                            <a target="_blank" href="/detpro/{{$us->id}}" class="btn btn-success btn-sm"  style="border-radius:10px">Detail</a>
+                                            <a target="_blank" href="/detpro/{{$us->id}}" class="btn btn-success btn-sm"  style="border-radius:10px"><i class="fas fa-eye"></i></a>
                                             @if($us->status_pemesanan == "Dikirim")
                                             <a href="/conf1/{{$us->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Kirim</a>
                                             

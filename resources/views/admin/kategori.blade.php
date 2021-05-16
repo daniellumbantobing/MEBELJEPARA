@@ -40,8 +40,8 @@
 												<td>{{$pd->nama_kategori}}</td>
 												
 										<td>
-                    <a href="#" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-produk="{{$pd->nama_kategori}}" produk-id="{{$pd->id}}">Delete</a>
-										<a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{$pd->id}}" style="border-radius:10px">Edit</a>
+                    <a href="#" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-produk="{{$pd->nama_kategori}}" produk-id="{{$pd->id}}"><i class="fas fa-trash-alt"></i></a>
+										<a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{$pd->id}}" style="border-radius:10px"><i class="fas fa-edit"></i></a>
                     </td>
                     <div class="modal fade" id="updateModal{{$pd->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">

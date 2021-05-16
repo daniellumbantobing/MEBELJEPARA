@@ -1,20 +1,17 @@
 <?php
 use App\Http\Controllers\Controller;
 $kategori = Controller::mainCategories();
-
-
-
 ?>
 <header class="sticky-top shadow">
         <div class="container-fluid">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 head-img">
                     
-               <a href="{{url('/')}}"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px;"></a>
+               <a href="{{url('/')}}"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo"></a>
                 
                 </div>
             
-                <div class="col-md-4">
+                <div class="col-md-4 head-search">
                 {{-- serch --}}
              
                    
@@ -37,7 +34,7 @@ $kategori = Controller::mainCategories();
                 </div>
                     </form>
                 </div>
-                <div class="col-md-4 text-right">
+                <div class="col-md-4 text-right head-top">
                     
                     <div class="nav-item my-md-4 header-links">
                        
@@ -50,7 +47,7 @@ $kategori = Controller::mainCategories();
                                   
                                      $notif = \App\Cart::where('user_id', Auth::user()->id)->count(); 
                                      $notif1= \App\Notifikasi::where('user_id', Auth::user()->id)->latest()->get(); 
-                                        
+                                     $notif3= \App\Notifikasi::where(['user_id' => Auth::user()->id, 'status' => 1])->latest()->get();    
                                      
                                  }
                                  else{
@@ -69,7 +66,9 @@ $kategori = Controller::mainCategories();
                             
                         </li>
                                 
-                       
+                       @if (Auth::check())
+                           
+                      
                      
                         <li>
                               
@@ -78,7 +77,7 @@ $kategori = Controller::mainCategories();
                                             @if($notif1->count() == 0)
                                                 <span class="badge badge-danger"></span>
                                             @else
-                                            <span class="badge badge-danger">{{$notif1->count()}}</span>
+                                            <span class="badge badge-danger">{{$notif3->count()}}</span>
                                         
                                             @endif
                             @endif   
@@ -98,14 +97,20 @@ $kategori = Controller::mainCategories();
                                      </div>
                                 </div>
                             </div>
+                            
+                            
                             @endforeach
+                        <hr>
+                            <div class="text-center">
+                             <a href="{{url('update/notifikasi')}}" ><u>Tandai Semua Telah Dibaca</u> </a>
+                            </div>
                         </div>
                                      
                        @endif         
                     </li>        
-                          
+                           @endif
                             <li>
-                        <i class="fas fa-user p-2 cursor" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                        <i class="fas fa-user-circle p-2 cursor" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                         @if(!Auth::check())
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{url('/login')}}">Login</a>
@@ -115,10 +120,8 @@ $kategori = Controller::mainCategories();
                         
                         @elseif(auth()->user()->role == 'user')
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                           
-                            <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                              <a class="dropdown-item" href="{{url('/profil')}}">Profil</a>
-                            
+                             <a class="dropdown-item" href="{{url('/logout')}}">Logout</a> 
                         </div>
                         
                         @endif
@@ -162,7 +165,3 @@ $kategori = Controller::mainCategories();
               
               
         </div>
-
-        
-
-        

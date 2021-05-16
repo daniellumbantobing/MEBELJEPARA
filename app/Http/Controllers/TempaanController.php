@@ -85,6 +85,7 @@ class TempaanController extends Controller
         $notif->user_id = 1;
         $notif->isi =  $user->nama_depan . " Mememesan layanan Tempaan ";
         $notif->id_notif = 3;
+        $notif->status = 1;
         $notif->save();
 
         return redirect('/viewtempaan/' . $id)->with('sukses', 'Tempaan berhasil direquest');
@@ -181,6 +182,7 @@ class TempaanController extends Controller
         $notif = new Notifikasi;
         $notif->user_id = $tempaan->user_id;
         $notif->isi =  "Cek Biaya tempaan <br>" . $tempaan->nama_tempaan . " Anda";
+        $notif->status = 1;
         $notif->save();
 
         return back()->with('sukses', 'Biaya tempaan berhasil dibuat');
@@ -257,6 +259,7 @@ class TempaanController extends Controller
         $notif = new Notifikasi;
         $notif->user_id = $tempaan->user_id;
         $notif->isi = "Tempaan anda dikonfirmasi <br> dengan No order #" . $tempaan->id;
+        $notif->status = 1;
         $notif->save();
 
 

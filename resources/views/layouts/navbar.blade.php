@@ -23,7 +23,8 @@
               <?php
                                  if(Auth::check()){   
                                   
-                                     $notif1= \App\Notifikasi::where('user_id', Auth::user()->id)->latest()->get(); 
+                                     $notif1= \App\Notifikasi::where(['user_id' => Auth::user()->id])->latest()->get(); 
+                                     $notif2= \App\Notifikasi::where(['user_id' => Auth::user()->id, 'status' => 1])->latest()->get(); 
                                         
                                      
                                  }
@@ -32,14 +33,14 @@
                                 ?>
                             
             <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+             
               <i class="lnr lnr-alarm"></i>
-              <span class="badge bg-danger">{{$notif1->count()}}</span>
+              <span class="badge bg-danger">{{$notif2->count()}}</span>
             </a>
             <ul class="dropdown-menu notifications">
               <li>
-
             
-                                   @if(!empty($notif1))
+                                   @if(!empty($notif1)) 
                       @foreach ($notif1 as $n)
                             
                 <a href="
@@ -58,6 +59,7 @@
                       @endif
               </li>
               <li><a href="{{url('/notifikasi')}}" class="more">Lihat Semua Notifikasi</a></li>
+              <li><a href="{{url('update/notifikasi')}}" class="more">Tandai Semua Telah Dibaca</a></li>
             </ul>
           </li>
          

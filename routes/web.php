@@ -161,3 +161,8 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/komentar/{id}/create', 'KomentarController@create');
     Route::get('delete/{id}/komentar', 'KomentarController@destroy');
 });
+
+
+Route::group(['middleware' => ['auth', 'checkRole:user,admin']], function () {
+    Route::get('update/notifikasi', 'NotifikasiController@update');
+});

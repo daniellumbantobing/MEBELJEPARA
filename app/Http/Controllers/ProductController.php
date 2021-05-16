@@ -224,12 +224,16 @@ class ProductController extends Controller
             $pesananPro->harga = $c->harga;
             $pesananPro->save();
 
+            $produk = Produk::find($c->produk_id);
+            $produk->qty = $produk->qty - $c->qty;
+            $produk->save();
 
 
             $notif = new Notifikasi;
             $notif->user_id = 1;
             $notif->isi =  $user->nama_depan . " Memesan " . $c->nama_produk;
             $notif->id_notif = 1;
+            $notif->status = 1;
             $notif->save();
         }
 
@@ -299,6 +303,7 @@ class ProductController extends Controller
         $notif = new Notifikasi;
         $notif->user_id = $pemesanan->user_id;
         $notif->isi = "Pesanan anda dikonfirmasi <br> dengan No order #" . $pemesanan->id;
+        $notif->status = 1;
         $notif->save();
 
 

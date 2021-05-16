@@ -67,12 +67,24 @@ class LaporanPenjualanController extends Controller
             $d1 =   Tempaan::whereMonth('created_at', $request->bulan)->whereYear('created_at', $request->tahun)->where('status_pembayaran', 'Sudah Dibayar')->count();
         }
 
+        $date = DB::table('tempaan')
+            ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_biaya) as total'))
+            ->groupBy('date')
+            ->get();
+        $tgl = [];
+
+        $total = [];
+
+        foreach ($date as $ds) {
+            $total[] =  $ds->total;
+            $tgl[] =  date('M Y', strtotime($ds->date));
+        }
 
 
 
 
 
-        return view('admin.laporantempaan', compact(['d1', 'd', 'request']));
+        return view('admin.laporantempaan', compact(['d1', 'd', 'request',  'date', 'tgl', 'total']));
     }
 
 
@@ -98,7 +110,22 @@ class LaporanPenjualanController extends Controller
 
 
 
+        $date = DB::table('reparasi')
+            ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(biaya) as total'))
+            ->groupBy('date')
+            ->get();
+        $tgl = [];
 
-        return view('admin.laporanreparasi', compact(['d1', 'd', 'request']));
+        $total = [];
+
+        foreach ($date as $ds) {
+            $total[] =  $ds->total;
+            $tgl[] =  date('M Y', strtotime($ds->date));
+        }
+
+
+
+
+        return view('admin.laporanreparasi', compact(['d1', 'd', 'request', 'date', 'tgl', 'total']));
     }
 }

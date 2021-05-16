@@ -99,9 +99,9 @@
 								<div class="panel-heading">
 									<h3 class="panel-title">
 										@if (!@empty($request->hari) && !@empty($request->bulan) && !@empty($request->tahun))
-										Hasil Pencarian		
+										Hasil Pencarian	 "{{$request->hari}} {{$request->bulan}} {{$request->tahun}}"
 										@elseif(!@empty($request->bulan) && !@empty($request->tahun))
-										Hasil Pencarian		
+										Hasil Pencarian	 "{{$request->bulan}} {{$request->tahun}}"
 										@else
 										Laporan Penjualan (Hari Ini)
 										@endif
@@ -126,8 +126,62 @@
 
             
 			</div>
+
+			
+				<div class="col-md-12">
+							<div class="panel">
+								<div id="chartnilai">
+									
+								</div>
+							</div>
+						</div>
 		</div>
 	</div>
 </div>
                       
+ @endsection
+  
+ @section('footer')
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+		Highcharts.chart('chartnilai', {
+	    chart: {
+	        type: ''
+	    },
+	    title: {
+	        text: 'Laporan Penjualan'
+	    },
+	    xAxis: {
+	        categories:{!!json_encode($tgl)!!},
+	        crosshair: true
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Order'
+	        }
+	    },
+	    tooltip: {
+	        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	        footerFormat: '</table>',
+	        shared: true,
+	        useHTML: true
+	    },
+	    plotOptions: {
+	        column: {
+	            pointPadding: 0.2,
+	            borderWidth: 0
+	        }
+	    },
+	    series: [{
+	        name: 'Total Pendapatan',
+	        data: {!!json_encode($total)!!}
+ 
+	    }] 
+	}); 
+
+	$(document).ready(function() {
+    $('.nilai').editable();
+}); 	
+</script>
  @endsection

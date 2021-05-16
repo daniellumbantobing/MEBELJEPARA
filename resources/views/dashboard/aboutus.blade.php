@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="konfirm">
-    <div class="col-12 col-md-12">
+    <div class="col-md-12">
          <div class="card" style="background-color: #F5F5FA; height:15rem;">
   <div class="card-body">
       <div class="card-body">
@@ -49,7 +49,7 @@
 </p>
         
 </div><br>
-<div class="col-12 col-md-12">
+<div class="col-md-12">
      
         <div class="text-center">
              <h5>Alamat Stasiun Mebel Jepara</h5><br>

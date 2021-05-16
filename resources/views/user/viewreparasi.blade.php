@@ -57,14 +57,20 @@
                             
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 2(optional)</label><br>
-                                   <img src="/reparasi/{{$reparasi->gambar2}}" class="card-img-top img-fluid" style="width: 150px;">
-                               <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar2">
+                              @if (!empty($reparasi->gambar2))
+                              <img src="/reparasi/{{$reparasi->gambar2}}" class="card-img-top img-fluid" style="width: 150px;">
+                              
+                              @endif
+                              
+                                   <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar2">
                             </div>
 
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 3(optional)</label><br>
-                                   <img src="/reparasi/{{$reparasi->gambar3}}" class="card-img-top img-fluid" style="width: 150px;">
-                                <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar3">
+                                  @if (!empty($reparasi->gambar3)) 
+                                 <img src="/reparasi/{{$reparasi->gambar3}}" class="card-img-top img-fluid" style="width: 150px;">
+                                    @endif
+                                 <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar3">
                             </div>
 
                              <div class="form-group {{$errors->has('jenis_kerusakan') ? ' has-error' : ''}}">

@@ -18,6 +18,7 @@ class CreateNotifikasiTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('isi', 255);
             $table->integer('id_notif')->nullable();
+            $table->integer('status');
             $table->timestamps();
         });
 

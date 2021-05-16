@@ -318,3 +318,19 @@ border-radius: 20px;
 .nv{
         color:red;
 }
+.head-img img{
+    width: 300px;
+}
+@media(min-width: 321px) and (max-width : 425px){
+    .head-top{
+       margin-top: -93px;
+    }
+
+    .head-img img{
+        width: 190px;
+        margin-top: 9px;
+    }
+    .head-search{
+        margin-top: 8px;
+    }
+}

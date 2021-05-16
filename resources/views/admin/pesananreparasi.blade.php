@@ -42,7 +42,7 @@
                                       			<td>{{$p->status_pembayaran}}</td>
                                       			<td>{{$p->status_pemesanan}}</td>
                                       			<td>
-                                      	<a data-toggle="tooltip" title="Detail untuk konfirmasi biaya" target="_blank" href="/detreparasi/{{$p->id}}" class="btn btn-success btn-sm"  style="border-radius:10px">Detail</a>
+                                      	<a data-toggle="tooltip" title="Detail untuk konfirmasi biaya" target="_blank" href="/detreparasi/{{$p->id}}" class="btn btn-success btn-sm"  style="border-radius:10px"><i class="fas fa-eye"></i></a>
                                             @if($p->status_pemesanan == "Dikirim")
                                             <a href="/konfrep1/{{$p->id}}" class="btn btn-danger btn-sm"  style="border-radius:10px">Batal Kirim</a>
                                             
