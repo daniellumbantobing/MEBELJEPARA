@@ -3,7 +3,7 @@
 	<title>Register</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	 <meta name="viewport" content="width=device-width,initial-scale=1">
 	
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -19,6 +19,7 @@
 	<!-- ICONS -->
   <link rel="icon" href="{{asset('user/assets/icon.png')}}" style="width: 100px;">
   <!-- TABLES -->
+  <link rel="stylesheet" href="{{asset('user/css/register.css')}}">
 
 </head>
 
@@ -30,10 +31,11 @@
 				@endif   --}}
 <div class="login-page">
   <div class="form">
-    <a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo" style="width: 300px; "></a>
-  
+    
 	<div class="header">
-		<p class="lead" style=""><b>Daftar Akun</b></p>
+		<a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo"></a>
+  
+    <p class="lead" style=""><b>Daftar Akun</b></p>
 	</div>
 	<form action="/postregister" method="POST">
 		@csrf
@@ -75,104 +77,10 @@
 </form>  
 </div>
 </div>
-</div>
-</div>						
+					
 </body>
 </html>
-<style>
-	body {
-    background-color: #fff;
-   
-}
-	.btn-yellow {
-		color : #fff;
-    background-color: #CAA563;
-    border-color: #CAA563;
-	border-radius : 20px;
-}
-.form-control {
-    
-    border-radius: 20px;
-    border-color: #eaeaea;
-    background-color: #fff;
-}
-.login-page {
-  padding: 100;  
-  margin: auto;
-}
-.form {
-  background: #FFFFFF;
-  width: 490px;
-  margin: 0 auto;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 20px;
-}
 
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 12px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-.form .register-form {
-  display: none;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-</style>
 <script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
 	
 
