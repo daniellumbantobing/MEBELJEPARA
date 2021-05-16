@@ -333,4 +333,7 @@ border-radius: 20px;
     .head-search{
         margin-top: 8px;
     }
+    footer{
+        text-align: center;
+    }
 }
