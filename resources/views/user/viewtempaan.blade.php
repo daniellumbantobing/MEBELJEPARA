@@ -73,7 +73,7 @@
                                 <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar3">
                             </div>
                                <div class="form-group">
-                                    <input type="number" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah" name="jumlah" value="{{$tempaan->jumlah}}">
+                                    <input type="number"  min="1" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah" name="jumlah" value="{{$tempaan->jumlah}}">
                                         @if($errors->has('jumlah'))
                                                 <center>           <span class="help-block">{{$errors->first('jumlah')}}</span></center>
                                         @endif

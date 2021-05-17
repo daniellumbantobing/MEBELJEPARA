@@ -23,7 +23,7 @@
               <?php
                                  if(Auth::check()){   
                                   
-                                     $notif1= \App\Notifikasi::where(['user_id' => Auth::user()->id])->latest()->get(); 
+                                     $notif1= \App\Notifikasi::where(['user_id' => Auth::user()->id])->latest()->take(6)->get(); 
                                      $notif2= \App\Notifikasi::where(['user_id' => Auth::user()->id, 'status' => 1])->latest()->get(); 
                                         
                                      
@@ -54,7 +54,7 @@
                   
                 @endif
                 
-                " class="notification-item"><span class="dot bg-danger"></span>{{$n->isi}}</a>
+                " class="notification-item"><span class="dot bg-danger"></span>{!!$n->isi!!}</a>
                       @endforeach
                       @endif
               </li>

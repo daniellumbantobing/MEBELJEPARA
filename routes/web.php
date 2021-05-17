@@ -90,6 +90,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::post('/biaya/{id}/tempaan', 'TempaanController@buatbiaya');
     Route::get('/konftemp/{id}', 'TempaanController@konfirmasitempaan');
     Route::get('/konftempbtl/{id}', 'TempaanController@batalkonfirmasi');
+    Route::post('/status/{id}/tempahan', 'TempaanController@status_tempahan');
 
     //pesanan reparasi
     Route::get('/pesananreparasi', 'ReparasiController@pesanan');
@@ -156,6 +157,7 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/checkoutreparasi/{id}', 'ReparasiController@checkoutreparasi');
     Route::get('/konfirmreparasi/{id}/', 'ReparasiController@konfirmreparasi');
     Route::post('/buktireparasi', 'ReparasiController@buktireparasi');
+    Route::get('/batal/{id}/reparasi', 'ReparasiController@batal');
 
     //Komentar
     Route::post('/komentar/{id}/create', 'KomentarController@create');

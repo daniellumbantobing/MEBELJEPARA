@@ -30,6 +30,7 @@ class CreateTempaanTable extends Migration
             $table->double('biaya')->nullable();
             $table->string('status_pemesanan', 255);
             $table->string('status_pembayaran', 255);
+            $table->string('ket_tempahan', 255)->nullable();
             $table->string('transfer_bank', 255)->nullable();
             $table->double('total_biaya')->nullable();
             $table->timestamps();

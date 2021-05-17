@@ -34,11 +34,11 @@ $kategori = Controller::mainCategories();
                 </div>
                     </form>
                 </div>
-                <div class="col-md-4 text-right head-top">
+                <div class="col-md-4 text-right">
                     
-                    <div class="nav-item my-md-4 header-links">
+                    <div class="nav-item my-md-4 header-links head-top">
                        
-                        <ul style="list-style: none; ">
+                        <ul style="list-style: none;">
 
                         <li>
                             <?php

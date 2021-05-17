@@ -86,7 +86,10 @@
                            <hr/>
                            <div>
                                <p>
-                                @if ($det_tempaan->status_pembayaran != "Sudah Dibayar")
+                                   @if ($det_tempaan->status_pemesanan == "Dibatalkan")
+                                <p class="label label-danger">Dibatalkan</p> 
+                             
+                                @elseif ($det_tempaan->status_pembayaran != "Sudah Dibayar")
                                   
                                 <a href="" class="btn btn-danger" style="border-radius: 20px;" data-toggle="modal" data-target="#exampleModal1">
                                     Klik jika ingin membatalkan

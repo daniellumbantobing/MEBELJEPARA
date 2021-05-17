@@ -280,6 +280,13 @@ class ProductController extends Controller
         $bukti->save();
         DB::table('pemesanan')->where('id', $id)->update(['status_pembayaran' => 'Sudah Dibayar']);
 
+        $notif = new Notifikasi;
+        $notif->user_id = 1;
+        $notif->isi =  Auth()->user()->nama_depan . " telah membayar pesanan<br> dengan No order #" . $id;
+        $notif->id_notif = 1;
+        $notif->status = 1;
+        $notif->save();
+
         return redirect('/terimakasih/' . $id)->with('sukses', 'Berhasil Upload Bukti Pembayaran');
     }
     public function terimakasih($id)
@@ -359,4 +366,6 @@ class ProductController extends Controller
         $profil = User::where('id', Auth::user()->id)->first();
         return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1', 'reparasi', 'reparasi1']));
     }
+
+   
 }

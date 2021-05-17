@@ -35,8 +35,6 @@
                                 
                             <h5><strong>{{$produk->nama_produk}}</strong></h5>
                              <hr/>
-{{--                              
-                            <p>Harga :<span style="font-size: 30px; font-weight: bold; margin-left:20px; color:#CAA563;">@currency($produk->harga)</span></p>  --}}
                             <h4 style="color:#CAA563 "><strong>@currency($produk->harga)</strong></h4>
                          
                              
@@ -44,7 +42,7 @@
                                 <form action="/add-cart/{{$produk->id}}" method="post">
                                     @csrf
                              <input type="number" min="1" max="{{$produk->qty}}" value="1" style="border-color: #CAA563" name="qty">
-                             {{-- mungkin akan manambahkan sttaus produk --}}
+                             {{-- mungkin akan manambahkan staus produk --}}
                               <hr />
                               <p>Status: @if($produk->qty <= 0)
                                <span class="text-danger"> <b>Out Stock</b></span>

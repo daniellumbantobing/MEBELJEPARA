@@ -3,16 +3,19 @@
 @section('main')
    <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4 profil">
-                 <p style="color:#A1A1A1;">
+      <div class="col-12 col-md-4 profil">
+                <div class="card shadow" style="border-radius: 20px;">
+                    <div class="card-body">
+                <p style="color:#A1A1A1;">
                <span style="color:#CAA563;"> {{$profil->nama_depan}} {{$profil->nama_belakang}}</span>
             <br>{{$profil->jenis_kelamin}}
-            </p> <hr/>
+            </p>
+                <hr/>
                     <ul >
                         <li class="">
                             <a href="/profil" class="">Profil Saya</a>
                         </li>
-                        
+                      
                         <li>
                             <a href="/pemesanan">Pesanan</a>
                         </li>
@@ -24,6 +27,9 @@
                     </ul>
 
             </div>
+                </div>
+            </div>
+
              @if(!empty($p_biasa || $tempaan || $reparasi))  
             <div class="col-12 col-md-8 profil1">
                 <div class="card shadow" style="border-radius: 20px;">
@@ -90,7 +96,7 @@
          @if($p->status_pemesanan == "Dikirim")
             Dikirim
         @elseif($p->status_pemesanan == "Batal Dikirim")  
-        Dibatalkan    
+          <p class="badge badge-danger">Dibatalkan</p> 
         @elseif($p->status_pembayaran == "Sudah Dibayar")  
         Pembayaran Diproses
         
@@ -314,7 +320,8 @@
     </tr>
     <tr>
       <td scope="row">
-            <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            
+        <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @if(!empty($p->gambar2))
             <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
@@ -333,9 +340,9 @@
         @if($p->status_pemesanan == "Dikirim")
         Dikirim
         @elseif($p->status_pemesanan == "Batal Dikirim")  
-        Dibatalkan    
+        <p class="badge badge-danger">Dibatalkan</p> n    
         @elseif($p->status_pemesanan == "Dibatalkan")
-        Dibatalkan 
+         <p class="badge badge-danger">Dibatalkan</p> 
         @elseif($p->status_pembayaran == "Sudah Dibayar")  
         Pembayaran Diproses
         
@@ -346,21 +353,19 @@
     </tr>
     <tr>
       <td scope="row"><a href="/detail" data-toggle="modal" data-target="#reparasi{{$p->id}}"><i class="far fa-eye"></a></i></th>
-      <td colspan="2">
-         @if($p->status_pemesanan == "Dibatalkan")
-          <p style="color: #858585;">{{$p->ket_reparasi}}</p>
-        
-      </td>
-       <td></td>
-             <td></td>
-        @endif 
+     <td></td>
+      <td></td>
+       
              <td>
             @if($p->status_pembayaran == "Sudah Dibayar")
-
+            
+            @elseif (!empty($p->biaya) && $p->status_pemesanan == "Dibatalkan")
+            
             @elseif(!empty($p->biaya))
             <a href="/konfirm/{{$p->id}}/reparasi" class="btn btn-primary btn-sm"  style="color:white; background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Bayar Sekarang</a>
-           
-
+            <a href="/batal/{{$p->id}}/reparasi" class="btn btn-danger btn-sm"  style="color:white; border-radius:10px;">Batalkan</a>
+            
+          
             @endif    
     </td>
     </tr>
@@ -551,7 +556,7 @@
 </div>
 
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                 {{-- Batal  --}}
+                 {{-- Biasa Batal  --}}
                                 <div class="mt-5">
                     @foreach ($p_biasa2 as $p) 
                   
@@ -580,7 +585,7 @@
       <td style="color:#858585;">{{$p->transfer_bank}}</td>
       <td style="color:#CAA563;"> 
       @if($p->status_pemesanan)
-          Dibatalkan
+         <p class="badge badge-danger">Dibatalkan</p> 
       @endif
           
       </td>
@@ -916,4 +921,12 @@
 @endforeach
  @endif
 
+@endsection
+@section('foot')
+<script>
+  @if(Session::has('batal'))
+    swal("{{Session::get('batal')}}", "KLik Tombol!", "success");
+  @endif
+</script>
+	
 @endsection

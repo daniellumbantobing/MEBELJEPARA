@@ -159,8 +159,10 @@
     border-top-right-radius: 20px;
      border-top-left-radius: 20px;
       height: 18rem;
+      
     
 }
+
 
 .kategori img{
     border-top-right-radius: 20px;
@@ -321,9 +323,19 @@ border-radius: 20px;
 .head-img img{
     width: 300px;
 }
+.about .p p{
+    font-size: 20px;
+    line-height:140px;
+}
+.about .card {
+    height: 15rem;
+}
 @media(min-width: 321px) and (max-width : 425px){
     .head-top{
-       margin-top: -93px;
+    margin-top: -98px;
+
+   float: right;
+        width: 50%;
     }
 
     .head-img img{
@@ -336,4 +348,18 @@ border-radius: 20px;
     footer{
         text-align: center;
     }
+
+    .about .p p{
+    font-size: 18px;
+          line-height:5rem;
+}
+.about .card {
+    height: 10rem;
+   
+}
+.map{
+    width: 320px;
+
+    height: 350px;
+}
 }

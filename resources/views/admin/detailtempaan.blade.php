@@ -12,10 +12,12 @@
 							<div class="panel-heading">
                             <h3 class="panel-title">Pemesanan Tempaan#{{$det_tempaan->id}}</h3>
 							<p class="panel-subtitle">
-                                {{$det_tempaan->nama_tempaan}}
+                               Nama Tempaan : {{$det_tempaan->nama_tempaan}}
                                 <br>Tanggal Pemesanan: {{$det_tempaan->created_at->format('d M Y  H:i')}}</p>
 
                             <div style="float: right;">
+                               @if(!empty($det_tempaan->ket_tempahan))
+                                @else
                                     @if (empty($det_tempaan->biaya))
                                       <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Buat Biaya Tempaan</a>
                                     @elseif(!empty($det_tempaan->biaya))
@@ -24,6 +26,7 @@
                                       <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">Edit Biaya Tempaan</a>
                                       
                                     @endif
+                                     @endif
                                                             
                             </div>
                             </div>
@@ -110,7 +113,27 @@
                             </table>   
                             
                            <hr/>
-                            
+                           <div>
+                               <p> 
+                                 @if ($det_tempaan->status_pemesanan == "Dibatalkan")
+                                <p class="label label-danger">Dibatalkan</p> 
+                                @elseif ($det_tempaan->status_pembayaran != "Sudah Dibayar")
+                                  
+                                <a href="" class="btn btn-danger" style="border-radius: 20px;" data-toggle="modal" data-target="#exampleModal1">
+                                    Klik jika ingin membatalkan
+                                  </a>
+                                @endif  
+                                  </p>
+                                  <div class="card card-body">
+                                   @if(!empty($det_tempaan->ket_tempahan))
+                                   <p class="text-break">
+                                    Ket:<br>
+                                    {{$det_tempaan->ket_tempahan}}</p>
+                                    @endif
+                                  </div>
+                                
+                           </div>
+                            <hr/>
                            <div>
                              <ul class="list-unstyled list-justify">
 										
@@ -173,7 +196,40 @@
 
         </div>
    </div>   
-
+<div>
+              <!-- Batal -->    
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">Batalkan Reparasi</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                     </div>
+                     <div class="modal-body">
+                       <form action="/status/{{$det_tempaan->id}}/tempahan" method="POST"  enctype="multipart/form-data">
+                               @csrf
+                              
+                             <div class="form-group{{$errors->has('ket_tempahan') ? ' has-error' : ''}}">
+                                <label for="exampleInputEmail1">Alasan dibatalkan</label>
+                                
+                                  <textarea class="form-control rad" id="validationTextarea" placeholder="Keterangan dibatalkan" name="ket_tempahan">{{$det_tempaan->ket_tempahan}}</textarea>
+                                @if($errors->has('ket_tempahan'))
+                                    <span class="help-block">{{$errors->first('ket_tempahan')}}</span>
+                                @endif
+                              
+                                 
+                     </div>
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Kirim</button>
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>   
+</div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                  <div class="modal-dialog" role="document">
                    <div class="modal-content">
@@ -204,6 +260,8 @@
                    </div>
                  </div>
                </div>	
+
+              
 
  @endsection
 

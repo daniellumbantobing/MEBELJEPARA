@@ -270,6 +270,13 @@ class ReparasiController extends Controller
         DB::table('reparasi')->where('id', $id)->update(['status_pembayaran' => 'Sudah Dibayar']);
         $reparasi = DB::table('reparasi')->where('id', $id)->where('status_pembayaran', 'Sudah Dibayar')->first();
 
+        $notif = new Notifikasi;
+        $notif->user_id = 1;
+        $notif->isi =  Auth()->user()->nama_depan . " telah membayar reparasi<br> dengan No order #" . $id;
+        $notif->id_notif = 2;
+        $notif->status = 1;
+        $notif->save();
+
         if (!empty($reparas)) {
             return redirect('/');
         }
@@ -296,5 +303,12 @@ class ReparasiController extends Controller
     {
         Reparasi::where('id', $id)->update(['status_pemesanan' => 'Batal Dikirim']);
         return redirect()->back()->with('sukses', 'Produk Batal Dikonfirmasi');
+    }
+
+    public function batal($id)
+    {
+        Reparasi::where(['id' => $id, 'user_id' => Auth()->user()->id])->update(['status_pemesanan' => 'Dibatalkan']);
+
+        return redirect()->back()->with('batal', 'Pemesanan Reparasi Dibatalkan');
     }
 }

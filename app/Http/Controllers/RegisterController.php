@@ -41,6 +41,6 @@ class RegisterController extends Controller
         $user->password = bcrypt($request->password);
         $user->remember_token = Str::random(60);
         $user->save();
-        return redirect('/register')->with('sukses', 'pendaftaran berhasil');
+        return redirect('/login')->with('sukses', 'pendaftaran berhasil');
     }
 }

@@ -246,6 +246,14 @@ class TempaanController extends Controller
         $bukti->save();
         DB::table('tempaan')->where('id', $id)->update(['status_pembayaran' => 'Sudah Dibayar']);
 
+        $notif = new Notifikasi;
+        $notif->user_id = 1;
+        $notif->isi =  Auth()->user()->nama_depan . " telah membayar tempaan<br> dengan No order #" . $id;
+        $notif->id_notif = 3;
+        $notif->status = 1;
+        $notif->save();
+
+
         return redirect('/terimakasih/' . $id)->with('sukses', 'Berhasil Upload Bukti Pembayaran');
     }
 
@@ -270,5 +278,26 @@ class TempaanController extends Controller
     {
         Tempaan::where('id', $id)->update(['status_pemesanan' => 'Batal Dikirim']);
         return redirect()->back()->with('sukses', 'Produk Batal Dikonfirmasi');
+    }
+    public function status_tempahan(Request $request, $id)
+    {
+
+        $this->validate($request, [
+            'ket_tempahan' => 'required',
+
+        ]);
+        $reparasi = Tempaan::find($id);
+        $reparasi->ket_tempahan = $request->ket_tempahan;
+        $reparasi->status_pemesanan = "Dibatalkan";
+        $reparasi->save();
+
+
+        $notif = new Notifikasi();
+        $notif->user_id = $reparasi->user_id;
+        $notif->isi =  "Tempahan Anda Dibatalkan<br>dengan no tempahan#" . $reparasi->id;
+        $notif->status = 1;
+        $notif->save();
+
+        return back()->with('sukses', 'Tempahan berhasil dibatalkan');
     }
 }

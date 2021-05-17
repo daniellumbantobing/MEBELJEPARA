@@ -72,7 +72,7 @@
 
 
                                 <div class="form-group">
-                                    <input type="number" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah" name="jumlah">
+                                    <input type="number"  min="1" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah" name="jumlah">
                                         @if($errors->has('jumlah'))
                                                 <center>           <span class="help-block">{{$errors->first('jumlah')}}</span></center>
                                         @endif
