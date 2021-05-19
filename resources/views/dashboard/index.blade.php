@@ -78,7 +78,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
          
             </div>
 
-        
+     
 
 @endsection
 

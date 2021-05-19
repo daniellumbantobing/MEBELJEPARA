@@ -50,7 +50,7 @@
 </div><br>
 <div class="col-md-12">
      
-        <div class="text-center">
+        <div class="text-center maps">
              <h5>Alamat Stasiun Mebel Jepara</h5><br>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.4813369772878!2d98.60494509107288!3d3.604566029336921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312e927746b5b5%3A0x261f87e0eb5b5aad!2sJl.%20Stasiun%20No.80%2C%20Kp.%20Lalang%2C%20Kec.%20Sunggal%2C%20Kabupaten%20Deli%20Serdang%2C%20Sumatera%20Utara%2020126!5e0!3m2!1sid!2sid!4v1618581381231!5m2!1sid!2sid" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" class="map"></iframe>
     </div>

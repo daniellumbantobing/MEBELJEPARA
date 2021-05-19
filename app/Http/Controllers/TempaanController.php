@@ -25,9 +25,9 @@ class TempaanController extends Controller
             'alamat' => 'required',
             'kode_pos' => 'required',
             'no_hp' => 'required',
-            'gambar1' => 'mimes:jpeg,png,jpg',
-            'gambar2' => 'mimes:jpeg,png,jpg',
-            'gambar3' => 'mimes:jpeg,png,jpg',
+            'gambar1' => 'required|mimes:jpeg,png,jpg',
+            'gambar2' => 'nullable|mimes:jpeg,png,jpg',
+            'gambar3' => 'nullable|mimes:jpeg,png,jpg',
             'jumlah' => 'required',
             'keterangan' => 'required',
         ]);

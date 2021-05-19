@@ -7,7 +7,7 @@
         $d1= $d->pemesanan;
       
    }
-  $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
+     $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
   
 }
    

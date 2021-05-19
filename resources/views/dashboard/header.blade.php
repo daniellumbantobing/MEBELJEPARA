@@ -46,7 +46,7 @@ $kategori = Controller::mainCategories();
                                  if(Auth::check()){   
                                   
                                      $notif = \App\Cart::where('user_id', Auth::user()->id)->count(); 
-                                     $notif1= \App\Notifikasi::where('user_id', Auth::user()->id)->latest()->get(); 
+                                     $notif1= \App\Notifikasi::where('user_id', Auth::user()->id)->latest()->take(6)->get(); 
                                      $notif3= \App\Notifikasi::where(['user_id' => Auth::user()->id, 'status' => 1])->latest()->get();    
                                      
                                  }
@@ -147,10 +147,10 @@ $kategori = Controller::mainCategories();
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link text-white" href="{{url('/')}}">HOME <span class="sr-only">(current)</span></a>
+                      <a class="nav-link text-white" href="{{url('/')}}">HOME <span class="sr-only"></span></a>
                  
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{url('/tempahan')}}">Request Tempaan</a>
+                        <a class="nav-link text-white" href="{{url('/tempahan')}}">Tempahan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{url('/reparasiMebel')}}">Reparasi</a>

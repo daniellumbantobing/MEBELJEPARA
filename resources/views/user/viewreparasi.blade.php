@@ -5,7 +5,7 @@
         <div class="card shadow mt-4">
             <div class="card-body">
                  <div class="text-center">
-                    <h5>Review Request Tempaan</h5>
+                    <h5>Review Request Reparasi</h5>
                 </div>
                 <br>
                     <div class="card-body">

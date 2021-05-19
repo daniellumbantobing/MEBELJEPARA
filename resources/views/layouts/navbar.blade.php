@@ -1,6 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
    <a href="/home/admin"><img  src="{{asset('admin/assets/img/logo.png')}}" alt="Logo Mebel" class="img-responsive logo"></a> 
+   
     </div>
     <div class="container-fluid">
       <div class="navbar-btn">
@@ -51,6 +52,8 @@
                   
                   @elseif ($n->id_notif == 3)
                   {{url("/pesanantempaan")}}
+                    @elseif ($n->id_notif == 4)
+                  {{url("/feedback")}}
                   
                 @endif
                 

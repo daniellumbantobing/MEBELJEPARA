@@ -27,6 +27,9 @@
             @yield('main')
         </div>
     </main>
+    <a href="https://api.whatsapp.com/send?phone=6281362024209&text=Hallo%21%20Stasiun Mebel Jepara" class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
     <!-- footer -->
   @include('dashboard.footer')
   
@@ -56,7 +59,8 @@
     toastr.error("{{Session::get('error')}}", "Error") 
   @endif
 </script>
-
+   
+          
 
 </body>
 </html>

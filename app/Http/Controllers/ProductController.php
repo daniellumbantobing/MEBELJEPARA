@@ -366,6 +366,4 @@ class ProductController extends Controller
         $profil = User::where('id', Auth::user()->id)->first();
         return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1', 'reparasi', 'reparasi1']));
     }
-
-   
 }
