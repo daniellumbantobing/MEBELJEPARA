@@ -6,6 +6,7 @@ use App\PemesananProduk;
 use Illuminate\Support\Facades\Route;
 use App\Produk;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +61,24 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
         {
             return Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
         }
-        return view('admin.home');
+
+        $produk = DB::table('pemesanan_produk')->select(DB::raw("produk_id"), DB::raw("count(produk_id) as jumlah"))
+            ->groupBy('produk_id')
+            ->orderBy('jumlah', 'desc')->limit(5)->get();
+
+
+
+
+
+
+        return view('admin.home', compact(['produk']));
     });
+
+    //Profil
+    Route::get('/myprofil', 'UserController@admin');
+    Route::get('/edit/myprofil', 'UserController@editprofil');
+    Route::post('/profil/{id}/update', 'UserController@updateadmin');
+
     // Produk
     Route::get('/cretate/produk', 'ProductController@index');
     Route::post('/addproduk', 'ProductController@createproduk');
