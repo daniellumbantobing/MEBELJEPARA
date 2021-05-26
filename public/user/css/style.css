@@ -354,6 +354,40 @@ border-radius: 20px;
 .float:hover{
    	background:#26be5e;
 }
+.wishlist a{
+   	text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.wishlist:hover i{
+    	color:#d43542;
+}
+.wishlist .list{
+    	color:#d43542;
+}
+.wishlist1 .card{
+    border-radius: 20px;
+}
+.wishlist1 img{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 13rem;
+    position: relative;
+	z-index: 1;
+	top: 0px;
+}
+.wishlist1 a{
+    position: absolute;
+		top: 15px;
+        right: 20px;
+		z-index: 2;
+		
+    color: inherit;
+}
+.wishlist1 .list{
+    	color:#d43542;
+        font-size: 20px;
+}
 @media(min-width: 321px) and (max-width : 425px){
     .head-top{
     margin-top: -98px;

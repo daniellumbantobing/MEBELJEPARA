@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\BuktiPembayaranTempaan;
+use App\User;
 use App\Tempaan;
 use App\Notifikasi;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\BuktiPembayaranTempaan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TempaanController extends Controller
 {
@@ -25,11 +25,15 @@ class TempaanController extends Controller
             'alamat' => 'required',
             'kode_pos' => 'required',
             'no_hp' => 'required',
-            'gambar1' => 'required|mimes:jpeg,png,jpg',
-            'gambar2' => 'nullable|mimes:jpeg,png,jpg',
-            'gambar3' => 'nullable|mimes:jpeg,png,jpg',
+            'gambar1' => 'required|mimes:jpeg,png,jpg|max:2000',
+            'gambar2' => 'nullable|mimes:jpeg,png,jpg|max:2000',
+            'gambar3' => 'nullable|mimes:jpeg,png,jpg|max:2000',
             'jumlah' => 'required',
             'keterangan' => 'required',
+        ], [
+            'gambar1.max' => 'Gambar maksimal 2 MB',
+            'gambar2.max' => 'Gambar maksimal 2 MB',
+            'gambar3.max' => 'Gambar maksimal 2 MB'
         ]);
 
         //gambar1
@@ -106,18 +110,26 @@ class TempaanController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nama_tempaan' => 'required',
-            'nama_penerima' => 'required',
-            'alamat' => 'required',
-            'kode_pos' => 'required',
-            'no_hp' => 'required',
-            'gambar1' => 'mimes:jpeg,png,jpg',
-            'gambar2' => 'mimes:jpeg,png,jpg',
-            'gambar3' => 'mimes:jpeg,png,jpg',
-            'jumlah' => 'required',
-            'keterangan' => 'required',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'nama_tempaan' => 'required',
+                'nama_penerima' => 'required',
+                'alamat' => 'required',
+                'kode_pos' => 'required',
+                'no_hp' => 'required',
+                'gambar1' => 'required|mimes:jpeg,png,jpg|max:2000',
+                'gambar2' => 'nullable|mimes:jpeg,png,jpg|max:2000',
+                'gambar3' => 'nullable|mimes:jpeg,png,jpg|max:2000',
+                'jumlah' => 'required',
+                'keterangan' => 'required',
+            ],
+            [
+                'gambar1.max' => 'Gambar maksimal 2 MB',
+                'gambar2.max' => 'Gambar maksimal 2 MB',
+                'gambar3.max' => 'Gambar maksimal 2 MB'
+            ]
+        );
         $tempaan = Tempaan::find($id);
         $tempaan->update($request->all());
 

@@ -179,6 +179,11 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     //Komentar
     Route::post('/komentar/{id}/create', 'KomentarController@create');
     Route::get('delete/{id}/komentar', 'KomentarController@destroy');
+
+    //Wishlist
+    Route::post('/create/wishlist', 'WishlistController@insert');
+    Route::get('/wishlist/{id}/delete', 'WishlistController@delete');
+    Route::get('/wishlist', 'WishlistController@wishlist');
 });
 
 

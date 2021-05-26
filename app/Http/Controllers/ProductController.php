@@ -143,7 +143,7 @@ class ProductController extends Controller
             }
             $cartproduk->qty = $cartproduk->qty + $request->qty;
             $cartproduk->update();
-            return redirect('/cart')->with('cart', 'Produk berhasil dimasukkan ke keranjang');
+            return redirect('/cart')->with('suskses', 'Produk berhasil dimasukkan ke keranjang');
         } else {
 
 
@@ -157,7 +157,7 @@ class ProductController extends Controller
             $cart->save();
         }
 
-        return redirect('/cart')->with('cart', 'Produk berhasil dimasukan kekeranjang');
+        return redirect('/cart')->with('sukses', 'Produk berhasil dimasukan kekeranjang');
     }
 
     public function cart()

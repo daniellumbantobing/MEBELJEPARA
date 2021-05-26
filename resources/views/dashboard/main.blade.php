@@ -11,9 +11,9 @@
     <!-- Slick Slider -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    
+   
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
-    
+    	@yield('head')
 </head>
 <body>  
   
@@ -45,7 +45,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="{{asset('user/js/main.js')}}"></script>
 
-    @yield('foot')
+    
     
     <script>
 
@@ -60,7 +60,7 @@
   @endif
 </script>
    
-          
+@yield('foot')
 
 </body>
 </html>

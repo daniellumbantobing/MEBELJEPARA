@@ -86,7 +86,7 @@ $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus Notofikasi ??",
+		  text: "Mau menghapus Notifikasi ??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

@@ -109,9 +109,5 @@
 </div>  
 @endsection
 @section('foot')
-<script>
-  @if(Session::has('cart'))
-    toastr.success("{{Session::get('cart')}}", "Berhasil") 
-  @endif
-</script>
+
 @endsection

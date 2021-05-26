@@ -1,23 +1,29 @@
 <?php
    if(Auth::check()){
-        
-    $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->latest()->first();
     
-   if(!empty($d)){
+    $d = \App\PemesananProduk::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->latest()->first();
+     $wishlist = \App\Wishlist::where(['produk_id' => $produk->id,'user_id' => Auth::user()->id])->first();
+
+    
+    if(!empty($d)){
         $d1= $d->pemesanan;
       
    }
      $komen = \App\Komentar::where(['produk_id' => $produk->id, 'user_id' => Auth()->user()->id])->count();
-  
+      $user_id = Auth::user()->id;
 }
    
    
    
     $komen1 = \App\Komentar::where(['produk_id' => $produk->id])->count();
-  
+   
 ?>
 
 @extends('dashboard.main')
+@section('head')
+ 
+       <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 @section('main')
  
 <div class="container-fluid detail">
@@ -28,7 +34,27 @@
                         <div class="row">
                         <div class="col-12 col-md-4">
                         <img src="/images/{{$produk->gambar}}" class="card-img-top img-fluid">
+                      <div class="text-right container wishlist" style="font-size: 20px;">
+                        <input type="hidden" name="produk_id" value="{{$produk->id}}">
+                    @if (Auth::check())
                         
+                    <input type="hidden" name="user_id" value="{{$user_id}}">
+
+                      @if (!@empty($wishlist))
+                    <a href="{{url('wishlist/'.$wishlist->id.'/delete')}}"><i class="fas fa-heart list"></i></a>
+                         
+                    @else
+                    <a class="text-center btn-submit"><i class="fas fa-heart"></i></a>
+                    
+                    @endif    
+                    @elseif (!Auth::check())
+                        
+                     <a href="{{url('/login')}}"><i class="fas fa-heart"></i></a>
+                    @endif
+                    
+                      
+                      
+                    </div>
                         </div>
                           <div class="col-12 col-md-8">
                               <div class="inform">   
@@ -146,109 +172,48 @@
             </div>
        </div> 
      </div>
+@endsection
+@section('foot')
+ <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript">
 
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+    $(".btn-submit").click(function(e){
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Request Tempaan {{$produk->nama_produk}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            <form action="/create/tempaan" method="POST"  enctype="multipart/form-data">
-                @csrf
-                
-                <input type="hidden" value="{{$produk->id}}" name="produk_id">
-                <div class="form-group {{$errors->has('nama_tempaan') ? ' has-error' : ''}}">
-                    <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Design/Tempaan" name="nama_tempaan" value="{{old('nama_tempaan')}}">
-                        @if($errors->has('nama_tempaan'))
-                            <center>           <span class="help-block">{{$errors->first('nama_tempaan')}}</span></center>
-                        @endif
-                </div>
+        e.preventDefault();
+
+        
+        var produk = $("input[name=produk_id]").val();
+        var user = $("input[name=user_id]").val();
+        
+        $.ajax({
+           url:"/create/wishlist",
+           method:'post',
+           data:{
+                  Code:produk, 
+                  Chief:user
+                },
+           success:function(response){
+              if(response.success){
+                 window.location.reload()
+                toastr.success("Berhasil dimasukkan ke Wishlist") 
+              }else{
+                    toastr.error("Error") 
             
-                <div class="form-group">
-                    <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Penerima" name="nama_penerima">
-                        @if($errors->has('nama_penerima'))
-                                <center>           <span class="help-block">{{$errors->first('nama_penerima')}}</span></center>
-                        @endif
-                </div>
-            
-            
-                <div class="form-group">
-                    <textarea class="form-control rad" id="validationTextarea" placeholder="Alamat Lengkap" name="alamat"></textarea>
-                    {{-- <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                    </div> --}}
+              }
+           },
+           error:function(error){
+              console.log(error)
+           }
+        });
+	});
 
-                        @if($errors->has('alamat'))
-                            <center><span class="help-block">{{$errors->first('alamat')}}</span></center>
-                        @endif
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kode Pos" name="kode_pos">
-                        @if($errors->has('kode_pos'))
-                            <center>           <span class="help-block">{{$errors->first('kode_pos')}}</span></center>
-                        @endif
-                </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="No Hp" name="no_hp">
-                    @if($errors->has('no_hp'))
-                        <center>           <span class="help-block">{{$errors->first('no_hp')}}</span></center>
-                    @endif
-            </div>
-            
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Gambar 1</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar1">
-                    @if($errors->has('gambar1'))
-                            <center>           <span class="help-block">{{$errors->first('gambar1')}}</span></center>
-                        @endif
-                </div>
-            
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Gambar 2(optional)</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar2">
-            </div>
-
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Gambar 3(optional)</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar3">
-            </div>
-
-
-                <div class="form-group">
-                    <input type="number" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah" name="jumlah">
-                        @if($errors->has('jumlah'))
-                                <center>           <span class="help-block">{{$errors->first('jumlah')}}</span></center>
-                        @endif
-                </div>
-            
-            <div class="form-group">
-                    <textarea class="form-control rad" id="validationTextarea" placeholder="Keterangan Tempaan" name="keterangan"></textarea>
-                    {{-- <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                    </div> --}}
-                    @if($errors->has('keterangan'))
-                        <center><span class="help-block">{{$errors->first('keterangan')}}</span></center>
-                    @endif
-                </div>
-            
-            
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Request</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
+</script>
 @endsection

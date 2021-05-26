@@ -114,13 +114,14 @@ $kategori = Controller::mainCategories();
                         @if(!Auth::check())
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{url('/login')}}">Login</a>
-                            <a class="dropdown-item" href="{{url('/register')}}">Daftar</a>
+                            <a class="dropdown-item" href="{{url('/register')}}">Register</a>
                             
                         </div>
                         
                         @elseif(auth()->user()->role == 'user')
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                              <a class="dropdown-item" href="{{url('/profil')}}">Profil</a>
+                             <a class="dropdown-item" href="{{url('/wishlist')}}">Wishlist</a> 
                              <a class="dropdown-item" href="{{url('/logout')}}">Logout</a> 
                         </div>
                         
@@ -150,7 +151,7 @@ $kategori = Controller::mainCategories();
                       <a class="nav-link text-white" href="{{url('/')}}">HOME <span class="sr-only"></span></a>
                  
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{url('/tempahan')}}">Tempahan</a>
+                        <a class="nav-link text-white" href="{{url('/tempahan')}}">Tempaan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{url('/reparasiMebel')}}">Reparasi</a>

@@ -26,11 +26,15 @@ class ReparasiController extends Controller
             'alamat' => 'required',
             'kode_pos' => 'required',
             'no_hp' => 'required',
-            'gambar1' => 'mimes:jpeg,png,jpg',
-            'gambar2' => 'mimes:jpeg,png,jpg',
-            'gambar3' => 'mimes:jpeg,png,jpg',
+            'gambar1' => 'required|mimes:jpeg,png,jpg|max:2000',
+            'gambar2' => 'nullable|mimes:jpeg,png,jpg|max:2000',
+            'gambar3' => 'nullable|mimes:jpeg,png,jpg|max:2000',
             'jenis_kerusakan' => 'required',
             'keterangan' => 'required',
+        ], [
+            'gambar1.max' => 'Gambar maksimal 2 MB',
+            'gambar2.max' => 'Gambar maksimal 2 MB',
+            'gambar3.max' => 'Gambar maksimal 2 MB'
         ]);
 
         //gambar1
@@ -112,11 +116,15 @@ class ReparasiController extends Controller
             'alamat' => 'required',
             'kode_pos' => 'required',
             'no_hp' => 'required',
-            'gambar1' => 'mimes:jpeg,png,jpg',
-            'gambar2' => 'mimes:jpeg,png,jpg',
-            'gambar3' => 'mimes:jpeg,png,jpg',
+            'gambar1' => 'required|mimes:jpeg,png,jpg|max:2000',
+            'gambar2' => 'nullable|mimes:jpeg,png,jpg|max:2000',
+            'gambar3' => 'nullable|mimes:jpeg,png,jpg|max:2000',
             'jenis_kerusakan' => 'required',
             'keterangan' => 'required',
+        ], [
+            'gambar1.max' => 'Gambar maksimal 2 MB',
+            'gambar2.max' => 'Gambar maksimal 2 MB',
+            'gambar3.max' => 'Gambar maksimal 2 MB'
         ]);
         $reparasi = Reparasi::find($id);
         $reparasi->update($request->all());

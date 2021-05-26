@@ -31,7 +31,7 @@
 	
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     
-
+   <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
 
 	<style>
 		.ck-editor__editable{

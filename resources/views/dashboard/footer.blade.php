@@ -30,7 +30,7 @@
                   </li>
                   
                     <li><i class="fab fa-whatsapp mr-2" style="color: rgb(33, 189, 103)"></i>+62 813-7013-3334</li>
-                     <li><a href="https://instagram.com/aslilokaldotcom/"><i class="fab fa-facebook text-primary mr-2"></i> Mebel Jepara</a>
+                     <li><a href="https://web.facebook.com/chairi.wahyudi" target="_blank"><i class="fab fa-facebook text-primary mr-2"></i> Mebel Jepara</a>
                 
                     </ul>
                 </div>

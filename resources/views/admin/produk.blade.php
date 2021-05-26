@@ -85,7 +85,7 @@
                                  
                                     <div class="form-group{{$errors->has('qty') ? ' has-error' : ''}}">
                                     <label for="exampleInputEmail1">Stok</label>
-                                    <input name="qty" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="{{$pd->qty}}">
+                                    <input name="qty" type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="{{$pd->qty}}">
                                     @if($errors->has('qty'))
                                         <span class="help-block">{{$errors->first('qty')}}</span>
                                     @endif
@@ -177,7 +177,7 @@
                             
                                <div class="form-group{{$errors->has('qty') ? ' has-error' : ''}}">
                                <label for="exampleInputEmail1">Stok</label>
-                               <input name="qty" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="{{old('qty')}}">
+                               <input name="qty" type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="qty" value="{{old('qty')}}">
                                @if($errors->has('qty'))
                                    <span class="help-block">{{$errors->first('qty')}}</span>
                                @endif

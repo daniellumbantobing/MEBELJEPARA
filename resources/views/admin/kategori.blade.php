@@ -144,7 +144,7 @@ $('.delete').click(function(){
       var nama_produk = $(this).attr('nama-produk');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data kaategori dengan nama " +nama_produk + "??",
+		  text: "Mau menghapus data kategori dengan nama " +nama_produk + "??",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

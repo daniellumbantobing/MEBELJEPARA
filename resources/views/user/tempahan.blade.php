@@ -5,7 +5,7 @@
         <div class="card shadow mt-4">
             <div class="card-body">
                  <div class="text-center">
-                    <h5>Tempahan Produk Mebel Jepara</h5>
+                    <h5>Tempaan Produk Mebel Jepara</h5>
                 </div>
                 <br>
                     <div class="card-body">
@@ -13,7 +13,7 @@
                                 @csrf
                                 <div class="form-group {{$errors->has('nama_tempaan') ? ' has-error' : ''}}">
                                     
-                                    <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Design/Tempaan" name="nama_tempaan" value="{{old('nama_tempaan')}}">
+                                    <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Tempaan" name="nama_tempaan" value="{{old('nama_tempaan')}}">
                                         @if($errors->has('nama_tempaan'))
                                             <center>           <span class="help-block">{{$errors->first('nama_tempaan')}}</span></center>
                                         @endif
