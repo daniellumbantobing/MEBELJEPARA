@@ -44,7 +44,13 @@
 		@csrf
   	<div class="form-group {{$errors->has('email') ? ' has-error' : ''}}">
 		<label for="signin-email" class="control-label sr-only">email</label>
-		<input type="email" class="form-control" id="signin-email" placeholder="Email" name="email" value="{{old('email')}}">
+		<input type="email" class="form-control" id="signin-email" placeholder="Email" name="email" value="
+     @if (!empty(session()->get( 'email' )))
+    {{ session()->get( 'email' ) }}
+    @endif
+    {{old('email')}}
+    
+    ">
 		@if($errors->has('email'))
 		<span class="help-block">{{$errors->first('email')}}</span>
 		@endif
@@ -69,6 +75,7 @@
 		<span class="helper-text">Belum Memiliki Akun ? <a href="/register">Daftar</a></span>
   </div>
 </form>  
+
 </div>
 </div>
 

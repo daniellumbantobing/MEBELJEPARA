@@ -40,7 +40,20 @@ class UserController extends Controller
             'nama_prov' => 'required',
             'kode_pos' => 'required'
         ]);
-        $user->update($request->all());
+        $profil = User::findOrFail($user->id);
+        $profil->nama_depan = $request->nama_depan;
+        $profil->nama_belakang = $request->nama_belakang;
+        $profil->email = $request->email;
+        $profil->no_hp = $request->no_hp;
+        $profil->jenis_kelamin = $request->jenis_kelamin;
+        $profil->alamat = $request->alamat;
+        $profil->nama_kota = $request->nama_kota;
+        $profil->nama_prov = $request->nama_prov;
+        $profil->kode_pos = $request->kode_pos;
+        $profil->save();
+
+
+
         return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');
     }
 
@@ -92,5 +105,31 @@ class UserController extends Controller
         $profil->save();
 
         return redirect('/myprofil')->with('sukses', 'Data Berhasil Diupdate');
+    }
+
+    public function updatepay(Request $request, User $user)
+    {
+        $this->validate($request, [
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'nama_kota' => 'required',
+            'nama_prov' => 'required',
+            'kode_pos' => 'required'
+        ]);
+        $profil = User::findOrFail($user->id);
+        $profil->nama_depan = $request->nama_depan;
+        $profil->nama_belakang = $request->nama_belakang;
+        $profil->no_hp = $request->no_hp;
+        $profil->alamat = $request->alamat;
+        $profil->nama_kota = $request->nama_kota;
+        $profil->nama_prov = $request->nama_prov;
+        $profil->kode_pos = $request->kode_pos;
+        $profil->save();
+
+
+
+        return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');
     }
 }

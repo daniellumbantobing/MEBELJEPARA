@@ -143,6 +143,7 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     //profile
     Route::get('/profil', 'UserController@profil');
     Route::post('/update/{user}/profil', 'UserController@update');
+    Route::post('/update/{user}/profilpay', 'UserController@updatepay');
 
     //Pemesanan biasa
     Route::get('/pay', 'ProductController@pembayaran');

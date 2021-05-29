@@ -32,6 +32,9 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
+        $email = $request->email;
+
+
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = User::where('email', $request->email)->first();
             if ($user->role == 'user') {
@@ -47,11 +50,13 @@ class AuthController extends Controller
         } else {
             $user = User::where('email', $request->email)->pluck('email', 'password')->first();
             if ($user != $request->email) {
-                return back()->with('error', 'Email tidak sesuai!');
+                return back()->with(['error' => 'Email tidak sesuai!', 'email' => $email]);
             } elseif ($user != $request->password) {
-                return back()->with('error', 'Password tidak sesuai!');
+                return
+                    back()->with(['error', 'Password tidak sesuai!', 'email' => $email]);
             } else {
-                return back()->with('error', 'Password dan Email tidak sesuai!');
+                return
+                    back()->with(['error', 'Password dan Email tidak sesuai!', 'email' => $email]);
             }
         }
     }
