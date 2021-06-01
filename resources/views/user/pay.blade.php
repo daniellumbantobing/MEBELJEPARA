@@ -68,7 +68,7 @@
                <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios3" value="mandiri">
                 <label class="form-check-label" for="exampleRadios3">
-                  <p> <img src="{{asset('storage/bank/man.PNG')}}" alt="mandiri" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
+                  <p> <img src="{{asset('user/assets/bri.jpg')}}" alt="mandiri" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                     Bank Mandiri</p>
                 </label>
                 </div>
