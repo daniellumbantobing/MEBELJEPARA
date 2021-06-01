@@ -41,6 +41,9 @@ Route::get('/forgotpass', 'UserController@forgot');
 Route::post('/forgot_pass', 'UserController@password');
 Route::get('/produk/{url}', 'KategoriController@produk');
 Route::get('/aboutus', 'UserController@about');
+Route::get('/carapemesanan', 'UserController@caraorder');
+Route::get('/katalog', 'KategoriController@katalog');
+
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/home/admin', function () {

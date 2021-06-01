@@ -132,4 +132,8 @@ class UserController extends Controller
 
         return redirect()->back()->with('sukses', 'Data Berhasil Diupdate');
     }
+    public function caraorder()
+    {
+        return view('dashboard.caraorder');
+    }
 }

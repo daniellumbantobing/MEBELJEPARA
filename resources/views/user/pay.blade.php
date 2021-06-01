@@ -47,7 +47,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios1" value="BNI" checked>
                 <label class="form-check-label" for="exampleRadios1">
-                    <p> <img src="{{asset('user/assets/bni.jpg')}}" alt="BNI" class="card-img-top img-fluid" style="width:40px; height:30px;  border: 1px solid #A1A1A1;"> 
+                    <p> <img src="{{asset('user/assets/bni.jpg')}}" alt="BNI" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                      Bank BNI</p>
                 </label>
                 </div>
@@ -57,7 +57,7 @@
                <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios2" value="BRI">
                 <label class="form-check-label" for="exampleRadios2">
-                  <p> <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" class="card-img-top img-fluid" style="width:40px; height:30px;  border: 1px solid #A1A1A1;"> 
+                  <p> <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                     Bank BRI</p>
                 </label>
                 </div>
@@ -66,13 +66,15 @@
 
                       <div class="col-4">
                <div class="form-check">
-                <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios2" value="mandiri">
-                <label class="form-check-label" for="exampleRadios2">
-                  <p> <img src="{{asset('user/assets/mandiri.PNG')}}" alt="mandiri" class="card-img-top img-fluid" style="width:40px; height:30px;  border: 1px solid #A1A1A1;"> 
+                <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios3" value="mandiri">
+                <label class="form-check-label" for="exampleRadios3">
+                  <p> <img src="{{asset('user/assets/man.PNG')}}" alt="mandiri" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                     Bank Mandiri</p>
                 </label>
                 </div>
                     </div>
+
+
                 </div>
         </div> 
         </div>

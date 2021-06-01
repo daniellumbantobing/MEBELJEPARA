@@ -53,10 +53,10 @@ class AuthController extends Controller
                 return back()->with(['error' => 'Email tidak sesuai!', 'email' => $email]);
             } elseif ($user != $request->password) {
                 return
-                    back()->with(['error', 'Password tidak sesuai!', 'email' => $email]);
+                    back()->with(['error' => 'Password tidak sesuai!', 'email' => $email]);
             } else {
                 return
-                    back()->with(['error', 'Password dan Email tidak sesuai!', 'email' => $email]);
+                    back()->with(['error' => 'Password dan Email tidak sesuai!', 'email' => $email]);
             }
         }
     }

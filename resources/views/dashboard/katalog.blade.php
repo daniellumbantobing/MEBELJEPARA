@@ -1,3 +1,7 @@
+<?php
+use App\Http\Controllers\Controller;
+$kategori = Controller::mainCategories();
+?>
 @extends('dashboard.main')
 @section('main')
     <div class="produk">
@@ -5,8 +9,8 @@
             <div class="row" style="margin-top:-18px;">
          
                 <div class="col-12 col-md-12 mt-4">
-                   <div class="text-center">
-                        <h4>{{$categoryDetails->nama_kategori}}</h4>
+                    <div class="text-center">
+                        <h4>Katalog</h4>
                     </div>
                     <hr>
                     <div class="btn-group">
@@ -14,9 +18,12 @@
                           Filter
                         </button>
                         <div class="dropdown-menu">
-                         
-                            <a class="dropdown-item" href="{{$categoryDetails->nama_kategori}}?terendah" name="terendah">Harga Terendah</a>
-                              <a class="dropdown-item" href="{{$categoryDetails->nama_kategori}}?tertinggi" name="tertinggi">Harga Tertinggi</a>
+                              @foreach ($kategori as $kt)
+                      <a class="dropdown-item" href="{{url('produk/'.$kt->nama_kategori)}}">{{$kt->nama_kategori}}</a>
+                          
+                      @endforeach
+                              <a  class="dropdown-item" href="?terendah" name="terendah">Harga Terendah</a>
+                              <a  class="dropdown-item" href="?tertinggi" name="tertinggi">Harga Tertinggi</a>
                          
                         </div>
                       </div>

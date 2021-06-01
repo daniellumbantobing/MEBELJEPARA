@@ -11,11 +11,13 @@
                    <ul class="list-group" style="list-style: none;">
                     <a href="{{url('/aboutus')}}" class="">
                     <li>Tentang Kami</li>
-                    </a>     
-                    <li>Pembayaran</li>
-                    <li>Cara Order</li>
+                    </a>
+                     <a href="{{url('/carapemesanan')}}" class="">     
+                    <li>Cara Pemesanan</li>
+                     </a>
+                      <a href="{{url('/katalog')}}" class="">  
                     <li>Katalog</li>
-                  
+                      </a>
                     </ul>
                 </div>
                  <div class="col-md-4 mt-4 mb-5">

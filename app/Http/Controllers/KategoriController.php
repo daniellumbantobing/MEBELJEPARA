@@ -58,4 +58,24 @@ class KategoriController extends Controller
 
         return view('listproduk', compact(['categoryDetails', 'produk']));
     }
+
+    public function katalog($url = null, Request $request)
+    {
+        // $countCategory = Kategori::where(['nama_kategori' => $url])->count();
+        // if ($countCategory == 0) {
+        //     abort(404);
+        // }
+
+        // $categoryDetails = Kategori::where(['nama_kategori' => $url])->first();
+
+        $produk = Produk::paginate(9);
+        if ($request->has('terendah')) {
+            $produk = Produk::orderby('harga', 'ASC')->paginate(9);
+        }
+        if ($request->has('tertinggi')) {
+            $produk = Produk::orderby('harga', 'DESC')->paginate(9);
+        }
+
+        return view('dashboard.katalog', compact(['produk']));
+    }
 }

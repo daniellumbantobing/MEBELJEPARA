@@ -36,7 +36,20 @@
                      
                             <tr>
                                                 <td>{{++$key}}</td>
-                                                <td>{!!$us->isi!!}</td>
+                                                <td>
+                                                <a href="  @if ($us->id_notif == 1)
+                {{url("/pemesananproduk")}}
+                  @elseif ($us->id_notif == 2)
+                  {{url("/pesananreparasi")}}
+                  
+                  @elseif ($us->id_notif == 3)
+                  {{url("/pesanantempaan")}}
+                    @elseif ($us->id_notif == 4)
+                  {{url("/feedback")}}
+                  
+                @endif">    {!!$us->isi!!}
+                                                </a>
+                                                </td>
                                                 
                                         
                                                 

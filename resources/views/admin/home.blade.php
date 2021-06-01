@@ -40,7 +40,7 @@
                             <div class="metric panel" style="border-radius:20px;">
                                 <span class="icon"><i class="fas fa-dollar-sign"></i></i></span>
                                 <p>
-                                    <span class="number" style="font-size: 20px;">@currency(revenue())</span>
+                                    <span class="number" style="font-size: 22px;">@currency(revenue())</span>
                                     <span class="title">Revenue</span>
                                 </p>
                             </div>
