@@ -81,7 +81,7 @@
                 <div class="col-md-4">
                     <div class="card">
                          <div class="text-center">
-                          <img src="{{asset('user/assets/man.PNG')}}" class="img-fluid" style="width: 60%">
+                          <img src="{{asset('storage/bank/man.PNG')}}" class="img-fluid" style="width: 60%">
                         <div class="card-body">
                              <p class="card-text"><b>Stasiun Mebel Jepara</b><br>No. Rek: 1XXXXXX</p>
     
