@@ -81,7 +81,7 @@
                 <div class="col-md-4">
                     <div class="card">
                          <div class="text-center">
-                          <img src="{{asset('user/assets/bri.jpg')}}" class="img-fluid" style="width: 60%">
+                          <img src="{{asset('user/assets/mandiri.png')}}" class="img-fluid" style="width: 60%">
                         <div class="card-body">
                              <p class="card-text"><b>Stasiun Mebel Jepara</b><br>No. Rek: 1XXXXXX</p>
     
