@@ -420,6 +420,7 @@ border-radius: 20px;
  .about1 p{
     font-family:var(--roboto);
  }
+
 @media(min-width: 321px) and (max-width : 425px){
     .head-top{
     margin-top: -98px;

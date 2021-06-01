@@ -265,8 +265,8 @@
             
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Request</button>
+        <button type="button" class="btn btn-secondary" style="background-color: white; border-color:#CAA563; color:#CAA563" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; color:#FFFF;">Request</button>
       </div>
     </form>
     </div>
