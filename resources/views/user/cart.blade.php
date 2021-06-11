@@ -35,7 +35,7 @@
       <th scope="col">Produk</th>
       <th scope="col">Jumlah</th>
       <th scope="col">Harga</th>
-      <th scope="col"></th>
+
      
     </tr>
   </thead>
@@ -54,10 +54,31 @@
         </a>
        {{$cart->produk->nama_produk}}  
       </td>
-      <td>{{$cart->qty}}</td>
-      <td>@currency($cart->harga)</td>
-      <td> <a href="/cart/{{$cart->id}}/delete" style="color: #4D4D4D"><i class="fas fa-times"></i></a> </td>
+      <td>
+        <form action="/update/{{$cart->id}}/cart" method="post">
+          @csrf
+        <div class="num-block skin-2">
+          <div class="num-in">
+            <span class="minus dis"></span>
+            <input type="text" class="in-num" value="{{$cart->qty}}" name="qty" readonly="">
+            <span class="plus"></span>
+          </div>
+        </div>
+
+
+      </td>
+      <td>@currency($cart->harga)
+      <a href="/cart/{{$cart->id}}/delete" style="color: #4D4D4D; float:right;"><i class="fas fa-times"></i></a> 
+     </td>
     </tr>
+    <tr>
+     
+      <td></td>
+      <td></td>
+      <td><button type="submit" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px; float:right;">Update</button></td>
+      </form>
+    </tr>
+    
      <?php 
      $total_amount = $total_amount + ($cart->harga*$cart->qty); 
        $total_item = $total_item + $cart->qty;
@@ -109,5 +130,82 @@
 </div>  
 @endsection
 @section('foot')
+<style>
+/* skin 2 */
+.skin-2 .num-in {
+	background: #FFFFFF;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+	border-radius: 25px;
+	height: 40px;
+	width: 110px;
+  float: left;
+}
 
+.skin-2 .num-in	span {
+  width: 40%;
+  display: block;
+  height: 40px;
+  float: left;
+  position: relative;
+}
+
+.skin-2 .num-in span:before, .skin-2 .num-in span:after {
+  content: '';
+  position: absolute;
+  background-color: #667780;
+  height: 2px;
+  width: 10px;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -5px;
+}
+
+.skin-2 .num-in span.plus:after {
+  transform: rotate(90deg);
+}
+
+.skin-2 .num-in input {
+		float: left;
+		width: 20%;
+		height: 40px;
+		border: none;
+		text-align: center;
+}
+
+/* / skin 2 */
+</style>
+
+<script>
+/////////////////// product +/-
+$(document).ready(function() {
+  $('.num-in span').click(function () {
+      var $input = $(this).parents('.num-block').find('input.in-num');
+    if($(this).hasClass('minus')) {
+      var count = parseFloat($input.val()) - 1;
+      count = count < 1 ? 1 : count;
+      if (count < 2) {
+        $(this).addClass('dis');
+      }
+      else {
+        $(this).removeClass('dis');
+      }
+      $input.val(count);
+    }
+    else {
+      var count = parseFloat($input.val()) + 1
+      $input.val(count);
+      if (count > 1) {
+        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+      }
+    }
+    
+    $input.change();
+    return false;
+  });
+  
+});
+// product +/-
+
+</script>
 @endsection

@@ -188,6 +188,9 @@ Route::group(['middleware' => ['auth', 'checkRole:user']], function () {
     Route::post('/create/wishlist', 'WishlistController@insert');
     Route::get('/wishlist/{id}/delete', 'WishlistController@delete');
     Route::get('/wishlist', 'WishlistController@wishlist');
+
+    //Cart
+    Route::post('update/{id}/cart', 'ProductController@updatecart');
 });
 
 

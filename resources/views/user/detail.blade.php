@@ -305,7 +305,7 @@
                  window.location.reload()
                 toastr.success("Berhasil dimasukkan ke Wishlist") 
               }else{
-                    toastr.error("Error") 
+                    toastr.error("Produk Sudah ada di Wishlist") 
             
               }
            },

@@ -1,4 +1,4 @@
-<html lang="en" class="fullscreen-bg">
+ <html lang="en" class="fullscreen-bg">
 <head>
 	<title>Login</title>
 	<meta charset="utf-8">

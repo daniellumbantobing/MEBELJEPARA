@@ -366,4 +366,21 @@ class ProductController extends Controller
         $profil = User::where('id', Auth::user()->id)->first();
         return view('user.pemesanan', compact(['profil', 'p_biasa', 'p_biasa1', 'p_biasa2', 'tempaan', 'tempaan1', 'reparasi', 'reparasi1']));
     }
+
+    public function updatecart(Request $request, $id)
+    {
+        $cart1 = Cart::where('id', $id)->first();
+        $produk = Produk::where('id', $cart1->produk_id)->first();
+
+        if ($request->qty > $produk->qty) {
+
+            return redirect()->back()->with('error', 'Jumlah melebihi batas');
+        }
+
+        $cart = Cart::findOrfail($id);
+        $cart->qty = $request->qty;
+        $cart->save();
+
+        return redirect()->back();
+    }
 }
