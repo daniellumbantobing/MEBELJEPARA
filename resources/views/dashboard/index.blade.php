@@ -16,12 +16,17 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
         @endif
     <div class="slider-one">
                     <div>
-                        <img src="{{asset('user/assets/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg')}}" class="img-fluid" alt="Banner 2">
+                        <img src="{{asset('user/assets/banner1.jpg')}}" class="img-fluid" alt="Banner 1">
                         
                     </div>
                    
                     <div>
-                        <img src="{{asset('user/assets/toa-heftiba-FV3GConVSss-unsplash.jpg')}}" class="img-fluid" alt="Banner 3">
+                        <img src="{{asset('user/assets/banner2.jpg')}}" class="img-fluid" alt="Banner 2">
+                        
+                    </div>
+                      
+                    <div>
+                        <img src="{{asset('user/assets/banner3.jpg')}}" class="img-fluid" alt="Banner 3">
                         
                     </div>
                  </div>
@@ -38,11 +43,15 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
                     <a href="/produk/{{$k->nama_kategori}}" class="list-group-item-action">  
                     <div class="card">
                       
-                      {{-- @if ($k->nama_kategori == "Kursi") --}}
-                      <img src="{{asset('user/assets/pexels-eric-montanah-1350789.jpg')}}" class="card-img-top img-fluid" alt="...">
-                      {{-- @elseif ($k->nama_kategori == "Meja") --}}
-                          
-                      {{-- @endif --}}
+                      @if ($k->nama_kategori == "Kursi")
+                        <img src="{{asset('user/assets/ok.png')}}" class="card-img-top img-fluid" alt="...">
+                      @elseif ($k->nama_kategori == "Meja")
+                        <img src="{{asset('user/assets/meja.png')}}" class="card-img-top img-fluid" alt="...">
+                      @elseif ($k->nama_kategori == "Lemari")
+                        <img src="{{asset('user/assets/lemari.png')}}" class="card-img-top img-fluid" alt="...">
+                      @elseif ($k->nama_kategori == "Pintu")
+                        <img src="{{asset('user/assets/pintu.png')}}" class="card-img-top img-fluid" alt="...">
+                      @endif
                       
                       
                         <div class="card-body text-center">

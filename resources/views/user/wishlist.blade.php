@@ -12,7 +12,7 @@
                        <hr/>
                         <div class="text-center">
                 
-                <img src="{{asset('user/assets/cart.png')}}" alt="cart" style="width: 250px; height:200px;">
+                <img src="{{asset('user/assets/cart.svg')}}" alt="cart" style="width: 250px; height:200px;">
                 <h6>Belum ada Produk Diwishlist</h6>
                             <a href="\" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Cari Produk</a>
                     </div>

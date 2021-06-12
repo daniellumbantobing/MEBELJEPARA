@@ -39,17 +39,17 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="text-center mt-3">
-        <img src="{{asset("user/assets/biasa.png")}}" class="rounded img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/biasa.jpg")}}" class="rounded img-order" alt="Produk Biasa">
     </div>   
    </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="text-center mt-3">
-        <img src="{{asset("user/assets/tempaan.png")}}" class="rounded img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/tempaan.jpg")}}" class="rounded img-order" alt="Produk Biasa">
     </div>     
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <div class="text-center mt-3">
-        <img src="{{asset("user/assets/reparasi.png")}}" class="rounded img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/reparasi.jpg")}}" class="rounded img-order" alt="Produk Biasa">
     </div> 
   </div>
   <div class="tab-pane fade" id="pay" role="tabpanel" aria-labelledby="pay-tab">

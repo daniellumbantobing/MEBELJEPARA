@@ -5,7 +5,7 @@
          <h6><strong>Hasil  Pencarian "{{$cari}}" tidak ada</strong></h6>
           <div class="col-md-12 mt-4">
               <div class="text-center">
-              <img src="{{asset('user/assets/cari.png')}}" alt="img" style="width: 250px; height:200px;">
+              <img src="{{asset('user/assets/cari.svg')}}" alt="img" style="width: 240px; height:200px;">
               <p>Produk yang Anda cari tidak dapat ditemukan</p>
               </div>
           </div>
