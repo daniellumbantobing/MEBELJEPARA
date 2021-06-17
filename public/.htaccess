@@ -24,4 +24,9 @@ RewriteCond %{SERVER_PORT} 443
 RewriteCond %{REQUEST_URI} ^something_public [OR]
 RewriteCond %{REQUEST_URI} ^something_else_public
 RewriteRule .* http://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
 </IfModule>
