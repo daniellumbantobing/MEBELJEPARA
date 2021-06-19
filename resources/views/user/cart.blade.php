@@ -19,7 +19,7 @@
 <div class="text-center">
   
   
-  <img src="{{asset('user/assets/cart.svg')}}" alt="cart" style="width: 250px; height:200px;">
+  <img src="{{asset('user/assets/cart.svg')}}" alt="cart" class="img-fluid" style="width: 250px; height:200px;">
   <h6>Belum ada Produk Dikeranjang</h6>
             <a href="\" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Cari Produk</a>
     </div>
@@ -131,51 +131,6 @@
 </div>  
 @endsection
 @section('foot')
-<style>
-/* skin 2 */
-.skin-2 .num-in {
-	background: #FFFFFF;
-	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-	border-radius: 25px;
-	height: 40px;
-	width: 110px;
-  float: left;
-}
-
-.skin-2 .num-in	span {
-  width: 40%;
-  display: block;
-  height: 40px;
-  float: left;
-  position: relative;
-}
-
-.skin-2 .num-in span:before, .skin-2 .num-in span:after {
-  content: '';
-  position: absolute;
-  background-color: #667780;
-  height: 2px;
-  width: 10px;
-  top: 50%;
-  left: 50%;
-  margin-top: -1px;
-  margin-left: -5px;
-}
-
-.skin-2 .num-in span.plus:after {
-  transform: rotate(90deg);
-}
-
-.skin-2 .num-in input {
-		float: left;
-		width: 20%;
-		height: 40px;
-		border: none;
-		text-align: center;
-}
-
-/* / skin 2 */
-</style>
 
 <script>
 /////////////////// product +/-

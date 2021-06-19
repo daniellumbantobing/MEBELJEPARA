@@ -33,7 +33,10 @@
                     <div class="card shadow">
                         <div class="row">
                         <div class="col-12 col-md-4">
+
+                            <div class="detail-img">
                         <img src="/images/{{$produk->gambar}}" class="card-img-top img-fluid">
+                        </div>
                       <div class="text-right container wishlist" style="font-size: 20px;">
                         <input type="hidden" name="produk_id" value="{{$produk->id}}">
                     @if (Auth::check())
@@ -77,14 +80,15 @@
                               @endif <br><br>
                               kategori: <span style="color:#CAA563"><b>{{$produk->kategori->nama_kategori}}</b></span>
                             </p><br>
-
+                                <div class="col-md-12">
                               <button href="" class="btn btn-primary button
                               @if($produk->qty <= 0)
                               disabled
                               @endif
                               " style="background-color: white; border-color:#CAA563; color:#CAA563">Masukkan ke Keranjang</button>
                               <a  class="btn btn-primary button cursor" style="background-color: #CAA563; border-color:#CAA563; color:#FFFF;" data-toggle="modal" data-target="#exampleModal">Request Tempaan</a>
-                              </form>
+                            </div> 
+                            </form>
                             
                         </div>
                         </div>
@@ -121,7 +125,8 @@
                    </div>
                </div>
 
-               
+             @if (Auth::check())
+     
             <div class="col-12 col-md-12 mt-4">
                 <div class="card shadow">
                    
@@ -170,6 +175,8 @@
                    
                 </div>
             </div>
+                        
+             @endif  
        </div> 
      </div>
 

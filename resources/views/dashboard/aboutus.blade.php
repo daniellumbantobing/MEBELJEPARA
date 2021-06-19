@@ -8,8 +8,8 @@
          <div class="card" style="border-radius:20px; background-color:#F5F5FA;">
   <div class="card-body">
       <div class="card-body p">
-        <div class="text-center">
-            <p><b>Tentang Stasiun Mebel Jepara</b></p>
+        <div class="text-center text-justify">
+            <h4>Tentang Stasiun Mebel Jepara</h4>
             </div>
           
   
@@ -22,7 +22,12 @@
     <h5>Tentang Stasiun Mebel Jepara</h5>
     <div class="text-justify">
     <p>Stasiun Mebel Jepara adalah toko sekaligus produsen produk-produk indoor mebel jati yang berkualitas 
-        serta bernilai seni dari Jepara dengan material utama kayu jati dan mahoni yang berkualitas premium. Proses produksi dikerjakan oleh pengrajin profesional yang memiliki kehandalan, kemampuan serta totalitas tinggi untuk mengerjakan produk sehingga menghasilkan kualitas export. Stasiun Mebel Jepara menawarkan produk mebel jati mulai dari jati ukir hingga jati minimalis. Kami, Stasiun Mebel Jepara mengambil inisiatif untuk memperluas jaringan target pasar ke seluruh Indonesia guna memberi kepuasan dan kepercayaan kepada konsumen mengenai mebel jati Jepara yang berkualitas. 
+        serta bernilai seni dari Jepara dengan material utama kayu jati dan mahoni yang berkualitas premium. 
+        Proses produksi dikerjakan oleh pengrajin profesional yang memiliki kehandalan, kemampuan serta totalitas
+        tinggi untuk mengerjakan produk sehingga menghasilkan kualitas export. Stasiun Mebel Jepara menawarkan
+        produk mebel jati mulai dari jati ukir hingga jati minimalis. Kami, Stasiun Mebel Jepara mengambil inisiatif 
+        untuk memperluas jaringan target pasar ke seluruh Indonesia guna memberi kepuasan dan kepercayaan kepada konsumen 
+        mengenai mebel jati Jepara yang berkualitas. 
     </p>
        <p> Stasiun Mebel Jepara memberikan jaminan kualitas produk mebel Jepara dan melayani segala macam 
            pesanan mebel jati untuk perkantoran, perumahan, apartemen serta hotel. Stasiun Mebel Jepara juga
@@ -35,10 +40,10 @@
             a. Bahan Baku Jati Jepara yang berkualitas tinggi<br>
             b. Terpercaya dan memiliki izin Usaha Resmi Dinas Perindustrian dan Perdagangan Jepara<br>
             c. Melayani custom produk untuk pelanggan yang memiliki ide model dan design, sehingga 
-             pengrajin Stasiun Mebel Jepara bisa membuat produk &nbsp;&nbsp;&nbsp;&nbsp;berdasarkan ide model dan design dengan 
+             pengrajin Stasiun Mebel Jepara bisa membuat produk berdasarkan ide model dan design dengan 
             menyesuaikan space ruangan pelanggan.<br>
             d. Melayani reparasi produk untuk pelanggan yang melakukan reparasi terhadap 
-            produk mebel yang memiliki kerusakan dan ingin memperbaikinya. Reparasi &nbsp;&nbsp;&nbsp;&nbsp;produk tidak 
+            produk mebel yang memiliki kerusakan dan ingin memperbaikinya. Reparasi produk tidak 
             hanya pada kerusakan namun juga ingin menambah atau mengurangi desain pada produk yang sudah
             ada sebelumnya.
 

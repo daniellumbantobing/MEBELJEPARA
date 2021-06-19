@@ -107,7 +107,7 @@ class ProductController extends Controller
         //     return redirect('/login')->with('error', "Anda login dulu");
         // }
 
-        $komentar = Komentar::where(['produk_id' => $id])->get();
+        $komentar = Komentar::where(['produk_id' => $id])->latest()->get();
 
 
         return view('user.detail', compact(['produk', 'komentar']));
