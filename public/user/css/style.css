@@ -480,4 +480,11 @@
                                     width: 350px;
                                     height: 350px;
                                 }
+                                .skin-2 .num-in {
+                                    width: 80px;
+                                }
+                                .cart-img img {
+                                    width: 6rem;
+                                    height: 5rem;
+                                }
                             }
