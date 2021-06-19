@@ -402,9 +402,8 @@
                             
                             @media(min-width: 320px) and (max-width: 763px) {
                                 .head-top {
-                                    margin-top: -98px;
+                                    margin-top: -94px;
                                     float: right;
-                                    width: 50%;
                                 }
                                 .head-img img {
                                     width: 190px;

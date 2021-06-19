@@ -32,7 +32,7 @@
                           @foreach ($wishlists as $pr)
                 <a href="/produk/{{$pr->produk->id}}/detail">
                  
-                    <div class="col-md-4 mt-4">
+                    <div class="col-md-4 col-6 mt-4">
                     <div class="card shadow">
                        
                     <a href="{{url('wishlist/'.$pr->id.'/delete')}}"><i class="fas fa-heart list"></i></a>
