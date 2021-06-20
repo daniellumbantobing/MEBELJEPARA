@@ -1,6 +1,6 @@
  <html lang="en" class="fullscreen-bg">
 <head>
-	<title>Login</title>
+	<title>Masuk</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,7 +38,7 @@
        
     <div class="header">
     <a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo"></a>
-		<p class="lead" style=""><b>Login</b></p>
+		<p class="lead" style=""><b>Masuk</b></p>
 	</div>
 	<form action="/postlogin" method="POST">
 		@csrf

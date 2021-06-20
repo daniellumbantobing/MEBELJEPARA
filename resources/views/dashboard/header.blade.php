@@ -115,8 +115,8 @@ $kategori = Controller::mainCategories();
                         <i class="fas fa-user-circle p-2 cursor" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                         @if(!Auth::check())
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{url('/login')}}">Login</a>
-                            <a class="dropdown-item" href="{{url('/register')}}">Register</a>
+                            <a class="dropdown-item" href="{{url('/login')}}">Masuk</a>
+                            <a class="dropdown-item" href="{{url('/register')}}">Daftar</a>
                             
                         </div>
                         
@@ -150,7 +150,7 @@ $kategori = Controller::mainCategories();
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link text-white" href="{{url('/')}}">HOME <span class="sr-only"></span></a>
+                      <a class="nav-link text-white" href="{{url('/')}}">Beranda <span class="sr-only"></span></a>
                  
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{url('/tempahan')}}">Tempaan</a>
