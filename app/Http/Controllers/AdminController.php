@@ -17,6 +17,7 @@ class AdminController extends Controller
         //Produk Biasa
         $date = DB::table('pemesanan')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_harga) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tgl = [];
@@ -33,6 +34,7 @@ class AdminController extends Controller
         //Tempaan
         $dateTempaan = DB::table('tempaan')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_biaya) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tglTempaan = [];
@@ -47,6 +49,7 @@ class AdminController extends Controller
         //Reparasi
         $dateReparasi = DB::table('reparasi')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(biaya) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tglReparasi = [];

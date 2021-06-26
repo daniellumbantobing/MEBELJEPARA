@@ -31,6 +31,7 @@ class LaporanPenjualanController extends Controller
 
         $date = DB::table('pemesanan')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_harga) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tgl = [];
@@ -69,6 +70,7 @@ class LaporanPenjualanController extends Controller
 
         $date = DB::table('tempaan')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(total_biaya) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tgl = [];
@@ -112,6 +114,7 @@ class LaporanPenjualanController extends Controller
 
         $date = DB::table('reparasi')
             ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m') as date"), DB::raw('sum(biaya) as total'))
+            ->where('status_pembayaran', 'Sudah Dibayar')
             ->groupBy('date')
             ->get();
         $tgl = [];

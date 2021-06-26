@@ -5,7 +5,10 @@ use App\Pemesanan;
 use App\PemesananProduk;
 use Illuminate\Support\Facades\Route;
 use App\Produk;
+use App\Reparasi;
+use App\Tempaan;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -61,7 +64,12 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     }
     function revenue()
     {
-        return Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+        $month = Carbon::now()->format('m');
+        $pemesanan = Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+        $tempaan = Tempaan::where('status_pembayaran', 'Sudah Dibayar')->sum('biaya');
+        $reparasi = Reparasi::where('status_pembayaran', 'Sudah Dibayar')->sum('biaya');
+
+        return $pemesanan + $tempaan + $reparasi;
     }
 
     //Home
