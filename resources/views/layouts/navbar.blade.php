@@ -12,7 +12,7 @@
                                 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-   <a href="/home/admin">Stasiun Mebel Jepara</a> 
+   <a href="/home/admin" style="font-family: Trebuchet MS, Helvetica, sans-serif; font-size:18px;font-weight:bold;">Stasiun Mebel Jepara</a> 
    
     </div>
     <div class="container-fluid">

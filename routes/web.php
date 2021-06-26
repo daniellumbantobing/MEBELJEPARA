@@ -46,37 +46,26 @@ Route::get('/katalog', 'KategoriController@katalog');
 
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
-    Route::get('/home/admin', function () {
 
-        function totalproduk()
-        {
-            return Produk::count();
-        }
-        function customer()
-        {
-            return User::where('role', 'user')->count();
-        }
-        function order()
-        {
-            return Pemesanan::count();
-        }
-        function revenue()
-        {
-            return Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
-        }
+    function totalproduk()
+    {
+        return Produk::count();
+    }
+    function customer()
+    {
+        return User::where('role', 'user')->count();
+    }
+    function order()
+    {
+        return Pemesanan::count();
+    }
+    function revenue()
+    {
+        return Pemesanan::where('status_pembayaran', 'Sudah Dibayar')->sum('total_harga');
+    }
 
-        $produk = DB::table('pemesanan_produk')->select(DB::raw("produk_id"), DB::raw("count(produk_id) as jumlah"))
-            ->groupBy('produk_id')
-            ->orderBy('jumlah', 'desc')->limit(5)->get();
-
-
-
-
-
-
-        return view('admin.home', compact(['produk']));
-    });
-
+    //Home
+    Route::get('/home/admin', 'AdminController@index');
     //Profil
     Route::get('/myprofil', 'UserController@admin');
     Route::get('/edit/myprofil', 'UserController@editprofil');

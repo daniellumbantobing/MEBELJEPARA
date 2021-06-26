@@ -1,3 +1,14 @@
 .profile-main img{
     width: 20rem;
 }
+.card-img img{
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.card-img{
+
+   border-radius: 8px;
+   border:1px solid rgb(238, 238, 238);
+    
+}
+
