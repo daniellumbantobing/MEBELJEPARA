@@ -1,4 +1,6 @@
 @extends('layouts.master')
+@section('header')
+
 @section('content')
 <div class="main">
 
@@ -59,55 +61,81 @@
                         </div>
                         
                     </div>
+<<<<<<< HEAD
                         <div class="col-md-12" style="margin-top: 150px;">
 							<!-- BASIC TABLE -->
+=======
+
+   <div class="col-md-12">
+   
+                   
 							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Produk yang Banyak Terjual</h3>
+								<div id="produk">
+									
 								</div>
+							</div>
+
+   
+       <div class="row">
+                        <div class="col-md-6">
+>>>>>>> e5a97d24c1c884870f1ca4b083a709a80a24e227
+							<div class="panel">
+								<div id="tempaan">
+									
+								</div>
+							</div>
+						</div>
+                         <div class="col-md-6">
+							<div class="panel">
+								<div id="reparasi">
+									
+								</div>
+							</div>
+						</div>
+                        </div>
+                        
+
+                         <div class="">
+                  
+                            		<div class="panel">
+								<div class="panel-heading">
+									<h4 style="color:black;">Produk yang Banyak Terjual</h4>
+                                         
+								</div>
+                             
 								<div class="panel-body">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>No</th>
-												<th>Produk</th>
-                                                <th>Kategori</th>
-                                        		<th>Stok</th>
-												<th>Terjual</th>
-                                                <th>Harga</th>
-											</tr>
-										</thead>
-										<tbody>
-											@foreach ($produk as $key=>$p)
+								<div class="row slider">
+                                   
+                                    	@foreach ($produk as $key=>$p)
                                             <?php
                                                 $pro= \App\Produk::where('id',$p->produk_id)->get();
                                             ?>
                                             @foreach ($pro as $s)
-                                            
-                                                <tr>
-												<td>{{++$key}}</td>
-												<td>
-                                                     <img src="/images/{{$s->gambar}}" alt="Avatar" class="img-fluid" style="width: 8rem;">
-                                                     {{$s->nama_produk}}
-                                                </td>
-                                                <td>{{$s->kategori->nama_kategori}}</td>
-												<td>{{$s->qty}}</td>
-												<td>{{$p->jumlah}}</td>
-                                                <td>@currency($s->harga)</td>
-											</tr>
-                                            @endforeach
-                                            
-                                            @endforeach
-                                            
+                                <div class="col-md-12">
+                                    <div class="card card-img">
+                                         <img src="{{url('images/'.$s->gambar)}}" class="card-img-top img-fluid" style="width: 100%;">
+                        </a>
+                        <div class="card-body text-center">
+                            <h6 class="card-title" style="color:#CAA563;">{{$s->nama_produk}}</h6>
+                            <h6 class="card-text">@currency($s->harga)</h6>
+                            <h6 class="card-text">Terjual {{$p->jumlah}}</h6>
+                            
+                            <h6 class="card-text">Stok {{$s->qty}}</h6>
+                           
+                           
+                        </div>
+                                        </div>
+                                </div>
 
-										</tbody>
+                                   @endforeach
+                                            
+                                            @endforeach
+                       
+                            </div>
 									</table>
 								</div>
 							</div>
-							<!-- END BASIC TABLE -->
-						</div>
-                
-                  
+                         </div>
                 </div>
             </div>
 
@@ -120,5 +148,184 @@
 @endsection
 
 @section('footer')
-   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" 
+integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" 
+crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" 
+integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" 
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" 
+integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript">
+$('.slider').slick({
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: false,
+       
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+       
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+}); 
+</script>
+ 
+<script>
+		Highcharts.chart('produk', {
+	    chart: {
+	        type: ''
+	    },
+	    title: {
+	        text: 'Laporan Penjualan Biasa'
+	    },
+	    xAxis: {
+	        categories:{!!json_encode($tgl)!!},
+	        crosshair: true
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Order'
+	        }
+	    },
+	    tooltip: {
+	        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	        footerFormat: '</table>',
+	        shared: true,
+	        useHTML: true
+	    },
+	    plotOptions: {
+	        column: {
+	            pointPadding: 0.2,
+	            borderWidth: 0
+	        }
+	    },
+	    series: [{
+	        name: 'Total Pendapatan',
+	        data: {!!json_encode($total)!!}
+ 
+	    }] 
+	}); 
+
+
+</script>
+
+<script>
+		Highcharts.chart('tempaan', {
+	    chart: {
+	        type: ''
+	    },
+	    title: {
+	        text: 'Laporan Penjualan Tempahan'
+	    },
+	    xAxis: {
+	        categories:{!!json_encode($tglTempaan)!!},
+	        crosshair: true
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Order'
+	        }
+	    },
+	    tooltip: {
+	        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	        footerFormat: '</table>',
+	        shared: true,
+	        useHTML: true
+	    },
+	    plotOptions: {
+	        column: {
+	            pointPadding: 0.2,
+	            borderWidth: 0
+	        }
+	    },
+	    series: [{
+	        name: 'Total Pendapatan',
+	        data: {!!json_encode($totalTempaan)!!}
+ 
+	    }] 
+	}); 
+
+	
+</script>
+
+<script>
+		Highcharts.chart('reparasi', {
+	    chart: {
+	        type: ''
+	    },
+	    title: {
+	        text: 'Laporan Penjualan Reparasi'
+	    },
+	    xAxis: {
+	        categories:{!!json_encode($tglReparasi)!!},
+	        crosshair: true
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Order'
+	        }
+	    },
+	    tooltip: {
+	        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	        footerFormat: '</table>',
+	        shared: true,
+	        useHTML: true
+	    },
+	    plotOptions: {
+	        column: {
+	            pointPadding: 0.2,
+	            borderWidth: 0
+	        }
+	    },
+	    series: [{
+	        name: 'Total Pendapatan',
+	        data: {!!json_encode($totalReparasi)!!}
+ 
+	    }] 
+	}); 
+
+	$(document).ready(function() {
+    $('.nilai').editable();
+}); 	
+</script>
+<style>
+    .slick-next:before, .slick-prev:before {
+    font-size: 30px;
+    opacity: 10;
+    color: #a79292;
+}
+</style>
 @endsection

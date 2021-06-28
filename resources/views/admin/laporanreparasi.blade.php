@@ -99,9 +99,9 @@
 								<div class="panel-heading">
 									<h3 class="panel-title">
 										@if (!@empty($request->hari) && !@empty($request->bulan) && !@empty($request->tahun))
-										Hasil Pencarian	 "{{$request->hari}} {{$request->bulan}} {{$request->tahun}}"
+										Hasil Pencarian	 "{{$request->hari}}-{{$request->bulan}}-{{$request->tahun}}"
 										@elseif(!@empty($request->bulan) && !@empty($request->tahun))
-										Hasil Pencarian	 "{{$request->bulan}} {{$request->tahun}}"
+										Hasil Pencarian	 "{{$request->bulan}}-{{$request->tahun}}"
 										@else
 										Laporan Penjualan (Hari Ini)
 										@endif
