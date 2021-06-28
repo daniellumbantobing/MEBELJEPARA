@@ -72,7 +72,7 @@
 	</div>
 	<input  type="submit" class="btn btn-yellow  btn-md btn-block text-uppercase" value="Daftar" style="text-align: center;">
 	<div class="bottom" style="padding-top:10px;">
-		<span class="helper-text">Sudah Memiliki Akun? <a href="/login">Login</a></span>
+		<span class="helper-text">Sudah Memiliki Akun? <a href="/login">Daftar</a></span>
 	</div>
 </form>  
 </div>

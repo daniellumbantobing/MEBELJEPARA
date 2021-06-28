@@ -47,7 +47,7 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
+                            <h4 class="modal-title" id="exampleModalLabel">Edit Produk</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -70,8 +70,8 @@
                                       
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Close</button>
-                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Update</button>
+                            <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Tutup</button>
+                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Edit</button>
                             </form>
                           </div>
                         </div>
@@ -98,7 +98,7 @@
                  <div class="modal-dialog" role="document">
                    <div class="modal-content">
                      <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
+                      <b><h4 class="modal-title" id="exampleModalLabel">Tambah Kategori</h4></b>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                        </button>
@@ -118,8 +118,8 @@
                                  
                      </div>
                      <div class="modal-footer">
-                       <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Submit</button>
+                       <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Simpan</button>
                        </form>
                      </div>
                    </div>
@@ -144,7 +144,7 @@ $('.delete').click(function(){
       var nama_produk = $(this).attr('nama-produk');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data kategori dengan nama " +nama_produk + "??",
+		  text: "Menghapus data kategori dengan nama " +nama_produk + "?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

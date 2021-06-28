@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Pemesanan</h3>
+                                   <h3 class="panel-title">Produk Biasa</h3>
                                    
                                </div>
                                <div class="panel-body">

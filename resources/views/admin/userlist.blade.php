@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Costumer</h3>
+                                   <h3 class="panel-title">Pelanggan</h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -42,7 +42,7 @@
                                                 {{-- <td></td>
                                                 <td></td> --}}
                                         <td>
-                    <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-user="{{$us->nama_depan}} {{$us->nama_belakang}}" produk-id="{{$us->id}}">Delete</a>
+                    <a href="#" wire:click="destroy({{$us->id}})" class="btn btn-danger btn-sm delete" style="border-radius:10px" nama-user="{{$us->nama_depan}} {{$us->nama_belakang}}" produk-id="{{$us->id}}">Hapus</a>
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateModal{{$us->id}}" style="border-radius:10px">Detail</a>
                     </td>
                   </tr>
@@ -140,7 +140,7 @@ $('.delete').click(function(){
        var nama = $(this).attr('nama-user');
 		  swal({
 		  title: "Yakin  ?",
-		  text: "Mau menghapus data user dengan id " +nama + "??",
+		  text: "Menghapus data user dengan id " +nama + "?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,
