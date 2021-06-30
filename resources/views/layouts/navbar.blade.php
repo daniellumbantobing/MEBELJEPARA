@@ -67,8 +67,8 @@
               
                <span>{{auth()->user()->nama_depan}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="{{url('/myprofil')}}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-              <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+              <li><a href="{{url('/myprofil')}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
+              <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Keluar</span></a></li>
             </ul>
           </li>
          

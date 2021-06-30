@@ -10,7 +10,7 @@
                       <div class="panel panel-headline" style="border-radius: 20px;">
 						<div class="panel-heading">
 							<div class="panel-heading">
-                            <h3 class="panel-title">Pemesanan Tempaan#{{$det_tempaan->id}}</h3>
+                            <b><h3 class="panel-title">Pemesanan Tempaan#{{$det_tempaan->id}}</b></h3>
 							<p class="panel-subtitle">
                                Nama Tempaan : {{$det_tempaan->nama_tempaan}}
                                 <br>Tanggal Pemesanan: {{$det_tempaan->created_at->format('d M Y  H:i')}}</p>

@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Reparasi</h3>
+                                   <b><h3 class="panel-title">Reparasi</b></h3>
                                    
                                </div>
                                <div class="panel-body">

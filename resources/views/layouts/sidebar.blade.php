@@ -2,13 +2,13 @@
     <div class="sidebar-scroll">
       <nav>
         <ul class="nav">
-          <li><a href="/home/admin" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+          <li><a href="/home/admin" class="active"><i class="lnr lnr-home"></i> <span>Beranda</span></a></li>
           <li>
             <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="fas fa-archive"></i> <span>Produk</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="subPages" class="collapse ">
               <ul class="nav">
                 <li><a href="/cretate/produk" class="">Produk</a></li>
-                <li><a href="/kategori" class="">kategori</a></li>
+                <li><a href="/kategori" class="">Kategori</a></li>
                </ul>
             </div>
           </li>
@@ -28,7 +28,7 @@
           
 
 
-          <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Costumer</span></a></li>
+          <li><a href="/userlist" class=""><i class="fas fa-user-friends"></i> <span>Data Pelanggan</span></a></li>
           
           
            <li>

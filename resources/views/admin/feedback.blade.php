@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Feedback</h3>
+                                   <b><h3 class="panel-title">Feedback</b></h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -74,7 +74,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detail Komentar</h5>
+                    <b><h5 class="modal-title" id="exampleModalLabel">Detail Komentar</b></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -105,16 +105,20 @@
                          
                           <th></th>
                           <td>
-                            <a href="{{url('produk/'.$us->produk->id.'/detail')}}" target="_blank" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Detail Produk</a>    
+                            <a href="{{url('produk/'.$us->produk->id.'/detail')}}" target="_blank" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Detail Produk</a>   
+                            
                         </td>
                         
                         </tr>
                         
                     </table>
+              
                   
                   </div>
                 </div>
               </div>
+              <
+                  
             </div>	
             @endforeach
             @endsection
@@ -132,8 +136,8 @@
 $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
 		  swal({
-		  title: "Yakin  ?",
-		  text: "Mau menghapus Komentar ??",
+		  title: "Konfirmasi Hapus",
+		  text: "Apakah kamu ingin menghapus feedback?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

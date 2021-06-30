@@ -14,9 +14,9 @@
                             <div class="panel panel-headline" style="border-radius: 20px;">
 								<div class="panel-heading mt-3">
 									<center>
-									<h3 class="panel-title">
+									<b><h3 class="panel-title">
 									Laporan Penjualan Produk Biasa 
-									</h3>
+									</b></h3>
 									</center>
                    
 								</div>
@@ -29,7 +29,7 @@
 						   
                             <div class="panel panel-headline" style="border-radius: 20px;">
 								<div class="panel-heading">
-									<h3 class="panel-title">Filter</h3>
+									<b><h3 class="panel-title">Filter</b></h3>
 						           <div class="right">
                          
 								   </div>
@@ -99,7 +99,7 @@
 						   
                             <div class="panel panel-headline" style="border-radius: 20px;">
 								<div class="panel-heading">
-									<h3 class="panel-title">
+									<b><h3 class="panel-title">
 										@if (!@empty($request->hari) && !@empty($request->bulan) && !@empty($request->tahun))
 										Hasil Pencarian	 "{{$request->hari}}-{{$request->bulan}}-{{$request->tahun}}"
 										@elseif(!@empty($request->bulan) && !@empty($request->tahun))
@@ -107,7 +107,7 @@
 										@else
 										Laporan Penjualan (Hari Ini)
 										@endif
-									</h3>
+									</b></h3>
 						           <div class="right">
                          
 								   </div>

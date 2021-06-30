@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Data Produk</h3>
+                                   <b><h3 class="panel-title">Data Produk</b></h3>
                                    <div class="right">
                                    <a type="button" class="btn btn-primary" style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;" data-toggle="modal" data-target="#exampleModal">+ Tambah Produk</a>
                                    </div>
@@ -117,7 +117,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Tutup</button>
-                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Edit</button>
+                             <button type="submit" class="btn btn-primary"  style="border-radius:10px; background-color:#CAA563; border-color:#CAA563;">Simpan</button>
                             </form>
                           </div>
                         </div>
@@ -235,8 +235,8 @@ $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
       var nama_produk = $(this).attr('nama-produk');
 		  swal({
-		  title: "Yakin  ?",
-		  text: "Menghapus data produk dengan nama " +nama_produk + "?",
+		  title: "Hapus Konfirmasi",
+		  text: "Apa kamu ingin menghapus data produk " +nama_produk + "?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

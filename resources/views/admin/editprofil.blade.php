@@ -10,7 +10,7 @@
  				<div class="col-md-12">
  				<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">Edit</h3>
+									<b><h3 class="panel-title">Profile</b></h3>
 								</div>
 								<div class="panel-body">
 								<form action="/profil/{{$profil->id}}/update" method="POST" enctype="multipart/form-data">

@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Pelanggan</h3>
+                                   <b><h3 class="panel-title">Pelanggan</b></h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -69,7 +69,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detail User</h5>
+                    <h4 class="modal-title" id="exampleModalLabel">Detail User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -116,12 +116,18 @@
                           <td>{{$us->kode_pos}}</td>
                           
                         </tr>
+
+                      
                     </table>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" style="float:left; border-radius:10px; background-color:#ffff; border-color:#CAA563;" data-dismiss="modal">Tutup</button>
+                    </div>
                   
                   </div>
                 </div>
               </div>
             </div>	
+            
             @endforeach
 @endsection
 
@@ -139,8 +145,8 @@ $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
        var nama = $(this).attr('nama-user');
 		  swal({
-		  title: "Yakin  ?",
-		  text: "Menghapus data user dengan id " +nama + "?",
+		  title: "Konfirmasi Hapus",
+		  text: "Apa kamu ingin menghapus " +nama + "?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel" style="border-radius:10px;">
                                <div class="panel-heading">
-                                   <h3 class="panel-title">Notifikasi</h3>
+                                   <b><h3 class="panel-title">Notifikasi</b></h3>
                                    
                                </div>
                                <div class="panel-body">
@@ -98,8 +98,8 @@
 $('.delete').click(function(){
 		  var produk_id = $(this).attr('produk-id');
 		  swal({
-		  title: "Yakin  ?",
-		  text: "Mau menghapus Notifikasi ?",
+		  title: "Konfirmasi Hapus",
+		  text: "Apa kamu ingin menghapus notifikasi ?",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,
