@@ -61,14 +61,9 @@
                         </div>
                         
                     </div>
-<<<<<<< HEAD
 					 <div class="col-md-12" style="margin-top: 150px;">
 							<!-- BASIC TABLE -->
 
-
-=======
-                     
->>>>>>> 3a5b1ab5753a17a00e295a4d15bd20dbe68bdaf4
    <div class="col-md-12">
    
                    
