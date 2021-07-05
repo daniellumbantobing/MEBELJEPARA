@@ -71,7 +71,7 @@
 							    <label for="exampleFormControlTextarea1">Avatar</label>
                                 <br>
                                    @if (!empty($profil->avatar))
-                                  <img src="{{asset('avatar/'.$profil->avatar)}}" alt="avatar" style="width: 150px; height:150px;">   
+                                  <img src="{{asset('avatar/'.$profil->avatar)}}" loading="lazy" alt="avatar" style="width: 150px; height:150px;">   
                                  @endif
 							    <input type="file" name="avatar" class="form-control" value="{{$profil->avatar}}"> 
                                  @if($errors->has('avatar'))

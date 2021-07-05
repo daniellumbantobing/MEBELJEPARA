@@ -62,7 +62,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               @if (!empty(auth()->user()->avatar))
-              <img src="{{asset('avatar/'.auth()->user()->avatar)}}" class="img-circle" alt="Avatar">  
+              <img src="{{asset('avatar/'.auth()->user()->avatar)}}" loading="lazy" class="img-circle" alt="Avatar">  
               @endif
               
                <span>{{auth()->user()->nama_depan}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>

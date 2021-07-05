@@ -53,7 +53,7 @@
                             
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Gambar 1</label><br>
-                                   <img src="/tempaan/{{$tempaan->gambar1}}" class="card-img-top img-fluid" style="width: 150px;">
+                                   <img src="/tempaan/{{$tempaan->gambar1}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                                     
                                 <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar1">
                                     @if($errors->has('gambar1'))
@@ -63,13 +63,13 @@
                             
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 2(optional)</label><br>
-                                   <img src="/tempaan/{{$tempaan->gambar2}}" class="card-img-top img-fluid" style="width: 150px;">
+                                   <img src="/tempaan/{{$tempaan->gambar2}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                                <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar2">
                             </div>
 
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 3(optional)</label><br>
-                                   <img src="/tempaan/{{$tempaan->gambar3}}" class="card-img-top img-fluid" style="width: 150px;">
+                                   <img src="/tempaan/{{$tempaan->gambar3}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                                 <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar3">
                             </div>
                                <div class="form-group">

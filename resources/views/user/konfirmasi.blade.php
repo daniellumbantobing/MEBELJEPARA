@@ -12,7 +12,7 @@
       <div class="card-body">
       <h6>Transfer Ke Nomor Rekening :</h6>
       @if ($pesananpro->pemesanan->transfer_bank == "BRI")
-       <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
+       <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" loading="lazy" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
         <br> <br>
         <h5>0987789</h5>
         <p style="color: #858585">Stasiun Mebel Jepara</p>
@@ -20,7 +20,7 @@
         <h6>Total Pembayaran:</h6>
         <h5>@currency($pesananpro->pemesanan->total_harga)</h5>
       @elseif ($pesananpro->pemesanan->transfer_bank == "BNI")
-        <img src="{{asset('user/assets/bni.jpg')}}" alt="BNI" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
+        <img src="{{asset('user/assets/bni.jpg')}}" loading="lazy" alt="BNI" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
         <br> <br>
         <h5>0987789</h5>
         <p style="color: #858585">Stasiun Mebel Jepara</p>
@@ -28,7 +28,7 @@
         <h6>Total Pembayaran:</h6>
         <h5>@currency($pesananpro->pemesanan->total_harga)</h5>
         @elseif ($pesananpro->pemesanan->transfer_bank == "mandiri")
-        <img src="{{asset('user/assets/mandiri.png')}}" alt="mandiri" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
+        <img src="{{asset('user/assets/mandiri.png')}}" alt="mandiri" loading="lazy" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
         <br> <br>
         <h5>0987789</h5>
         <p style="color: #858585">Stasiun Mebel Jepara</p>

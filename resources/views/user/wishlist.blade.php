@@ -37,7 +37,7 @@
                        
                     <a href="{{url('wishlist/'.$pr->id.'/delete')}}"><i class="fas fa-heart list"></i></a>
                   
-                    <img src="/images/{{$pr->produk->gambar}}" class="card-img-top img-fluid" alt="...">
+                    <img src="/images/{{$pr->produk->gambar}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                         </a>
                         <div class="card-body text-center">
                             <h6 class="card-title" style="color:#CAA563;">{{$pr->produk->nama_produk}}</h6>

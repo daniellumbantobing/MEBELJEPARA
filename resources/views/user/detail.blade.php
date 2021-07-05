@@ -35,7 +35,7 @@
                         <div class="col-12 col-md-4">
 
                             <div class="detail-img">
-                        <img src="/images/{{$produk->gambar}}" class="card-img-top img-fluid">
+                        <img src="/images/{{$produk->gambar}}" loading="lazy" class="card-img-top img-fluid">
                         </div>
                       <div class="text-right container wishlist" style="font-size: 20px;">
                         <input type="hidden" name="produk_id" value="{{$produk->id}}">

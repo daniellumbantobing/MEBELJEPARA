@@ -21,13 +21,13 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
             </ol>
             <div class="carousel-inner carosel-img">
                 <div class="carousel-item active">
-                <img src="{{asset('user/assets/banner1.jpg')}}" class="d-block w-100" alt="Banner 1">
+                <img src="{{asset('user/assets/banner1.jpg')}}" loading="lazy" class="d-block w-100" alt="Banner 1">
                 </div>
                 <div class="carousel-item">
-                <img src="{{asset('user/assets/banner2.jpg')}}" class="d-block w-100" alt="Banner 2">
+                <img src="{{asset('user/assets/banner2.jpg')}}" loading="lazy" class="d-block w-100" alt="Banner 2">
                 </div>
                 <div class="carousel-item">
-                <img src="{{asset('user/assets/banner3.jpg')}}" class="d-block w-100" alt="Banner 3">
+                <img src="{{asset('user/assets/banner3.jpg')}}" loading="lazy" class="d-block w-100" alt="Banner 3">
                                     
                 </div>
             </div>
@@ -50,13 +50,13 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
                     <div class="card">
                       
                       @if ($k->nama_kategori == "Kursi")
-                        <img src="{{asset('user/assets/ok.png')}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{asset('user/assets/ok.png')}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                       @elseif ($k->nama_kategori == "Meja")
-                        <img src="{{asset('user/assets/meja.png')}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{asset('user/assets/meja.png')}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                       @elseif ($k->nama_kategori == "Lemari")
-                        <img src="{{asset('user/assets/lemari.png')}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{asset('user/assets/lemari.png')}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                       @elseif ($k->nama_kategori == "Pintu")
-                        <img src="{{asset('user/assets/pintu.png')}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{asset('user/assets/pintu.png')}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                       @endif
                       
                       
@@ -78,7 +78,7 @@ $kat = \App\Kategori::whereIn('nama_kategori', ['Kursi','Meja','Lemari','Pintu']
                 <a href="{{url('produk/'.$pr->id.'/detail')}}">
                  <div class="col-md-3 col-6 mt-4">
                     <div class="card shadow cards-img">
-                        <img src="{{url('images/'.$pr->gambar)}}" class="card-img-top img-fluid" alt="produk">
+                        <img src="{{url('images/'.$pr->gambar)}}" loading="lazy" class="card-img-top img-fluid" alt="produk">
                         </a>
                         <div class="card-body text-center">
                             <h6 class="card-title" style="color:#CAA563;">{{$pr->nama_produk}}</h6>

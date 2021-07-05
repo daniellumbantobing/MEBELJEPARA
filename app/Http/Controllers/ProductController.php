@@ -188,7 +188,7 @@ class ProductController extends Controller
         $cart = Cart::where('user_id', Auth::user()->id)->get();
         if (empty($user->alamat)) {
 
-            return back()->with('error', 'Silahkan Isi Alamt Anda');
+            return back()->with('error', 'Silahkan Isi Alamat Anda');
         }
         return view('user.pay', compact(['cart', 'user']));
     }

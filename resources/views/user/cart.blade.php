@@ -19,7 +19,7 @@
 <div class="text-center">
   
   
-  <img src="{{asset('user/assets/cart.svg')}}" alt="cart" class="img-fluid" style="width: 250px; height:200px;">
+  <img src="{{asset('user/assets/cart.svg')}}" alt="cart" loading="lazy" class="img-fluid" style="width: 250px; height:200px;">
   <h6>Belum ada Produk Dikeranjang</h6>
             <a href="\" class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px;">Cari Produk</a>
     </div>
@@ -51,7 +51,7 @@
     <tr>
       <td> 
         <a href="{{url('produk/'.$cart->produk->id.'/detail')}}" style="color: black; text-decoration: none;">
-        <img src="{{url('images/'.$cart->produk->gambar)}}" class="card-img-top img-fluid">
+        <img src="{{url('images/'.$cart->produk->gambar)}}" loading="lazy" class="card-img-top img-fluid">
         </a>
        {{$cart->produk->nama_produk}}  
       </td>

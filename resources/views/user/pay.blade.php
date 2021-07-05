@@ -21,7 +21,7 @@
                 @foreach ($cart as $c)
                 <div class="row mt-2">
                 <div class="col-3">
-                <img src="/images/{{$c->produk->gambar}}" alt="produk" class="card-img-top img-fluid">
+                <img src="/images/{{$c->produk->gambar}}" loading="lazy" alt="produk" class="card-img-top img-fluid">
                 </div>
                 <div class="col-9">
                 <p>
@@ -47,7 +47,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios1" value="BNI" checked>
                 <label class="form-check-label" for="exampleRadios1">
-                    <p> <img src="{{asset('user/assets/bni.jpg')}}" alt="BNI" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
+                    <p> <img src="{{asset('user/assets/bni.jpg')}}" alt="BNI" loading="lazy" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                      Bank BNI</p>
                 </label>
                 </div>
@@ -57,7 +57,7 @@
                <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios2" value="BRI">
                 <label class="form-check-label" for="exampleRadios2">
-                  <p> <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
+                  <p> <img src="{{asset('user/assets/bri.jpg')}}" alt="BRI" loading="lazy" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                     Bank BRI</p>
                 </label>
                 </div>
@@ -68,7 +68,7 @@
                <div class="form-check">
                 <input class="form-check-input" type="radio" name="transfer_bank" id="exampleRadios3" value="mandiri">
                 <label class="form-check-label" for="exampleRadios3">
-                  <p> <img src="{{asset('user/assets/mandiri.png')}}" alt="mandiri" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
+                  <p> <img src="{{asset('user/assets/mandiri.png')}}" loading="lazy" alt="mandiri" class="card-img-top img-fluid" style="width:50px; height:30px;  border: 1px solid #A1A1A1;"> 
                     Bank Mandiri</p>
                 </label>
                 </div>

@@ -39,27 +39,27 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="text-center mt-3">
-        <img src="{{asset("user/assets/biasa.jpg")}}" class="rounded img-fluid img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/biasa.jpg")}}" loading="lazy" class="rounded img-fluid img-order" alt="Produk Biasa">
     </div>   
    </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="text-center mt-3">
-        <img src="{{asset("user/assets/tempaan.jpg")}}" class="rounded img-fluid img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/tempaan.jpg")}}" loading="lazy" class="rounded img-fluid img-order" alt="Produk Biasa">
     </div>     
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <div class="text-center mt-3">
-        <img src="{{asset("user/assets/reparasi.jpg")}}" class="rounded img-fluid img-order" alt="Produk Biasa">
+        <img src="{{asset("user/assets/reparasi.jpg")}}" loading="lazy" class="rounded img-fluid img-order" alt="Produk Biasa">
     </div> 
   </div>
-  <div class="tab-pane fade" id="pay" role="tabpanel" aria-labelledby="pay-tab">
+  <div class="tab-pane fade" id="pay" role="tabpanel" loading="lazy"aria-labelledby="pay-tab">
     <div class="mt-3">
         
             <div class="row img-mar">
                 <div class="col-md-4">
                     <div class="card">
                         <div class="text-center">
-                        <img src="{{asset('user/assets/bn.png')}}" class="img-fluid" style="width: 60%">
+                        <img src="{{asset('user/assets/bn.png')}}" loading="lazy" class="img-fluid" style="width: 60%">
                         <div class="card-body">
                                <p class="card-text"><b>Stasiun Mebel Jepara</b><br>No. Rek: 1XXXXXX</p>
                         </div>
@@ -69,7 +69,7 @@
                 <div class="col-md-4">
                    <div class="card">
                         <div class="text-center">
-                          <img src="{{asset('user/assets/br.png')}}" class="img-fluid" style="width: 60%">
+                          <img src="{{asset('user/assets/br.png')}}" loading="lazy" class="img-fluid" style="width: 60%">
                         <div class="card-body">
                               <p class="card-text"><b>Stasiun Mebel Jepara</b><br>No. Rek: 1XXXXXX</p>
                             
@@ -81,7 +81,7 @@
                 <div class="col-md-4">
                     <div class="card">
                          <div class="text-center">
-                          <img src="{{asset('user/assets/mandiri.png')}}" class="img-fluid" style="width: 60%">
+                          <img src="{{asset('user/assets/mandiri.png')}}" loading="lazy" class="img-fluid" style="width: 60%">
                         <div class="card-body">
                              <p class="card-text"><b>Stasiun Mebel Jepara</b><br>No. Rek: 1XXXXXX</p>
     

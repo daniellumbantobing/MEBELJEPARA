@@ -56,16 +56,16 @@
                                 <tr style="border:none;">
                                 <td style="border:none;">  
                                 <a href="/reparasi/{{$det_tempaan->gambar1}}" target="blank_">    
-                                <img src="/reparasi/{{$det_tempaan->gambar1}}" alt="produk" class="card-img-top img-fluid" style="width: 80px;">
+                                <img src="/reparasi/{{$det_tempaan->gambar1}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px;">
                                 </a>
                                 @if (!empty($det_tempaan->gambar2))
                                 <a href="/reparasi/{{$det_tempaan->gambar2}}" target="blank_">   
-                                <img src="/reparasi/{{$det_tempaan->gambar2}}" alt="produk" class="card-img-top img-fluid" style="width: 80px;">
+                                <img src="/reparasi/{{$det_tempaan->gambar2}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px;">
                                 </a>
                                @endif
                                @if (!empty($det_tempaan->gambar3))
                                 <a href="/reparasi/{{$det_tempaan->gambar3}}" target="blank_">   
-                                <img src="/reparasi/{{$det_tempaan->gambar3}}" alt="produk" class="card-img-top img-fluid" style="width: 80px;">
+                                <img src="/reparasi/{{$det_tempaan->gambar3}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px;">
                                 </a>
                                 @endif
                                 </td>
@@ -110,8 +110,8 @@
                              <ul class="list-unstyled list-justify">
 										
                                             <li>Status Pembayaran <span>{{$det_tempaan->status_pembayaran}}</span></li>
-											<li>Status Pemesanan<span>{{$det_tempaan->status_pemesanan}}</span></li>
-											<li>Metode Pembayaran<span>Transfer Bank {{$det_tempaan->transfer_bank}}</li>
+                                            <li>Status Pemesanan<span>{{$det_tempaan->status_pemesanan}}</span></li>
+                                            <li>Metode Pembayaran<span>Transfer Bank {{$det_tempaan->transfer_bank}}</li>
                                             <li>Jumlah Pesanan<span>{{$det_tempaan->jumlah}}</span></li>
                                             <li>Total <span style="font-size: 18px; font-weight:bold;">@currency($det_tempaan->biaya)</span></li>
                                             

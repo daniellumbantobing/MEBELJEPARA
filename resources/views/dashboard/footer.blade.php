@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <div class="row">
                     <div class="col-md-4 mt-4 mb-5">
-                      <a href="/"><img src="{{asset('user/assets/logo.png')}}" alt="logo" style="width:250px; margin-left:-10px;"></a>
+                      <a href="/"><img src="{{asset('user/assets/logo.png')}}" loading="lazy" alt="logo" style="width:250px; margin-left:-10px;"></a>
                  
                    <p>Stasiun Mebel Jepara adalah salah satu platform belanja online penyedia berbagai macam furniture yang dibutuhkan pelanggan</p>
                 </div>

@@ -33,7 +33,7 @@
   <div class="form">
     
 	<div class="header">
-		<a href="/"><img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo"></a>
+		<a href="/"><img src="{{asset('user/assets/logo.png')}}" loading="lazy" class="my-md-3" alt="logo"></a>
   
     <p class="lead" style=""><b>Daftar Akun</b></p>
 	</div>

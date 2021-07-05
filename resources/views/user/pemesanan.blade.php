@@ -54,12 +54,12 @@
       <td style="border:none;"></td>
       <td style="border:none;"></td>
       <td style="border:none;"></td>
-    </tr>
+    </tr> 
     <tr>
       <td scope="row">
             @foreach($p->pemesananproduk as $pro)   
                
-              <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+              <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             
             @endforeach 
         </td>
@@ -212,12 +212,12 @@
     </tr>
     <tr>
       <td scope="row">
-            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @if(!empty($p->gambar2))
-            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" loading="lazy"class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
             @if(!empty($p->gambar3))
-            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
            
         </td>
@@ -296,12 +296,12 @@
     <tr>
       <td scope="row">
             
-        <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+        <img src="{{url('reparasi/'.$p->gambar1)}}" loading="lazy" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @if(!empty($p->gambar2))
-            <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar2)}}" loading="lazy" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
             @if(!empty($p->gambar3))
-            <img src="{{url('reparasi/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar3)}}" loading="lazy" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
             @endif
            
         </td>
@@ -381,12 +381,12 @@
   <li class="nav-item">
     <a class="btn btn-primary" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;"  id="biasa-dikirim-tap" data-toggle="tab" href="#biasa_dikirim" role="tab" aria-controls="biasa_dikirim" aria-selected="true">Biasa</a>
   </li>
-  <li class="nav-item">
+  {{-- <li class="nav-item">
     <a class="btn btn-primary" id="tempaan-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#tempaan_dikirim" role="tab" aria-controls="tempaan_dikirim" aria-selected="false">Tempaan Dikirim</a>
-  </li>
-  <li class="nav-item">
+  </li> --}}
+  {{-- <li class="nav-item">
     <a class="btn btn-primary" id="reparasi-dikirim-tap" style="background-color: #CAA563; border-color:#CAA563; border-radius:20px;" data-toggle="tab" href="#reparasi_dikirim" role="tab" aria-controls="reparasi_dikirim" aria-selected="false">Reparasi Dikirim</a>
-  </li>
+  </li> --}}
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="biasa_dikirim" role="tabpanel" aria-labelledby="biasa-dikirim-tap">
@@ -617,7 +617,7 @@
      @foreach($p->pemesananproduk as $pro)   
     <tr>
       <th scope="row">
-         <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
+         <img src="{{url('images/'.$pro->produk->gambar)}}" loading="lazy" alt="produk" class="card-img-top img-fluid" style="width: 60px; height:60px;">
       </th>
       <td style="color: #858585"> 
         {{$pro->produk->nama_produk}}<br><span style="font-size: 12px;">@currency($pro->produk->harga)<br>{{$pro->qty}}</span>
@@ -722,7 +722,7 @@
     <tr>
       <th scope="row">
        
-            <img src="{{url('images/'.$p->produk->gambar)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('images/'.$p->produk->gambar)}}" loading="lazy" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             
             
       </th>
@@ -744,12 +744,12 @@
     <tr>
       <th scope="row">
        
-            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar1)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @if (!empty($p->gambar2))
-            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar2)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             @if (!empty($p->gambar3))
-            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('tempaan/'.$p->gambar3)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             
             
@@ -840,12 +840,12 @@
     <tr>
       <th scope="row">
        
-            <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar1)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @if (!empty($p->gambar2))
-            <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar2)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             @if (!empty($p->gambar3))
-            <img src="{{url('reparasi/'.$p->gambar3)}}" alt="produk" class="card-img-top img-fluid" style="width: 80px; height:60px;">
+            <img src="{{url('reparasi/'.$p->gambar3)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 80px; height:60px;">
             @endif
             
             

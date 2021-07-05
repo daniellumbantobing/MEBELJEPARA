@@ -47,7 +47,7 @@
                             
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Gambar 1</label><br>
-                                   <img src="/reparasi/{{$reparasi->gambar1}}" class="card-img-top img-fluid" style="width: 150px;">
+                                   <img src="/reparasi/{{$reparasi->gambar1}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                                     
                                 <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar1">
                                     @if($errors->has('gambar1'))
@@ -58,7 +58,7 @@
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 2(optional)</label><br>
                               @if (!empty($reparasi->gambar2))
-                              <img src="/reparasi/{{$reparasi->gambar2}}" class="card-img-top img-fluid" style="width: 150px;">
+                              <img src="/reparasi/{{$reparasi->gambar2}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                               
                               @endif
                               
@@ -68,7 +68,7 @@
                             <div class="form-group">
                                  <label for="exampleFormControlFile1">Gambar 3(optional)</label><br>
                                   @if (!empty($reparasi->gambar3)) 
-                                 <img src="/reparasi/{{$reparasi->gambar3}}" class="card-img-top img-fluid" style="width: 150px;">
+                                 <img src="/reparasi/{{$reparasi->gambar3}}" loading="lazy" class="card-img-top img-fluid" style="width: 150px;">
                                     @endif
                                  <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1" name="gambar3">
                             </div>

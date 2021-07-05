@@ -18,7 +18,7 @@
 								<div class="profile-header">
 									<div class="overlay"></div>
 									<div class="profile-main">
-										<img src="{{asset('avatar/'.$profil->avatar)}}" class="img-circle" alt="Avatar">
+										<img src="{{asset('avatar/'.$profil->avatar)}}" loading="lazy" class="img-circle" alt="Avatar">
 										<h3 class="name">{{$profil->nama_depan}}</h3>
 										
 									</div>

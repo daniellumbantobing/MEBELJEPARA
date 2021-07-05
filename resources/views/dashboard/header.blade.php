@@ -8,7 +8,7 @@ $kategori = Controller::mainCategories();
               <div class="col-md-4 head-img">
                     
                <a href="{{url('/')}}">
-                <img src="{{asset('user/assets/logo.png')}}" class="my-md-3" alt="logo">
+                <img src="{{asset('user/assets/logo.png')}}" loading="lazy" class="my-md-3" alt="logo">
                 </a>
                 
                 </div>

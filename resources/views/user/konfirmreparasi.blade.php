@@ -19,16 +19,24 @@
         <hr/>     
         <h6>Total Pembayaran:</h6>
         <h5>@currency($tempaan->biaya)</h5>
-      @else
-        <img src="{{asset('user/assets/bni.jpg')}}" alt="BRI" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
+      @elseif ($tempaan->transfer_bank == "BNI")
+        <img src="{{asset('user/assets/bni.jpg')}}" alt="BRI" loading="lazy" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
         <br> <br>
         <h5>0987789</h5>
         <p style="color: #858585">Stasiun Mebel Jepara</p>
         <hr/>     
         <h6>Total Pembayaran:</h6>
-        <h5>@currency($tempaan->biaya)</h5>
+        <h5>@currency($tempaan->total_biaya)</h5>
+        @elseif ($tempaan->transfer_bank == "mandiri")
+        <img src="{{asset('user/assets/mandiri.png')}}" alt="mandiri" loading="lazy" class="card-img-top img-fluid" style="width:90px; height:60px; border: 1px solid #E5E5E5;"> 
+        <br> <br>
+        <h5>0987789</h5>
+        <p style="color: #858585">Stasiun Mebel Jepara</p>
+        <hr/>     
+        <h6>Total Pembayaran:</h6>
+        <h5>@currency($tempaan->total_biaya)</h5>
       @endif
-
+      
       <button class="btn btn-primary col-12 mt-4" data-toggle="modal" data-target="#exampleModal" style="background-color: #CAA563; border-color:#CAA563; border-radius:10px; width: 100%;">Konfirmasi Pembayaran</button>
         </div>
     </div>

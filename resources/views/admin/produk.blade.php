@@ -37,7 +37,7 @@
                       @foreach ($produk as $pd)
                   		<tr>
 												<td>
-                          <img src="/images/{{$pd->gambar}}" alt="Avatar" class="img-fluid" style="width: 8rem;">
+                          <img src="/images/{{$pd->gambar}}" alt="Avatar" loading="lazy" class="img-fluid" style="width: 8rem;">
                           {{$pd->nama_produk}}
                         </td>
 												<td>{{$pd->kategori->nama_kategori}}</td>

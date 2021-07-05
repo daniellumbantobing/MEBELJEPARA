@@ -110,7 +110,7 @@
                                             @foreach ($pro as $s)
                                 <div class="col-md-12">
                                     <div class="card card-img">
-                                         <img src="{{url('images/'.$s->gambar)}}" class="card-img-top img-fluid" style="width: 100%;">
+                                         <img src="{{url('images/'.$s->gambar)}}" class="card-img-top img-fluid" loading="lazy" style="width: 100%;">
                         </a>
                         <div class="card-body text-center">
                             <h6 class="card-title" style="color:#CAA563;">{{$s->nama_produk}}</h6>
