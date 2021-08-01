@@ -244,8 +244,7 @@ class ProductController extends Controller
 
 
         $id = $pemesanan_id;
-        // Session::put('pemesanan_id', $pemesanan_id);
-        // Session::put('total_harga', $data['total_harga']);   
+    
         return redirect('/konfirm/' . $id);
     }
 

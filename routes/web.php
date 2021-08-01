@@ -27,7 +27,6 @@ Route::get('/', function () {
     return view('dashboard.index', compact(['produk']));
 });
 
-
 Route::get('/login', 'AuthController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
 Route::get('/register', 'RegisterController@register');

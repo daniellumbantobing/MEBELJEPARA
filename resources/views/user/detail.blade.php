@@ -66,7 +66,6 @@
                              <hr/>
                             <h4 style="color:#CAA563 "><strong>@currency($produk->harga)</strong></h4>
                          
-                             
                             <hr />
                                 <form action="/add-cart/{{$produk->id}}" method="post">
                                     @csrf

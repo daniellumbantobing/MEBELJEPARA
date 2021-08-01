@@ -96,6 +96,8 @@ class ReparasiController extends Controller
 
         return redirect('/viewreparasi/' . $id)->with('sukses', 'Reparasi berhasil direquest');
     }
+
+
     public function viewreparasi($id)
     {
         $user_id = Auth::user()->id;
@@ -162,6 +164,8 @@ class ReparasiController extends Controller
 
         return back()->with('sukses', 'Data reparasi berhasil diupdate');
     }
+
+
     public function pesanan()
     {
         $reparasi = Reparasi::latest()->paginate(5);
@@ -203,6 +207,7 @@ class ReparasiController extends Controller
             'biaya' => 'required',
 
         ]);
+
         $reparasi = Reparasi::find($id);
         $reparasi->biaya = str_replace(".", "", $request->biaya);
         $reparasi->save();
@@ -305,7 +310,7 @@ class ReparasiController extends Controller
         $notif->status = 1;
         $notif->save();
         //  User::find($pemesanan->user_id)->notify(new InvoicePaid);
-        return redirect()->back()->with('sukses', 'Tempaan Dikonfirmasi');
+        return redirect()->back()->with('sukses', 'Reparasi Dikonfirmasi');
     }
     public function batalkonfirmasi($id)
     {

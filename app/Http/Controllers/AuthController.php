@@ -43,10 +43,19 @@ class AuthController extends Controller
                     $session_id = Session::get('session_id');
                     DB::table('cart')->where('session_id', $session_id)->update(['user_id' => Auth::user()->id]);
                 }
+
                 return redirect('/');
+
+                
+
             } else if ($user->role == 'admin') {
+
                 return redirect('/home/admin');
+
             }
+
+
+
         } else {
             $user = User::where('email', $request->email)->pluck('email', 'password')->first();
             if ($user != $request->email) {
