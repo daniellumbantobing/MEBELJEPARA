@@ -17,6 +17,7 @@
                                         @if($errors->has('nama_tempaan'))
                                             <center>           <span class="help-block">{{$errors->first('nama_tempaan')}}</span></center>
                                         @endif
+                                        <span class="text">contoh: Meja Belajar</span>
                                 </div>
                             
                                 <div class="form-group">

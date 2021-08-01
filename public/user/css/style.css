@@ -486,3 +486,15 @@
                                     height: 5rem;
                                 }
                             }
+
+                             
+                            @media screen and (max-width:391px) {
+                               .img-ord img {
+                              max-width: 100px;
+                               }
+                              
+                               .p{
+                                   
+                                  font-size: 12px;
+                               }
+                            }

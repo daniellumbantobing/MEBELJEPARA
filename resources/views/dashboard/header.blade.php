@@ -91,7 +91,7 @@ $kategori = Controller::mainCategories();
                             <div class="col-md-12">
                                 <div class="row">
                                      <div class="col-md-1">
-                                          <a href="{{url('delete/'.$n->id.'/notif')}}">  <i class="fas fa-times"></i></a> 
+                                          <a href="{{url('delete/'.$n->id.'/notif')}}"><i class="fas fa-times"></i></a> 
                                      </div>
                                      <div class="col-md-10">
                                          <a class="dropdown-item" href="{{url('/pemesanan')}}">{!! $n->isi !!}</a>

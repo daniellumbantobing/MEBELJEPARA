@@ -33,7 +33,7 @@ $kategori = Controller::mainCategories();
                           
              @foreach ($produk as $pr)
                 <a href="/produk/{{$pr->id}}/detail">
-                 <div class="col-6 col-md-4 mt-4">
+                 <div class="col-6 col-md-3 mt-4">
                     <div class="card shadow">
                         <img src="/images/{{$pr->gambar}}" loading="lazy" class="card-img-top img-fluid" alt="...">
                         </a>

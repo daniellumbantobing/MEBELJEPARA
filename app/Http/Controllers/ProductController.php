@@ -117,12 +117,16 @@ class ProductController extends Controller
     {
         $produk = Produk::where('id', $id)->first();
         $data = $request->all();
+        
+        
         if (empty(Auth::user()->id)) {
             $data['user_id'] =  null;
         } else {
             $data['user_id'] = Auth::user()->id;
         }
+
         $session_id = Session::get('session_id');
+        
         if (empty($session_id)) {
             $session_id = Str::random(40);
             Session::put('session_id', $session_id);
@@ -241,7 +245,7 @@ class ProductController extends Controller
 
         $id = $pemesanan_id;
         // Session::put('pemesanan_id', $pemesanan_id);
-        // Session::put('total_harga', $data['total_harga']);
+        // Session::put('total_harga', $data['total_harga']);   
         return redirect('/konfirm/' . $id);
     }
 
@@ -381,6 +385,6 @@ class ProductController extends Controller
         $cart->qty = $request->qty;
         $cart->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('sukses', 'Keranjang berhasil di update');
     }
 }

@@ -15,8 +15,10 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control rad" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama" name="nama">
                                         @if($errors->has('nama'))
-                                                <center>           <span class="help-block">{{$errors->first('nama')}}</span></center>
+                                                <center><span class="help-block">{{$errors->first('nama')}}</span></center>
                                         @endif
+
+                                        
                                 </div>
                             
                             

@@ -47,27 +47,28 @@
   <tbody>
      
     <tr>
-      <td style="border:none; font-size:12px; font-weight:bold; color:#858585;">
-          Nomor Pesanan #{{$p->id}}<br>
+       
+      <td style="border:none; font-size:12px; font-weight:bold; color:#858585;" colspan="3">
+           Nomor Pesanan #{{$p->id}}<br>
         {{$p->created_at->format('d M Y  H:i')}} 
     </td>
-      <td style="border:none;"></td>
-      <td style="border:none;"></td>
-      <td style="border:none;"></td>
+      
     </tr> 
     <tr>
       <td scope="row">
             @foreach($p->pemesananproduk as $pro)   
-               
+               <div class="img-ord">
               <img src="{{url('images/'.$pro->produk->gambar)}}" alt="produk" loading="lazy" class="card-img-top img-fluid" style="width: 60px; height:60px;">
-            
+            </div>
+
             @endforeach 
         </td>
-      <td style="color:#858585;">@currency($p->total_harga)</td>
+        
+      <td style="color:#858585;" class="p">@currency($p->total_harga)</td>
      
-      <td style="color:#858585;">{{$p->transfer_bank}}</td>
-      <td style="color:#CAA563;"> 
-       
+      <td style="color:#858585;" class="p">{{$p->transfer_bank}}</td>
+      <td style="color:#CAA563;" class="p"> 
+    
          @if($p->status_pemesanan == "Dikirim")
             Dikirim
         @elseif($p->status_pemesanan == "Batal Dikirim")  

@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::where('role', 'user')->paginate(10);
+        $user = User::where('role', 'user')->latest()->paginate(10);
 
         return view('admin.userlist', compact(['user']));
     }

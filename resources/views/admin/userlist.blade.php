@@ -56,7 +56,9 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                  
+                                <center>
+                                  {{ $user->links() }}
+                                  </center>
                                </div>
                            </div>
                         </div>
